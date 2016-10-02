@@ -35,13 +35,29 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getFloat("tiencoc"));
-					model.setTruong(rs.getString("truong"));
-					model.setNganh(rs.getString("nganh"));
-					model.setKhoa(rs.getString("khoa"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
-					model.setGhichu(rs.getString("ghichu"));
 					model.setUserID(rs.getInt("userID"));
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("ghichu"));
+					}
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layPhongtro");
@@ -69,13 +85,29 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getFloat("tiencoc"));
-					model.setTruong(rs.getString("truong"));
-					model.setNganh(rs.getString("nganh"));
-					model.setKhoa(rs.getString("khoa"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
-					model.setGhichu(rs.getString("ghichu"));
 					model.setUserID(userID);
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("ghichu"));
+					}
 					listPhong.add(model);
 				}
 			} catch (SQLException e) {
@@ -120,7 +152,7 @@ public class PhongtroCtrl {
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", model.getId());
@@ -135,7 +167,6 @@ public class PhongtroCtrl {
 				stm.setInt("_wifi", model.getWifi());
 				stm.setInt("_chu", model.getChu());
 				stm.setString("_ghichu", model.getGhichu());
-				stm.setInt("_userID", model.getUserID());
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {

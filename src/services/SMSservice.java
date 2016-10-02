@@ -1,19 +1,31 @@
 package services;
 
-import com.twilio.sdk.Twilio;
-import com.twilio.sdk.resource.api.v2010.account.Message;
-import com.twilio.sdk.type.PhoneNumber;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
-import resources.Constants;
+import org.json.JSONObject;
 
+import controller.SMSCtrl;
+
+@Path("/sms")
 public class SMSservice {
-	public void send(String msg){
-		Twilio.init(Constants.ACCOUNT_SID, Constants.AUTH_TOKEN);
-		Message message = Message.create(Constants.ACCOUNT_SID, new PhoneNumber("+84987413902"),
-				new PhoneNumber(Constants.TWILLIO_NUMBER), msg).execute();
-	}
-	public static void main(String[] args) {
-		SMSservice demo = new SMSservice();
-		demo.send("demo message");
+
+	@Path("/gui")
+	@POST
+	@Produces("application/json")
+	public Response gui(@FormParam("sodt") String sodt, @FormParam("noidung") String noidung) {
+		SMSCtrl smsCtrl = new SMSCtrl();
+		String sid = smsCtrl.gui(sodt, noidung);
+		JSONObject obj = new JSONObject();
+		if (sid.equals("error")) {
+			obj.put("result", "fail");
+		} else {
+			obj.put("result", "success");
+		}	
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 }

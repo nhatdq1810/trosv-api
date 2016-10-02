@@ -18,13 +18,31 @@ import model.GiaodichModel;
 
 @Path("/giaodich")
 public class GiaodichService {
-	
-	@Path("/{userID}")
+
+	@Path("/tatca/{userID}")
 	@GET
 	@Produces("application/json")
 	public Response layGiaodich(@PathParam("userID") int userID) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodich(userID);
+		return Response.status(200).entity(model).build();
+	}
+	
+	@Path("/gui/{userID_gui}")
+	@GET
+	@Produces("application/json")
+	public Response layGiaodichGui(@PathParam("userID_gui") int userID_gui) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodichGui(userID_gui);
+		return Response.status(200).entity(model).build();
+	}
+
+	@Path("/nhan/{userID_nhan}")
+	@GET
+	@Produces("application/json")
+	public Response layGiaodichNhan(@PathParam("userID_nhan") int userID_nhan) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodichNhan(userID_nhan);
 		return Response.status(200).entity(model).build();
 	}
 
@@ -41,7 +59,7 @@ public class GiaodichService {
 		model.setUserID_nhan(userID_nhan);
 		int result = giaodichCtrl.themGiaodich(model);
 		if (result != -999) {
-			return layGiaodich(userID_gui);
+			return layGiaodichGui(userID_gui);
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
@@ -56,7 +74,7 @@ public class GiaodichService {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		int result = giaodichCtrl.xoaGiaodich(userID);
 		if (result != -999) {
-			return layGiaodich(userID);
+			return layGiaodichGui(userID);
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");

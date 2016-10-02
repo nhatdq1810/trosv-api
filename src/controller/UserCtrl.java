@@ -32,13 +32,29 @@ public class UserCtrl {
 					result.setUsername(username);
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
-					result.setDiachi(rs.getString("diachi"));
-					result.setSodt(rs.getString("sodt"));
 					result.setEmail(rs.getString("email"));
 					result.setTien(rs.getFloat("tien"));
-					result.setSkype(rs.getString("skype"));
-					result.setFacebook(rs.getString("facebook"));
 					result.setDotincay(rs.getInt("dotincay"));
+					if (rs.getString("diachi") == null) {
+						result.setDiachi("");
+					} else {
+						result.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						result.setSodt("");
+					} else {
+						result.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						result.setSkype("");
+					} else {
+						result.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						result.setFacebook("");
+					} else {
+						result.setFacebook(rs.getString("facebook"));
+					}
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layThongtinUser");
@@ -50,23 +66,53 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int login(String username, String password) {
-		int result = -999;
+	public UserModel login(String username, String password) {
+		UserModel user = null;
 		if (conn.openConnection()) {
 			query = "{call " + Constants.nameSQL + ".mysp_login(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
 				stm.setString("_password", password);
-				result = stm.executeUpdate();
+				rs = stm.executeQuery();
+				if(rs.next()){
+					user = new UserModel();
+					user.setId(rs.getInt("id"));
+					user.setUsername(username);
+					user.setPassword(rs.getString("password"));
+					user.setHoten(rs.getString("hoten"));
+					user.setEmail(rs.getString("email"));
+					user.setTien(rs.getFloat("tien"));
+					user.setDotincay(rs.getInt("dotincay"));
+					if (rs.getString("diachi") == null) {
+						user.setDiachi("");
+					} else {
+						user.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						user.setSodt("");
+					} else {
+						user.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						user.setSkype("");
+					} else {
+						user.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						user.setFacebook("");
+					} else {
+						user.setFacebook(rs.getString("facebook"));
+					}
+				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_login");
 				e.printStackTrace();
-				return result;
+				return user;
 			}
 		}
 		conn.closeConnection();
-		return result;
+		return user;
 	}
 
 	public int themUser(UserModel model) {

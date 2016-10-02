@@ -32,9 +32,9 @@ public class UserService {
 	@Produces("application/json")
 	public Response login(@FormParam("username") String username, @FormParam("password") String password) {
 		UserCtrl userCtrl = new UserCtrl();
-		int result = userCtrl.login(username, password);
-		if (result != -999) {
-			return layThongtinUser(username);
+		UserModel user = userCtrl.login(username, password);
+		if (user != null) {
+			return Response.status(200).entity(user).build();
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
