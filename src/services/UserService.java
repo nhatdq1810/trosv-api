@@ -24,7 +24,13 @@ public class UserService {
 	public Response layThongtinUser(@PathParam("username") String username) {
 		UserCtrl userCtrl = new UserCtrl();
 		UserModel model = userCtrl.layThongtinUser(username);
-		return Response.status(200).entity(model).build();
+		if (model != null) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
 	@Path("/login")
@@ -42,7 +48,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/them")
+	@Path("/moi")
 	@POST
 	@Produces("application/json")
 	public Response themUser(@FormParam("username") String username, @FormParam("password") String password,
@@ -88,6 +94,36 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
+	
+	@Path("/{username}/password")
+	@PUT
+	@Produces("application/json")
+	public Response capnhatPassword(@PathParam("username") String username, @FormParam("password") String password) {
+		UserCtrl userCtrl = new UserCtrl();
+		int result = userCtrl.capnhatPassword(username, password);
+		if (result != -999) {
+			return layThongtinUser(username);
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/{username}/dotincay")
+	@PUT
+	@Produces("application/json")
+	public Response capnhatDotincay(@PathParam("username") String username, @FormParam("dotincay") int dotincay) {
+		UserCtrl userCtrl = new UserCtrl();
+		int result = userCtrl.capnhatDotincay(username, dotincay);
+		if (result != -999) {
+			return layThongtinUser(username);
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
 
 	@Path("/{username}")
 	@DELETE
@@ -95,11 +131,12 @@ public class UserService {
 	public Response xoaUser(@PathParam("username") String username) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.xoaUser(username);
-		if (result != -999) {
-			return layThongtinUser(username);
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}

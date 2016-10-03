@@ -20,25 +20,37 @@ import model.CommentModel;
 @Path("/comment")
 public class CommentService {
 
-	@Path("/layCommentPhongtro/{phongtroID}")
+	@Path("/phongtro/{phongtroID}")
 	@GET
 	@Produces("application/json")
 	public Response layCommentPhongtro(@PathParam("phongtroID") int phongtroID) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		ArrayList<CommentModel> model = commentCtrl.layCommentPhongtro(phongtroID);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/layCommentUser/{userID}")
+	@Path("/user/{userID}")
 	@GET
 	@Produces("application/json")
 	public Response layCommentUser(@PathParam("userID") int userID) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		ArrayList<CommentModel> model = commentCtrl.layCommentUser(userID);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/them")
+	@Path("/moi")
 	@POST
 	@Produces("application/json")
 	public Response themComment(@FormParam("noidung") String noidung, @FormParam("ngay") String ngay,

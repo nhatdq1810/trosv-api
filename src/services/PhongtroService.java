@@ -26,7 +26,13 @@ public class PhongtroService {
 	public Response layPhongtroUser(@PathParam("userID") int userID) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		ArrayList<PhongtroModel> model = phongtroCtrl.layPhongtroUser(userID);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
 	@Path("/{id}")
@@ -35,10 +41,16 @@ public class PhongtroService {
 	public Response layPhongtro(@PathParam("id") int id) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		PhongtroModel model = phongtroCtrl.layPhongtro(id);
-		return Response.status(200).entity(model).build();
+		if (model != null) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/them")
+	@Path("/moi")
 	@POST
 	@Produces("application/json")
 	public Response themPhongtro(@FormParam("diachi") String diachi,

@@ -19,34 +19,52 @@ import model.GiaodichModel;
 @Path("/giaodich")
 public class GiaodichService {
 
-	@Path("/tatca/{userID}")
+	@Path("/{userID}/tatca")
 	@GET
 	@Produces("application/json")
 	public Response layGiaodich(@PathParam("userID") int userID) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodich(userID);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 	
-	@Path("/gui/{userID_gui}")
+	@Path("/{userID_gui}/gui")
 	@GET
 	@Produces("application/json")
 	public Response layGiaodichGui(@PathParam("userID_gui") int userID_gui) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodichGui(userID_gui);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/nhan/{userID_nhan}")
+	@Path("/{userID_nhan}/nhan")
 	@GET
 	@Produces("application/json")
 	public Response layGiaodichNhan(@PathParam("userID_nhan") int userID_nhan) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		ArrayList<GiaodichModel> model = giaodichCtrl.layGiaodichNhan(userID_nhan);
-		return Response.status(200).entity(model).build();
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/them")
+	@Path("/moi")
 	@POST
 	@Produces("application/json")
 	public Response themGiaodich(@FormParam("ngay") String ngay, @FormParam("tien") float tien,
