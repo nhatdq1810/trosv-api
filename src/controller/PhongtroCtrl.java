@@ -1,9 +1,13 @@
 package controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import model.PhongtroModel;
 import resources.Constants;
@@ -149,6 +153,32 @@ public class PhongtroCtrl {
 		return result;
 	}
 
+	public int themHinhanhPhongtro(String tenFile, InputStream fileStream) {
+		int result = -999;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm:ss");
+		String ngaydang = sdf.format(new Date());
+		int lastIndex = tenFile.lastIndexOf(".");
+		String fileLocation = "/src/images/" + tenFile.substring(0, lastIndex + 1) + ngaydang
+				+ tenFile.substring(lastIndex);
+		System.out.println(fileLocation);
+		// if (conn.openConnection()) {
+		// query = "{call " + Constants.nameSQL +
+		// ".mysp_themHinhanhPhongtro(?)}";
+		// try {
+		// stm = conn.getConn().prepareCall(query);
+		// stm.setString("_hinhanh", "");
+		// result = stm.executeUpdate();
+		// } catch (SQLException e) {
+		// System.out.println("Cannot call " + Constants.nameSQL +
+		// ".mysp_themHinhanhPhongtro");
+		// e.printStackTrace();
+		// return result;
+		// }
+		// }
+		// conn.closeConnection();
+		return result;
+	}
+
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
@@ -195,5 +225,18 @@ public class PhongtroCtrl {
 		}
 		conn.closeConnection();
 		return result;
+	}
+
+	public static void main(String[] args) {
+		PhongtroCtrl ctrl = new PhongtroCtrl();
+		InputStream fileStream = new InputStream() {
+
+			@Override
+			public int read() throws IOException {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
+		ctrl.themHinhanhPhongtro("abc.asd.jpeg", fileStream);
 	}
 }

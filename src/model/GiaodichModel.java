@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GiaodichModel {
-	private int userID_gui;
-	private int userID_nhan;
+	private int nganhangID_gui;
+	private int nganhangID_nhan;
 	private String ngay;
 	private float tien;
 
@@ -14,20 +14,20 @@ public class GiaodichModel {
 		ngay = sdf.format(new Date());
 	}
 
-	public int getUserID_gui() {
-		return userID_gui;
+	public int getNganhangID_gui() {
+		return nganhangID_gui;
 	}
 
-	public void setUserID_gui(int userID_gui) {
-		this.userID_gui = userID_gui;
+	public void setNganhangID_gui(int nganhangID_gui) {
+		this.nganhangID_gui = nganhangID_gui;
 	}
 
-	public int getUserID_nhan() {
-		return userID_nhan;
+	public int getNganhangID_nhan() {
+		return nganhangID_nhan;
 	}
 
-	public void setUserID_nhan(int userID_nhan) {
-		this.userID_nhan = userID_nhan;
+	public void setNganhangID_nhan(int nganhangID_nhan) {
+		this.nganhangID_nhan = nganhangID_nhan;
 	}
 
 	public String getNgay() {

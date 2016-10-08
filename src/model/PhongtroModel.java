@@ -9,6 +9,7 @@ public class PhongtroModel {
 	private float giatien;
 	private String ngaydang;
 	private int songuoi;
+	private String hinhanh;
 	private float tiencoc;
 	private String truong;
 	private String nganh;
@@ -61,6 +62,14 @@ public class PhongtroModel {
 
 	public void setSonguoi(int songuoi) {
 		this.songuoi = songuoi;
+	}
+
+	public String getHinhanh() {
+		return hinhanh;
+	}
+
+	public void setHinhanh(String hinhanh) {
+		this.hinhanh = hinhanh;
 	}
 
 	public float getTiencoc() {

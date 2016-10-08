@@ -82,7 +82,6 @@ public class UserService {
 		model.setDiachi(diachi);
 		model.setSodt(sodt);
 		model.setEmail(email);
-		model.setTien(tien);
 		model.setSkype(skype);
 		model.setFacebook(facebook);
 		int result = userCtrl.capnhatUser(model);

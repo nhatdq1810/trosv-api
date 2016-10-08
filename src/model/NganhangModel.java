@@ -1,16 +1,15 @@
 package model;
 
-public class UserModel {
+public class NganhangModel {
 	private int id;
 	private String username;
 	private String password;
 	private String hoten;
 	private String diachi;
 	private String sodt;
-	private String email;
-	private String skype;
-	private String facebook;
-	private int dotincay;
+	private String cmnd;
+	private float tien;
+	private int userID;
 
 	public int getId() {
 		return id;
@@ -60,35 +59,28 @@ public class UserModel {
 		this.sodt = sodt;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getCmnd() {
+		return cmnd;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
 	}
 
-	public String getSkype() {
-		return skype;
+	public float getTien() {
+		return tien;
 	}
 
-	public void setSkype(String skype) {
-		this.skype = skype;
+	public void setTien(float tien) {
+		this.tien = tien;
 	}
 
-	public String getFacebook() {
-		return facebook;
+	public int getUserID() {
+		return userID;
 	}
 
-	public void setFacebook(String facebook) {
-		this.facebook = facebook;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
-	public int getDotincay() {
-		return dotincay;
-	}
-
-	public void setDotincay(int dotincay) {
-		this.dotincay = dotincay;
-	}
 }

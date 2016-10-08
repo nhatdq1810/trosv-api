@@ -52,7 +52,7 @@ public class CommentCtrl {
 			query = "{call " + Constants.nameSQL + ".mysp_layCommentUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_phongtroID", userID);
+				stm.setInt("_userID", userID);
 				rs = stm.executeQuery();
 				while (rs.next()) {
 					CommentModel cmt = new CommentModel();

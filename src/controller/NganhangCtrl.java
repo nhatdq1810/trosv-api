@@ -4,36 +4,36 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.UserModel;
-import resources.Constants;
 import connectSQL.ConnectServer;
+import model.NganhangModel;
+import resources.Constants;
 
-public class UserCtrl {
+public class NganhangCtrl {
 	private String query;
 	private ResultSet rs;
 	private CallableStatement stm;
 	private ConnectServer conn;
 
-	public UserCtrl() {
+	public NganhangCtrl() {
 		conn = new ConnectServer();
 	}
 
-	public UserModel layThongtinUser(String username) {
-		UserModel result = null;
+	public NganhangModel layThongtinNganhang(String username) {
+		NganhangModel result = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layThongtinUser(?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_layThongtinNganhang(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
 				rs = stm.executeQuery();
 				if (rs.next()) {
-					result = new UserModel();
+					result = new NganhangModel();
 					result.setId(rs.getInt("id"));
 					result.setUsername(username);
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
-					result.setEmail(rs.getString("email"));
-					result.setDotincay(rs.getInt("dotincay"));
+					result.setCmnd(rs.getString("cmnd"));
+					result.setUserID(rs.getInt("userID"));
 					if (rs.getString("diachi") == null) {
 						result.setDiachi("");
 					} else {
@@ -44,19 +44,9 @@ public class UserCtrl {
 					} else {
 						result.setSodt(rs.getString("sodt"));
 					}
-					if (rs.getString("skype") == null) {
-						result.setSkype("");
-					} else {
-						result.setSkype(rs.getString("skype"));
-					}
-					if (rs.getString("facebook") == null) {
-						result.setFacebook("");
-					} else {
-						result.setFacebook(rs.getString("facebook"));
-					}
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layThongtinUser");
+				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layThongtinNganhang");
 				e.printStackTrace();
 				return result;
 			}
@@ -65,8 +55,8 @@ public class UserCtrl {
 		return result;
 	}
 
-	public UserModel login(String username, String password) {
-		UserModel user = null;
+	public NganhangModel login(String username, String password) {
+		NganhangModel nganhang = null;
 		if (conn.openConnection()) {
 			query = "{call " + Constants.nameSQL + ".mysp_login(?,?)}";
 			try {
@@ -75,57 +65,47 @@ public class UserCtrl {
 				stm.setString("_password", password);
 				rs = stm.executeQuery();
 				if(rs.next()){
-					user = new UserModel();
-					user.setId(rs.getInt("id"));
-					user.setUsername(username);
-					user.setPassword(rs.getString("password"));
-					user.setHoten(rs.getString("hoten"));
-					user.setEmail(rs.getString("email"));
-					user.setDotincay(rs.getInt("dotincay"));
+					nganhang = new NganhangModel();
+					nganhang.setId(rs.getInt("id"));
+					nganhang.setUsername(username);
+					nganhang.setPassword(rs.getString("password"));
+					nganhang.setHoten(rs.getString("hoten"));
+					nganhang.setCmnd(rs.getString("cmnd"));
+					nganhang.setUserID(rs.getInt("userID"));
 					if (rs.getString("diachi") == null) {
-						user.setDiachi("");
+						nganhang.setDiachi("");
 					} else {
-						user.setDiachi(rs.getString("diachi"));
+						nganhang.setDiachi(rs.getString("diachi"));
 					}
 					if (rs.getString("sodt") == null) {
-						user.setSodt("");
+						nganhang.setSodt("");
 					} else {
-						user.setSodt(rs.getString("sodt"));
-					}
-					if (rs.getString("skype") == null) {
-						user.setSkype("");
-					} else {
-						user.setSkype(rs.getString("skype"));
-					}
-					if (rs.getString("facebook") == null) {
-						user.setFacebook("");
-					} else {
-						user.setFacebook(rs.getString("facebook"));
+						nganhang.setSodt(rs.getString("sodt"));
 					}
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_login");
 				e.printStackTrace();
-				return user;
+				return nganhang;
 			}
 		}
 		conn.closeConnection();
-		return user;
+		return nganhang;
 	}
 
-	public int themUser(UserModel model) {
+	public int themNganhang(NganhangModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_themUser(?,?,?,?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_themNganhang(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
 				stm.setString("_password", model.getPassword());
 				stm.setString("_hoten", model.getHoten());
-				stm.setString("_email", model.getEmail());
+				stm.setString("_cmnd", model.getCmnd());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_themUser");
+				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_themNganhang");
 				e.printStackTrace();
 				return result;
 			}
@@ -134,23 +114,22 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int capnhatUser(UserModel model) {
+	public int capnhatNganhang(NganhangModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_capnhatNganhang(?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
 				stm.setString("_hoten", model.getHoten());
 				stm.setString("_diachi", model.getDiachi());
 				stm.setString("_sodt", model.getSodt());
-				stm.setString("_email", model.getEmail());
-				stm.setString("_skype", model.getSkype());
-				stm.setString("_facebook", model.getFacebook());
+				stm.setString("_cmnd", model.getCmnd());
+				stm.setFloat("_tien", model.getTien());
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatUser");
+				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatNganhang");
 				e.printStackTrace();
 				return result;
 			}
@@ -179,18 +158,18 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int capnhatDotincay(String username, int dotincay) {
+	public int capnhatUserID(String username, int userID) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatDotincay(?,?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_capnhatUserID(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
-				stm.setInt("_dotincay", dotincay);
+				stm.setInt("_userID", userID);
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatDotincay");
+				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatUserID");
 				e.printStackTrace();
 				return result;
 			}
@@ -199,16 +178,16 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int xoaUser(String username) {
+	public int xoaNganhang(String username) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_xoaUser(?)}";
+			query = "{call " + Constants.nameSQL + ".mysp_xoaNganhang(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_xoaUser");
+				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_xoaNganhang");
 				e.printStackTrace();
 				return result;
 			}
