@@ -18,7 +18,6 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataParam;
 
 import controller.PhongtroCtrl;
@@ -89,15 +88,16 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{id}/hinhanh")
-	@PUT
+	@Path("/hinhanh")
+	@POST
 	@Produces("application/json")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response themHinhanhPhongtro(@DefaultValue("true") @FormDataParam("enabled") boolean enabled,
-			@FormDataParam("file") InputStream fileStream, @FormDataParam("file") FormDataContentDisposition fileDetail,
-			@PathParam("id") int id) {
+			@FormDataParam("file") InputStream fileStream, @FormDataParam("id") int id
+	// , @FormDataParam("file") FormDataContentDisposition fileDetail,
+	) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		int result = phongtroCtrl.capnhatHinhanhPhongtro(id, fileDetail.getFileName(), fileStream);
+		int result = phongtroCtrl.capnhatHinhanhPhongtro(id, fileStream);
 		JSONObject obj = new JSONObject();
 		if (result != -999) {
 			obj.put("result", "success");
