@@ -26,6 +26,21 @@ import model.PhongtroModel;
 @Path("/phongtro")
 public class PhongtroService {
 
+	@Path("/tatca")
+	@GET
+	@Produces("application/json")
+	public Response layTatcaPhongtro() {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> listPT = phongtroCtrl.layTatcaPhongtro();
+		if (listPT.size() > 0) {
+			return Response.status(200).entity(listPT).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/user/{userID}")
 	@GET
 	@Produces("application/json")

@@ -9,4 +9,5 @@ public class Constants {
 	public static final String USERNAME_SQL = "root";
 	public static final String PASSWORD_SQL = "N@025104686/";
 	public static final String IMG_URL = "https://api.imgur.com/3/";
+	public static final String IMG_CLIENTID = "Client-ID f9ea705cdc1e4c9";
 }

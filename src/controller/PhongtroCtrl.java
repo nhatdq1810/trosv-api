@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import connectSQL.ConnectServer;
@@ -28,6 +27,56 @@ public class PhongtroCtrl {
 
 	public PhongtroCtrl() {
 		conn = new ConnectServer();
+	}
+
+	public ArrayList<PhongtroModel> layTatcaPhongtro() {
+		ArrayList<PhongtroModel> listPT = new ArrayList<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro()}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					PhongtroModel model = new PhongtroModel();
+					model.setId(rs.getInt("id"));
+					model.setDiachi(rs.getString("diachi"));
+					model.setGiatien(rs.getFloat("giatien"));
+					model.setNgaydang(rs.getString("ngaydang"));
+					model.setSonguoi(rs.getInt("songuoi"));
+					model.setTiencoc(rs.getFloat("tiencoc"));
+					model.setWifi(rs.getInt("wifi"));
+					model.setChu(rs.getInt("chu"));
+					model.setUserID(rs.getInt("userID"));
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("ghichu"));
+					}
+					listPT.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro");
+				e.printStackTrace();
+				return listPT;
+			}
+		}
+		conn.closeConnection();
+		return listPT;
 	}
 
 	public PhongtroModel layPhongtro(int id) {
@@ -134,7 +183,7 @@ public class PhongtroCtrl {
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_diachi", model.getDiachi());
@@ -149,7 +198,9 @@ public class PhongtroCtrl {
 				stm.setInt("_chu", model.getChu());
 				stm.setString("_ghichu", model.getGhichu());
 				stm.setInt("_userID", model.getUserID());
-				result = stm.executeUpdate();
+				stm.registerOutParameter("_id", java.sql.Types.INTEGER);
+				stm.executeUpdate();
+				result = stm.getInt("_id");
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themPhongtro");
 				e.printStackTrace();
@@ -160,7 +211,7 @@ public class PhongtroCtrl {
 		return result;
 	}
 
-	public int capnhatHinhanhPhongtro(int id, String tenFile, InputStream fileStream) {
+	public int capnhatHinhanhPhongtro(int id, InputStream fileStream) {
 		int result = -999;
 		boolean success = false;
 		String url = Constants.IMG_URL + "upload";
@@ -172,12 +223,12 @@ public class PhongtroCtrl {
 			con = (HttpsURLConnection) obj.openConnection();
 
 			con.setRequestMethod("POST");
-			con.setRequestProperty("Authorization", "Client-ID f9ea705cdc1e4c9");
+			con.setRequestProperty("Authorization", Constants.IMG_CLIENTID);
 			con.setRequestProperty("Content-Type", "application/octet-stream");
 
 			byte[] bytes = new byte[1024];
 			int read = 0;
-			
+
 			con.setDoOutput(true);
 			OutputStream wr = con.getOutputStream();
 			while ((read = fileStream.read(bytes)) != -1) {
@@ -314,6 +365,11 @@ public class PhongtroCtrl {
 
 	public static void main(String[] args) {
 		PhongtroCtrl ctrl = new PhongtroCtrl();
-		System.out.println(ctrl.xoaHinhanhPhongtro(1, "1RGqfFLZ9fn50lG"));
+		PhongtroModel model = new PhongtroModel();
+		model.setUserID(1);
+		model.setDiachi("nhat 444");
+		model.setGiatien(2000000);
+		model.setSonguoi(2);
+		System.out.println(ctrl.xoaHinhanhPhongtro(1, "Hjrm2Ib3SrYpyr2"));
 	}
 }
