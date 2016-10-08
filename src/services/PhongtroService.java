@@ -89,15 +89,21 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/hinhanh")
-	@POST
+	@Path("/{id}/hinhanh")
+	@PUT
 	@Produces("application/json")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response themHinhanhPhongtro(@DefaultValue("true") @FormDataParam("enabled") boolean enabled,
-			@FormDataParam("file") InputStream fileStream,
-			@FormDataParam("file") FormDataContentDisposition fileDetail) {
+			@FormDataParam("file") InputStream fileStream, @FormDataParam("file") FormDataContentDisposition fileDetail,
+			@PathParam("id") int id) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.capnhatHinhanhPhongtro(id, fileDetail.getFileName(), fileStream);
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
@@ -141,11 +147,28 @@ public class PhongtroService {
 	public Response xoaPhongtroUser(@PathParam("id") int id, @PathParam("userID") int userID) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaPhongtro(id);
-		if (result != -999) {
-			return layPhongtroUser(userID);
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/{id}/hinhanh/{deletehash}")
+	@DELETE
+	@Produces("application/json")
+	public Response xoaHinhanhPhongtro(@PathParam("id") int id, @PathParam("deletehash") String deletehash) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.xoaHinhanhPhongtro(id, deletehash);
+		JSONObject obj = new JSONObject();
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}

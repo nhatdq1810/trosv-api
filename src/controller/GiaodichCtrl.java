@@ -22,7 +22,7 @@ public class GiaodichCtrl {
 	public ArrayList<GiaodichModel> layGiaodich(int nganhangID) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layGiaodich(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodich(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_nganhangID", nganhangID);
@@ -36,7 +36,7 @@ public class GiaodichCtrl {
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layGiaodich");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layGiaodich");
 				e.printStackTrace();
 				return listGiaodich;
 			}
@@ -48,7 +48,7 @@ public class GiaodichCtrl {
 	public ArrayList<GiaodichModel> layGiaodichGui(int nganhangID_gui) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layGiaodichGui(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodichGui(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_nganhangID_gui", nganhangID_gui);
@@ -62,7 +62,7 @@ public class GiaodichCtrl {
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layGiaodichGui");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layGiaodichGui");
 				e.printStackTrace();
 				return listGiaodich;
 			}
@@ -74,7 +74,7 @@ public class GiaodichCtrl {
 	public ArrayList<GiaodichModel> layGiaodichNhan(int nganhangID_nhan) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layGiaodichNhan(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodichNhan(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_nganhangID_nhan", nganhangID_nhan);
@@ -88,7 +88,7 @@ public class GiaodichCtrl {
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layGiaodichNhan");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layGiaodichNhan");
 				e.printStackTrace();
 				return listGiaodich;
 			}
@@ -100,7 +100,7 @@ public class GiaodichCtrl {
 	public int themGiaodich(GiaodichModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_themGiaodich(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themGiaodich(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_nganhangID_gui", model.getNganhangID_gui());
@@ -109,7 +109,7 @@ public class GiaodichCtrl {
 				stm.setFloat("_tien", model.getTien());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_themGiaodich");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themGiaodich");
 				e.printStackTrace();
 				return result;
 			}
@@ -121,13 +121,13 @@ public class GiaodichCtrl {
 	public int xoaGiaodich(int nganhangID) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_xoaGiaodich(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_xoaGiaodich(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_nganhangID", nganhangID);
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_xoaGiaodich");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaGiaodich");
 				e.printStackTrace();
 				return result;
 			}

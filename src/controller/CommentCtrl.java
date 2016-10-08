@@ -22,7 +22,7 @@ public class CommentCtrl {
 	public ArrayList<CommentModel> layCommentPhongtro(int phongtroID) {
 		ArrayList<CommentModel> listComment = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layCommentPhongtro(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_phongtroID", phongtroID);
@@ -37,7 +37,7 @@ public class CommentCtrl {
 					listComment.add(cmt);
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layCommentPhongtro");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layCommentPhongtro");
 				e.printStackTrace();
 				return listComment;
 			}
@@ -49,7 +49,7 @@ public class CommentCtrl {
 	public ArrayList<CommentModel> layCommentUser(int userID) {
 		ArrayList<CommentModel> listComment = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layCommentUser(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_userID", userID);
@@ -64,7 +64,7 @@ public class CommentCtrl {
 					listComment.add(cmt);
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layCommentUser");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layCommentUser");
 				e.printStackTrace();
 				return listComment;
 			}
@@ -76,7 +76,7 @@ public class CommentCtrl {
 	public int themComment(CommentModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_themComment(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themComment(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_noidung", model.getNoidung());
@@ -85,7 +85,7 @@ public class CommentCtrl {
 				stm.setInt("_phongtroID", model.getPhongtroID());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_themComment");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themComment");
 				e.printStackTrace();
 				return result;
 			}
@@ -97,7 +97,7 @@ public class CommentCtrl {
 	public int capnhatComment(CommentModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatComment(?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatComment(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", model.getId());
@@ -106,7 +106,7 @@ public class CommentCtrl {
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatComment");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatComment");
 				e.printStackTrace();
 				return result;
 			}
@@ -118,13 +118,13 @@ public class CommentCtrl {
 	public int xoaComment(int id) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_xoaComment(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_xoaComment(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", id);
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_xoaComment");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaComment");
 				e.printStackTrace();
 				return result;
 			}

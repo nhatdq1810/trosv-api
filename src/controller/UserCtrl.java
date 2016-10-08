@@ -21,7 +21,7 @@ public class UserCtrl {
 	public UserModel layThongtinUser(String username) {
 		UserModel result = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_layThongtinUser(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
@@ -56,7 +56,7 @@ public class UserCtrl {
 					}
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_layThongtinUser");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layThongtinUser");
 				e.printStackTrace();
 				return result;
 			}
@@ -68,7 +68,7 @@ public class UserCtrl {
 	public UserModel login(String username, String password) {
 		UserModel user = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_login(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_login(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
@@ -104,7 +104,7 @@ public class UserCtrl {
 					}
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_login");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_login");
 				e.printStackTrace();
 				return user;
 			}
@@ -116,7 +116,7 @@ public class UserCtrl {
 	public int themUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_themUser(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
@@ -125,7 +125,7 @@ public class UserCtrl {
 				stm.setString("_email", model.getEmail());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_themUser");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themUser");
 				e.printStackTrace();
 				return result;
 			}
@@ -137,7 +137,7 @@ public class UserCtrl {
 	public int capnhatUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
@@ -150,7 +150,7 @@ public class UserCtrl {
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatUser");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatUser");
 				e.printStackTrace();
 				return result;
 			}
@@ -162,7 +162,7 @@ public class UserCtrl {
 	public int capnhatPassword(String username, String password) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatPassword(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPassword(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
@@ -170,7 +170,7 @@ public class UserCtrl {
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatPassword");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatPassword");
 				e.printStackTrace();
 				return result;
 			}
@@ -182,7 +182,7 @@ public class UserCtrl {
 	public int capnhatDotincay(String username, int dotincay) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_capnhatDotincay(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatDotincay(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
@@ -190,7 +190,7 @@ public class UserCtrl {
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_capnhatDotincay");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatDotincay");
 				e.printStackTrace();
 				return result;
 			}
@@ -202,13 +202,13 @@ public class UserCtrl {
 	public int xoaUser(String username) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.nameSQL + ".mysp_xoaUser(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_xoaUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.nameSQL + ".mysp_xoaUser");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaUser");
 				e.printStackTrace();
 				return result;
 			}

@@ -28,7 +28,7 @@ public class ConnectServer {
 		}
 
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://" + Constants.serverSQL, Constants.userNameSQL, Constants.passwordSQL);
+			conn = DriverManager.getConnection("jdbc:mysql://" + Constants.SERVER_SQL, Constants.USERNAME_SQL, Constants.PASSWORD_SQL);
 		} catch (SQLException e) {
 			System.out.println("Connect failed!");
 			e.printStackTrace();

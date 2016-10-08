@@ -33,7 +33,7 @@ public class GiaodichService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/{nganhangID_gui}/gui")
 	@GET
 	@Produces("application/json")
@@ -91,11 +91,12 @@ public class GiaodichService {
 	public Response xoaGiaodich(@PathParam("nganhangID") int nganhangID) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		int result = giaodichCtrl.xoaGiaodich(nganhangID);
-		if (result != -999) {
-			return layGiaodichGui(nganhangID);
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}

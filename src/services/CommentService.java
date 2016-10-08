@@ -97,11 +97,12 @@ public class CommentService {
 	public Response xoaComment(@PathParam("id") int id, @PathParam("phongtroID") int phongtroID) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		int result = commentCtrl.xoaComment(id);
-		if (result != -999) {
-			return layCommentPhongtro(phongtroID);
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
