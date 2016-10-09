@@ -137,7 +137,7 @@ public class UserCtrl {
 	public int capnhatUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());

@@ -40,32 +40,38 @@ public class PhongtroCtrl {
 					PhongtroModel model = new PhongtroModel();
 					model.setId(rs.getInt("id"));
 					model.setDiachi(rs.getString("diachi"));
-					model.setGiatien(rs.getFloat("giatien"));
+					model.setGiatien(rs.getInt("giatien"));
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
-					model.setTiencoc(rs.getFloat("tiencoc"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
 					model.setUserID(rs.getInt("userID"));
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
 					if (rs.getString("truong") == null) {
 						model.setTruong("");
 					} else {
 						model.setTruong(rs.getString("truong"));
 					}
 					if (rs.getString("nganh") == null) {
-						model.setTruong("");
+						model.setNganh("");
 					} else {
-						model.setTruong(rs.getString("nganh"));
+						model.setNganh(rs.getString("nganh"));
 					}
 					if (rs.getString("khoa") == null) {
-						model.setTruong("");
+						model.setKhoa("");
 					} else {
-						model.setTruong(rs.getString("khoa"));
+						model.setKhoa(rs.getString("khoa"));
 					}
 					if (rs.getString("ghichu") == null) {
-						model.setTruong("");
+						model.setGhichu("");
 					} else {
-						model.setTruong(rs.getString("ghichu"));
+						model.setGhichu(rs.getString("ghichu"));
 					}
 					listPT.add(model);
 				}
@@ -91,32 +97,38 @@ public class PhongtroCtrl {
 					model = new PhongtroModel();
 					model.setId(rs.getInt("id"));
 					model.setDiachi(rs.getString("diachi"));
-					model.setGiatien(rs.getFloat("giatien"));
+					model.setGiatien(rs.getInt("giatien"));
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
-					model.setTiencoc(rs.getFloat("tiencoc"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
 					model.setUserID(rs.getInt("userID"));
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
 					if (rs.getString("truong") == null) {
 						model.setTruong("");
 					} else {
 						model.setTruong(rs.getString("truong"));
 					}
 					if (rs.getString("nganh") == null) {
-						model.setTruong("");
+						model.setNganh("");
 					} else {
-						model.setTruong(rs.getString("nganh"));
+						model.setNganh(rs.getString("nganh"));
 					}
 					if (rs.getString("khoa") == null) {
-						model.setTruong("");
+						model.setKhoa("");
 					} else {
-						model.setTruong(rs.getString("khoa"));
+						model.setKhoa(rs.getString("khoa"));
 					}
 					if (rs.getString("ghichu") == null) {
-						model.setTruong("");
+						model.setGhichu("");
 					} else {
-						model.setTruong(rs.getString("ghichu"));
+						model.setGhichu(rs.getString("ghichu"));
 					}
 				}
 			} catch (SQLException e) {
@@ -141,32 +153,38 @@ public class PhongtroCtrl {
 					PhongtroModel model = new PhongtroModel();
 					model.setId(rs.getInt("id"));
 					model.setDiachi(rs.getString("diachi"));
-					model.setGiatien(rs.getFloat("giatien"));
+					model.setGiatien(rs.getInt("giatien"));
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
-					model.setTiencoc(rs.getFloat("tiencoc"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
 					model.setUserID(userID);
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
 					if (rs.getString("truong") == null) {
 						model.setTruong("");
 					} else {
 						model.setTruong(rs.getString("truong"));
 					}
 					if (rs.getString("nganh") == null) {
-						model.setTruong("");
+						model.setNganh("");
 					} else {
-						model.setTruong(rs.getString("nganh"));
+						model.setNganh(rs.getString("nganh"));
 					}
 					if (rs.getString("khoa") == null) {
-						model.setTruong("");
+						model.setKhoa("");
 					} else {
-						model.setTruong(rs.getString("khoa"));
+						model.setKhoa(rs.getString("khoa"));
 					}
 					if (rs.getString("ghichu") == null) {
-						model.setTruong("");
+						model.setGhichu("");
 					} else {
-						model.setTruong(rs.getString("ghichu"));
+						model.setGhichu(rs.getString("ghichu"));
 					}
 					listPhong.add(model);
 				}
@@ -180,17 +198,80 @@ public class PhongtroCtrl {
 		return listPhong;
 	}
 
+	public ArrayList<PhongtroModel> timkiemPhongtro(int giatien_min, int giatien_max, String truong, String nganh,
+			String gioitinh) {
+		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_timkiemPhongtro(?,?,?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_giatien_min", giatien_min);
+				stm.setInt("_giatien_max", giatien_max);
+				stm.setString("_truong", truong);
+				stm.setString("_nganh", nganh);
+				stm.setString("_gioitinh", gioitinh);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					PhongtroModel model = new PhongtroModel();
+					model.setId(rs.getInt("id"));
+					model.setDiachi(rs.getString("diachi"));
+					model.setGiatien(rs.getInt("giatien"));
+					model.setNgaydang(rs.getString("ngaydang"));
+					model.setSonguoi(rs.getInt("songuoi"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setGioitinh(rs.getString("gioitinh"));
+					model.setWifi(rs.getInt("wifi"));
+					model.setChu(rs.getInt("chu"));
+					model.setUserID(rs.getInt("userID"));
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setNganh("");
+					} else {
+						model.setNganh(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setKhoa("");
+					} else {
+						model.setKhoa(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setGhichu("");
+					} else {
+						model.setGhichu(rs.getString("ghichu"));
+					}
+					listPhong.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_timkiemPhongtro");
+				e.printStackTrace();
+				return listPhong;
+			}
+		}
+		conn.closeConnection();
+		return listPhong;
+	}
+
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_diachi", model.getDiachi());
-				stm.setFloat("_giatien", model.getGiatien());
+				stm.setInt("_giatien", model.getGiatien());
 				stm.setString("_ngaydang", model.getNgaydang());
 				stm.setInt("_songuoi", model.getSonguoi());
-				stm.setFloat("_tiencoc", model.getTiencoc());
+				stm.setInt("_tiencoc", model.getTiencoc());
+				stm.setString("_gioitinh", model.getGioitinh());
 				stm.setString("_truong", model.getTruong());
 				stm.setString("_nganh", model.getNganh());
 				stm.setString("_khoa", model.getKhoa());
@@ -279,15 +360,16 @@ public class PhongtroCtrl {
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", model.getId());
 				stm.setString("_diachi", model.getDiachi());
-				stm.setFloat("_giatien", model.getGiatien());
+				stm.setInt("_giatien", model.getGiatien());
 				stm.setString("_ngaydang", model.getNgaydang());
 				stm.setInt("_songuoi", model.getSonguoi());
-				stm.setFloat("_tiencoc", model.getTiencoc());
+				stm.setInt("_tiencoc", model.getTiencoc());
+				stm.setString("_gioitinh", model.getGioitinh());
 				stm.setString("_truong", model.getTruong());
 				stm.setString("_nganh", model.getNganh());
 				stm.setString("_khoa", model.getKhoa());

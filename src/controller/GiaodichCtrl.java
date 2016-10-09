@@ -32,7 +32,7 @@ public class GiaodichCtrl {
 					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
-					model.setTien(rs.getFloat("tien"));
+					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class GiaodichCtrl {
 					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
-					model.setTien(rs.getFloat("tien"));
+					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
@@ -84,7 +84,7 @@ public class GiaodichCtrl {
 					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
-					model.setTien(rs.getFloat("tien"));
+					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
 				}
 			} catch (SQLException e) {
@@ -106,7 +106,7 @@ public class GiaodichCtrl {
 				stm.setInt("_nganhangID_gui", model.getNganhangID_gui());
 				stm.setInt("_nganhangID_nhan", model.getNganhangID_nhan());
 				stm.setString("_ngay", model.getNgay());
-				stm.setFloat("_tien", model.getTien());
+				stm.setInt("_tien", model.getTien());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themGiaodich");
