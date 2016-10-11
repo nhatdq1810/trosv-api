@@ -33,7 +33,6 @@ public class NganhangCtrl {
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
 					result.setCmnd(rs.getString("cmnd"));
-					result.setUserID(rs.getInt("userID"));
 					if (rs.getString("diachi") == null) {
 						result.setDiachi("");
 					} else {
@@ -58,7 +57,7 @@ public class NganhangCtrl {
 	public NganhangModel login(String username, String password) {
 		NganhangModel nganhang = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_login(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_nghLogin(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
@@ -71,7 +70,6 @@ public class NganhangCtrl {
 					nganhang.setPassword(rs.getString("password"));
 					nganhang.setHoten(rs.getString("hoten"));
 					nganhang.setCmnd(rs.getString("cmnd"));
-					nganhang.setUserID(rs.getInt("userID"));
 					if (rs.getString("diachi") == null) {
 						nganhang.setDiachi("");
 					} else {
@@ -84,7 +82,7 @@ public class NganhangCtrl {
 					}
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_login");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_nghLogin");
 				e.printStackTrace();
 				return nganhang;
 			}
