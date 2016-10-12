@@ -67,7 +67,7 @@ public class GiaodichService {
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
-	public Response themGiaodich(@FormParam("ngay") String ngay, @FormParam("tien") float tien,
+	public Response themGiaodich(@FormParam("ngay") String ngay, @FormParam("tien") int tien,
 			@FormParam("nganhangID_gui") int nganhangID_gui, @FormParam("nganhangID_nhan") int nganhangID_nhan) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		GiaodichModel model = new GiaodichModel();

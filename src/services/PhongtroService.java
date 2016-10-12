@@ -13,6 +13,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -40,7 +41,7 @@ public class PhongtroService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/user/{userID}")
 	@GET
 	@Produces("application/json")
@@ -56,6 +57,36 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/moi")
+	@GET
+	@Produces("application/json")
+	public Response layPhongtroMoi(@QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> model = phongtroCtrl.layPhongtroMoi(gioihan);
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/hot")
+	@GET
+	@Produces("application/json")
+	public Response layPhongtroHot(@QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> model = phongtroCtrl.layPhongtroHot(gioihan);
+		if (model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/{id}")
 	@GET
 	@Produces("application/json")
@@ -71,14 +102,33 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/timkiem")
+	@GET
+	@Produces("application/json")
+	public Response timkiemPhongtro(@QueryParam("giatien_min") int giatien_min,
+			@QueryParam("giatien_max") int giatien_max, @QueryParam("truong") String truong,
+			@QueryParam("nganh") String nganh, @QueryParam("gioitinh") String gioitinh) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(giatien_min, giatien_max, truong, nganh,
+				gioitinh);
+		if (listPT.size() > 0) {
+			return Response.status(200).entity(listPT).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
-	public Response themPhongtro(@FormParam("diachi") String diachi, @FormParam("giatien") float giatien,
+	public Response themPhongtro(@FormParam("diachi") String diachi, @FormParam("giatien") int giatien,
 			@FormParam("ngaydang") String ngaydang, @FormParam("songuoi") int songuoi,
-			@FormParam("tiencoc") float tiencoc, @FormParam("truong") String truong, @FormParam("nganh") String nganh,
-			@FormParam("khoa") String khoa, @FormParam("wifi") int wifi, @FormParam("chu") int chu,
-			@FormParam("userID") int userID, @FormParam("ghichu") String ghichu) {
+			@FormParam("tiencoc") int tiencoc, @FormParam("gioitinh") String gioitinh,
+			@FormParam("truong") String truong, @FormParam("nganh") String nganh, @FormParam("khoa") String khoa,
+			@FormParam("wifi") int wifi, @FormParam("chu") int chu, @FormParam("userID") int userID,
+			@FormParam("ghichu") String ghichu) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		PhongtroModel model = new PhongtroModel();
 		model.setDiachi(diachi);
@@ -86,6 +136,7 @@ public class PhongtroService {
 		model.setNgaydang(ngaydang);
 		model.setSonguoi(songuoi);
 		model.setTiencoc(tiencoc);
+		model.setGioitinh(gioitinh);
 		model.setTruong(truong);
 		model.setNganh(nganh);
 		model.setKhoa(khoa);
@@ -127,8 +178,9 @@ public class PhongtroService {
 	@PUT
 	@Produces("application/json")
 	public Response capnhatPhongtro(@PathParam("id") int id, @FormParam("diachi") String diachi,
-			@FormParam("giatien") float giatien, @FormParam("ngaydang") String ngaydang,
-			@FormParam("songuoi") int songuoi, @FormParam("tiencoc") float tiencoc, @FormParam("truong") String truong,
+			@FormParam("giatien") int giatien, @FormParam("ngaydang") String ngaydang,
+			@FormParam("songuoi") int songuoi, @FormParam("tiencoc") int tiencoc,
+			@FormParam("gioitinh") String gioitinh, @FormParam("truong") String truong,
 			@FormParam("nganh") String nganh, @FormParam("khoa") String khoa, @FormParam("wifi") int wifi,
 			@FormParam("chu") int chu, @FormParam("userID") int userID, @FormParam("ghichu") String ghichu) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
@@ -139,6 +191,7 @@ public class PhongtroService {
 		model.setNgaydang(ngaydang);
 		model.setSonguoi(songuoi);
 		model.setTiencoc(tiencoc);
+		model.setGioitinh(gioitinh);
 		model.setTruong(truong);
 		model.setNganh(nganh);
 		model.setKhoa(khoa);

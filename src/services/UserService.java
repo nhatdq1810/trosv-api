@@ -74,7 +74,7 @@ public class UserService {
 	@Produces("application/json")
 	public Response capnhatUser(@PathParam("username") String username, @FormParam("hoten") String hoten,
 			@FormParam("diachi") String diachi, @FormParam("sodt") String sodt, @FormParam("email") String email,
-			@FormParam("tien") float tien, @FormParam("skype") String skype, @FormParam("facebook") String facebook) {
+			@FormParam("skype") String skype, @FormParam("facebook") String facebook) {
 		UserCtrl userCtrl = new UserCtrl();
 		UserModel model = new UserModel();
 		model.setUsername(username);
