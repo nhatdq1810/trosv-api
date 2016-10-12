@@ -8,8 +8,7 @@ public class NganhangModel {
 	private String diachi;
 	private String sodt;
 	private String cmnd;
-	private float tien;
-	private int userID;
+	private int tien;
 
 	public int getId() {
 		return id;
@@ -67,20 +66,12 @@ public class NganhangModel {
 		this.cmnd = cmnd;
 	}
 
-	public float getTien() {
+	public int getTien() {
 		return tien;
 	}
 
-	public void setTien(float tien) {
+	public void setTien(int tien) {
 		this.tien = tien;
-	}
-
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
 	}
 
 }

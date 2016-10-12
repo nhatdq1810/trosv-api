@@ -7,7 +7,7 @@ public class GiaodichModel {
 	private int nganhangID_gui;
 	private int nganhangID_nhan;
 	private String ngay;
-	private float tien;
+	private int tien;
 
 	public GiaodichModel() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -38,11 +38,11 @@ public class GiaodichModel {
 		this.ngay = ngay;
 	}
 
-	public float getTien() {
+	public int getTien() {
 		return tien;
 	}
 
-	public void setTien(float tien) {
+	public void setTien(int tien) {
 		this.tien = tien;
 	}
 

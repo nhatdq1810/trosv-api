@@ -6,11 +6,12 @@ import java.util.Date;
 public class PhongtroModel {
 	private int id;
 	private String diachi;
-	private float giatien;
+	private int giatien;
 	private String ngaydang;
 	private int songuoi;
 	private String hinhanh;
-	private float tiencoc;
+	private int tiencoc;
+	private String gioitinh;
 	private String truong;
 	private String nganh;
 	private String khoa;
@@ -40,11 +41,11 @@ public class PhongtroModel {
 		this.diachi = diachi;
 	}
 
-	public float getGiatien() {
+	public int getGiatien() {
 		return giatien;
 	}
 
-	public void setGiatien(float giatien) {
+	public void setGiatien(int giatien) {
 		this.giatien = giatien;
 	}
 
@@ -72,12 +73,20 @@ public class PhongtroModel {
 		this.hinhanh = hinhanh;
 	}
 
-	public float getTiencoc() {
+	public int getTiencoc() {
 		return tiencoc;
 	}
 
-	public void setTiencoc(float tiencoc) {
+	public void setTiencoc(int tiencoc) {
 		this.tiencoc = tiencoc;
+	}
+
+	public String getGioitinh() {
+		return gioitinh;
+	}
+
+	public void setGioitinh(String gioitinh) {
+		this.gioitinh = gioitinh;
 	}
 
 	public String getTruong() {
