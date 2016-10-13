@@ -3,7 +3,6 @@ package services;
 import java.util.ArrayList;
 
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -67,17 +66,11 @@ public class GiaodichService {
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
-	public Response themGiaodich(@FormParam("ngay") String ngay, @FormParam("tien") int tien,
-			@FormParam("nganhangID_gui") int nganhangID_gui, @FormParam("nganhangID_nhan") int nganhangID_nhan) {
+	public Response themGiaodich(GiaodichModel model) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
-		GiaodichModel model = new GiaodichModel();
-		model.setNgay(ngay);
-		model.setTien(tien);
-		model.setNganhangID_gui(nganhangID_gui);
-		model.setNganhangID_nhan(nganhangID_nhan);
 		int result = giaodichCtrl.themGiaodich(model);
 		if (result != -999) {
-			return layGiaodichGui(nganhangID_gui);
+			return layGiaodichGui(model.getNganhangID_gui());
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");

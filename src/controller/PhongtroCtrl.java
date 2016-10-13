@@ -474,6 +474,7 @@ public class PhongtroCtrl {
 
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
+		System.out.println(model.getGiatien());
 		if (conn.openConnection()) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {

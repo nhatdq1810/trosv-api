@@ -1,7 +1,6 @@
 package services;
 
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -36,9 +35,9 @@ public class UserService {
 	@Path("/login")
 	@POST
 	@Produces("application/json")
-	public Response login(@FormParam("username") String username, @FormParam("password") String password) {
+	public Response login(UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
-		UserModel user = userCtrl.login(username, password);
+		UserModel user = userCtrl.login(model.getUsername(), model.getPassword());
 		if (user != null) {
 			return Response.status(200).entity(user).build();
 		}
@@ -51,17 +50,11 @@ public class UserService {
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
-	public Response themUser(@FormParam("username") String username, @FormParam("password") String password,
-			@FormParam("hoten") String hoten, @FormParam("email") String email) {
+	public Response themUser(UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
-		UserModel model = new UserModel();
-		model.setUsername(username);
-		model.setPassword(password);
-		model.setHoten(hoten);
-		model.setEmail(email);
 		int result = userCtrl.themUser(model);
 		if (result != -999) {
-			return layThongtinUser(username);
+			return layThongtinUser(model.getUsername());
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
@@ -72,18 +65,9 @@ public class UserService {
 	@Path("/{username}")
 	@PUT
 	@Produces("application/json")
-	public Response capnhatUser(@PathParam("username") String username, @FormParam("hoten") String hoten,
-			@FormParam("diachi") String diachi, @FormParam("sodt") String sodt, @FormParam("email") String email,
-			@FormParam("skype") String skype, @FormParam("facebook") String facebook) {
+	public Response capnhatUser(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
-		UserModel model = new UserModel();
 		model.setUsername(username);
-		model.setHoten(hoten);
-		model.setDiachi(diachi);
-		model.setSodt(sodt);
-		model.setEmail(email);
-		model.setSkype(skype);
-		model.setFacebook(facebook);
 		int result = userCtrl.capnhatUser(model);
 		if (result != -999) {
 			return layThongtinUser(username);
@@ -93,13 +77,13 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/{username}/password")
 	@PUT
 	@Produces("application/json")
-	public Response capnhatPassword(@PathParam("username") String username, @FormParam("password") String password) {
+	public Response capnhatPassword(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
-		int result = userCtrl.capnhatPassword(username, password);
+		int result = userCtrl.capnhatPassword(username, model.getPassword());
 		if (result != -999) {
 			return layThongtinUser(username);
 		}
@@ -108,13 +92,13 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/{username}/dotincay")
 	@PUT
 	@Produces("application/json")
-	public Response capnhatDotincay(@PathParam("username") String username, @FormParam("dotincay") int dotincay) {
+	public Response capnhatDotincay(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
-		int result = userCtrl.capnhatDotincay(username, dotincay);
+		int result = userCtrl.capnhatDotincay(username, model.getDotincay());
 		if (result != -999) {
 			return layThongtinUser(username);
 		}

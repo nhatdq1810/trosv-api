@@ -3,7 +3,6 @@ package services;
 import java.util.ArrayList;
 
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -53,17 +52,11 @@ public class CommentService {
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
-	public Response themComment(@FormParam("noidung") String noidung, @FormParam("ngay") String ngay,
-			@FormParam("userID") int userID, @FormParam("phongtroID") int phongtroID) {
+	public Response themComment(CommentModel model) {
 		CommentCtrl commentCtrl = new CommentCtrl();
-		CommentModel model = new CommentModel();
-		model.setNoidung(noidung);
-		model.setNgay(ngay);
-		model.setUserID(userID);
-		model.setPhongtroID(phongtroID);
 		int result = commentCtrl.themComment(model);
 		if (result != -999) {
-			return layCommentPhongtro(phongtroID);
+			return layCommentPhongtro(model.getPhongtroID());
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
@@ -74,16 +67,12 @@ public class CommentService {
 	@Path("/{id}")
 	@PUT
 	@Produces("application/json")
-	public Response capnhatComment(@PathParam("id") int id, @FormParam("noidung") String noidung,
-			@FormParam("ngay") String ngay, @FormParam("phongtroID") int phongtroID) {
+	public Response capnhatComment(@PathParam("id") int id, CommentModel model) {
 		CommentCtrl commentCtrl = new CommentCtrl();
-		CommentModel model = new CommentModel();
 		model.setId(id);
-		model.setNoidung(noidung);
-		model.setNgay(ngay);
 		int result = commentCtrl.capnhatComment(model);
 		if (result != -999) {
-			return layCommentPhongtro(phongtroID);
+			return layCommentPhongtro(model.getPhongtroID());
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
@@ -94,7 +83,7 @@ public class CommentService {
 	@Path("/{id}/phongtro/{phongtroID}")
 	@DELETE
 	@Produces("application/json")
-	public Response xoaComment(@PathParam("id") int id, @PathParam("phongtroID") int phongtroID) {
+	public Response xoaComment(@PathParam("id") int id) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		int result = commentCtrl.xoaComment(id);
 		JSONObject obj = new JSONObject();
