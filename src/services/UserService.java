@@ -31,6 +31,21 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
+	
+	@Path("/id/{id}")
+	@GET
+	@Produces("application/json")
+	public Response layThongtinUser(@PathParam("id") int id) {
+		UserCtrl userCtrl = new UserCtrl();
+		UserModel model = userCtrl.layThongtinUserID(id);
+		if (model != null) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
 
 	@Path("/login")
 	@POST

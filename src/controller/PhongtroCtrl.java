@@ -44,6 +44,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -101,6 +102,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -157,6 +159,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -214,6 +217,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -254,7 +258,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return listPT;
 	}
-	
+
 	public ArrayList<PhongtroModel> layPhongtroHot(int gioihan) {
 		ArrayList<PhongtroModel> listPT = new ArrayList<>();
 		if (conn.openConnection()) {
@@ -271,6 +275,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -311,7 +316,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return listPT;
 	}
-	
+
 	public ArrayList<PhongtroModel> timkiemPhongtro(int giatien_min, int giatien_max, String truong, String nganh,
 			String gioitinh) {
 		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
@@ -333,6 +338,7 @@ public class PhongtroCtrl {
 					model.setNgaydang(rs.getString("ngaydang"));
 					model.setSonguoi(rs.getInt("songuoi"));
 					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
@@ -377,7 +383,7 @@ public class PhongtroCtrl {
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_diachi", model.getDiachi());
@@ -385,6 +391,7 @@ public class PhongtroCtrl {
 				stm.setString("_ngaydang", model.getNgaydang());
 				stm.setInt("_songuoi", model.getSonguoi());
 				stm.setInt("_tiencoc", model.getTiencoc());
+				stm.setFloat("_dientich", model.getDientich());
 				stm.setString("_gioitinh", model.getGioitinh());
 				stm.setString("_truong", model.getTruong());
 				stm.setString("_nganh", model.getNganh());
@@ -474,7 +481,7 @@ public class PhongtroCtrl {
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", model.getId());
@@ -483,6 +490,7 @@ public class PhongtroCtrl {
 				stm.setString("_ngaydang", model.getNgaydang());
 				stm.setInt("_songuoi", model.getSonguoi());
 				stm.setInt("_tiencoc", model.getTiencoc());
+				stm.setFloat("_dientich", model.getDientich());
 				stm.setString("_gioitinh", model.getGioitinh());
 				stm.setString("_truong", model.getTruong());
 				stm.setString("_nganh", model.getNganh());
@@ -557,15 +565,5 @@ public class PhongtroCtrl {
 		}
 		conn.closeConnection();
 		return result;
-	}
-
-	public static void main(String[] args) {
-		PhongtroCtrl ctrl = new PhongtroCtrl();
-		PhongtroModel model = new PhongtroModel();
-		model.setUserID(1);
-		model.setDiachi("nhat 444");
-		model.setGiatien(2000000);
-		model.setSonguoi(2);
-		System.out.println(ctrl.xoaHinhanhPhongtro(9, "q5Q5hWHMb8bErhy"));
 	}
 }

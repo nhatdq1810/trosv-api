@@ -11,6 +11,7 @@ public class PhongtroModel {
 	private int songuoi;
 	private String hinhanh;
 	private int tiencoc;
+	private float dientich;
 	private String gioitinh;
 	private String truong;
 	private String nganh;
@@ -79,6 +80,14 @@ public class PhongtroModel {
 
 	public void setTiencoc(int tiencoc) {
 		this.tiencoc = tiencoc;
+	}
+
+	public float getDientich() {
+		return dientich;
+	}
+
+	public void setDientich(float dientich) {
+		this.dientich = dientich;
 	}
 
 	public String getGioitinh() {
