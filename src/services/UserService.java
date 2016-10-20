@@ -35,7 +35,7 @@ public class UserService {
 	@Path("/id/{id}")
 	@GET
 	@Produces("application/json")
-	public Response layThongtinUser(@PathParam("id") int id) {
+	public Response layThongtinUserID(@PathParam("id") int id) {
 		UserCtrl userCtrl = new UserCtrl();
 		UserModel model = userCtrl.layThongtinUserID(id);
 		if (model != null) {
@@ -68,7 +68,7 @@ public class UserService {
 	public Response themUser(UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.themUser(model);
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layThongtinUser(model.getUsername());
 		}
 		JSONObject obj = new JSONObject();
@@ -84,7 +84,7 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		model.setUsername(username);
 		int result = userCtrl.capnhatUser(model);
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -99,7 +99,7 @@ public class UserService {
 	public Response capnhatPassword(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.capnhatPassword(username, model.getPassword());
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -114,7 +114,7 @@ public class UserService {
 	public Response capnhatDotincay(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.capnhatDotincay(username, model.getDotincay());
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -130,7 +130,7 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.xoaUser(username);
 		JSONObject obj = new JSONObject();
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");

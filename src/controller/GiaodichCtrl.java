@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.GiaodichModel;
+import model.NganhangModel;
 import resources.Constants;
 import connectSQL.ConnectServer;
 
@@ -97,19 +98,19 @@ public class GiaodichCtrl {
 		return listGiaodich;
 	}
 
-	public int themGiaodich(GiaodichModel model) {
+	public int chuyenTien(GiaodichModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themGiaodich(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_nganhangID_gui", model.getNganhangID_gui());
-				stm.setInt("_nganhangID_nhan", model.getNganhangID_nhan());
+				stm.setInt("_id_gui", model.getNganhangID_gui());
+				stm.setInt("_id_nhan", model.getNganhangID_nhan());
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
 				result = stm.executeUpdate();
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themGiaodich");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_chuyenTien");
 				e.printStackTrace();
 				return result;
 			}
@@ -117,7 +118,7 @@ public class GiaodichCtrl {
 		conn.closeConnection();
 		return result;
 	}
-
+	
 	public int xoaGiaodich(int nganhangID) {
 		int result = -999;
 		if (conn.openConnection()) {

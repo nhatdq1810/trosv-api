@@ -63,23 +63,16 @@ public class NganhangCtrl {
 				stm.setString("_username", username);
 				stm.setString("_password", password);
 				rs = stm.executeQuery();
-				if(rs.next()){
+				if (rs.next()) {
 					nganhang = new NganhangModel();
 					nganhang.setId(rs.getInt("id"));
 					nganhang.setUsername(username);
-					nganhang.setPassword(rs.getString("password"));
+					nganhang.setPassword(password);
 					nganhang.setHoten(rs.getString("hoten"));
 					nganhang.setCmnd(rs.getString("cmnd"));
-					if (rs.getString("diachi") == null) {
-						nganhang.setDiachi("");
-					} else {
-						nganhang.setDiachi(rs.getString("diachi"));
-					}
-					if (rs.getString("sodt") == null) {
-						nganhang.setSodt("");
-					} else {
-						nganhang.setSodt(rs.getString("sodt"));
-					}
+					nganhang.setDiachi(rs.getString("diachi"));
+					nganhang.setSodt(rs.getString("sodt"));
+					nganhang.setTien(rs.getInt("tien"));
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_nghLogin");
@@ -148,26 +141,6 @@ public class NganhangCtrl {
 
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatPassword");
-				e.printStackTrace();
-				return result;
-			}
-		}
-		conn.closeConnection();
-		return result;
-	}
-
-	public int capnhatUserID(String username, int userID) {
-		int result = -999;
-		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUserID(?,?)}";
-			try {
-				stm = conn.getConn().prepareCall(query);
-				stm.setString("_username", username);
-				stm.setInt("_userID", userID);
-				result = stm.executeUpdate();
-
-			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatUserID");
 				e.printStackTrace();
 				return result;
 			}

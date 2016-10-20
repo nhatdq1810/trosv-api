@@ -55,7 +55,7 @@ public class CommentService {
 	public Response themComment(CommentModel model) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		int result = commentCtrl.themComment(model);
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layCommentPhongtro(model.getPhongtroID());
 		}
 		JSONObject obj = new JSONObject();
@@ -71,7 +71,7 @@ public class CommentService {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		model.setId(id);
 		int result = commentCtrl.capnhatComment(model);
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			return layCommentPhongtro(model.getPhongtroID());
 		}
 		JSONObject obj = new JSONObject();
@@ -87,7 +87,7 @@ public class CommentService {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		int result = commentCtrl.xoaComment(id);
 		JSONObject obj = new JSONObject();
-		if (result != -999) {
+		if (result != -999 && result !=0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
