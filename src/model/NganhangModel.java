@@ -9,6 +9,7 @@ public class NganhangModel {
 	private String sodt;
 	private String cmnd;
 	private int tien;
+	private int userID;
 
 	public int getId() {
 		return id;
@@ -72,6 +73,14 @@ public class NganhangModel {
 
 	public void setTien(int tien) {
 		this.tien = tien;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 }

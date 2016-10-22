@@ -3,6 +3,7 @@ package controller;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import connectSQL.ConnectServer;
 import model.NganhangModel;
@@ -33,16 +34,10 @@ public class NganhangCtrl {
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
 					result.setCmnd(rs.getString("cmnd"));
-					if (rs.getString("diachi") == null) {
-						result.setDiachi("");
-					} else {
-						result.setDiachi(rs.getString("diachi"));
-					}
-					if (rs.getString("sodt") == null) {
-						result.setSodt("");
-					} else {
-						result.setSodt(rs.getString("sodt"));
-					}
+					result.setDiachi(rs.getString("diachi"));
+					result.setSodt(rs.getString("sodt"));
+					result.setTien(rs.getInt("tien"));
+					result.setUserID(rs.getInt("userID"));
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layThongtinNganhang");
@@ -52,6 +47,37 @@ public class NganhangCtrl {
 		}
 		conn.closeConnection();
 		return result;
+	}
+	
+	public ArrayList<NganhangModel> layTkNghTheoUserID(int userID) {
+		ArrayList<NganhangModel> listTk = new ArrayList<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layTkNghTheoUserID(?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_userID", userID);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					NganhangModel result = new NganhangModel();
+					result.setId(rs.getInt("id"));
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setCmnd(rs.getString("cmnd"));
+					result.setDiachi(rs.getString("diachi"));
+					result.setSodt(rs.getString("sodt"));
+					result.setTien(rs.getInt("tien"));
+					result.setUserID(rs.getInt("userID"));
+					listTk.add(result);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layTkNghTheoUserID");
+				e.printStackTrace();
+				return listTk;
+			}
+		}
+		conn.closeConnection();
+		return listTk;
 	}
 
 	public NganhangModel login(String username, String password) {
@@ -73,6 +99,7 @@ public class NganhangCtrl {
 					nganhang.setDiachi(rs.getString("diachi"));
 					nganhang.setSodt(rs.getString("sodt"));
 					nganhang.setTien(rs.getInt("tien"));
+					nganhang.setUserID(rs.getInt("userID"));
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_nghLogin");
@@ -166,4 +193,5 @@ public class NganhangCtrl {
 		conn.closeConnection();
 		return result;
 	}
+
 }

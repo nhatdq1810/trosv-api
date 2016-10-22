@@ -5,10 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.GiaodichModel;
-import model.NganhangModel;
-import resources.Constants;
 import connectSQL.ConnectServer;
+import model.GiaodichModel;
+import resources.Constants;
 
 public class GiaodichCtrl {
 	private String query;
@@ -109,6 +108,7 @@ public class GiaodichCtrl {
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
 				result = stm.executeUpdate();
+				System.out.println(result);
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_chuyenTien");
 				e.printStackTrace();

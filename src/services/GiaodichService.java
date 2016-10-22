@@ -63,17 +63,18 @@ public class GiaodichService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/moi")
+	@Path("/chuyenTien")
 	@POST
 	@Produces("application/json")
 	public Response chuyenTien(GiaodichModel model) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		int result = giaodichCtrl.chuyenTien(model);
-		if (result != -999 && result !=0) {
-			return layGiaodichGui(model.getNganhangID_gui());
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result != -999 && result != 0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
@@ -85,7 +86,7 @@ public class GiaodichService {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
 		int result = giaodichCtrl.xoaGiaodich(nganhangID);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
