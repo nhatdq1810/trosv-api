@@ -97,18 +97,20 @@ public class GiaodichCtrl {
 		return listGiaodich;
 	}
 
-	public int chuyenTien(GiaodichModel model) {
+	public int chuyenTien(int phongtroID, GiaodichModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id_gui", model.getNganhangID_gui());
 				stm.setInt("_id_nhan", model.getNganhangID_nhan());
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
-				result = stm.executeUpdate();
-				System.out.println(result);
+				stm.setInt("_phongtroID", phongtroID);
+				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
+				stm.executeUpdate();
+				result = stm.getInt("_result");
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_chuyenTien");
 				e.printStackTrace();
