@@ -4,9 +4,9 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import connectSQL.ConnectServer;
 import model.UserModel;
 import resources.Constants;
-import connectSQL.ConnectServer;
 
 public class UserCtrl {
 	private String query;
@@ -163,14 +163,16 @@ public class UserCtrl {
 	public int themUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
 				stm.setString("_password", model.getPassword());
 				stm.setString("_hoten", model.getHoten());
 				stm.setString("_email", model.getEmail());
-				result = stm.executeUpdate();
+				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
+				stm.executeUpdate();
+				result = stm.getInt("_result");
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themUser");
 				e.printStackTrace();

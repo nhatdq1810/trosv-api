@@ -31,7 +31,7 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/id/{id}")
 	@GET
 	@Produces("application/json")
@@ -68,11 +68,15 @@ public class UserService {
 	public Response themUser(UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.themUser(model);
-		if (result != -999 && result !=0) {
+		JSONObject obj = new JSONObject();
+		if (result == 0) {
+			obj.put("result", "Username đã có người sử dụng");
+		}
+		else if (result == -2) {
+			obj.put("result", "Email đã có người sử dụng");
+		} else {
 			return layThongtinUser(model.getUsername());
 		}
-		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
@@ -84,7 +88,7 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		model.setUsername(username);
 		int result = userCtrl.capnhatUser(model);
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -99,7 +103,7 @@ public class UserService {
 	public Response capnhatPassword(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.capnhatPassword(username, model.getPassword());
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -114,7 +118,7 @@ public class UserService {
 	public Response capnhatDotincay(@PathParam("username") String username, UserModel model) {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.capnhatDotincay(username, model.getDotincay());
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			return layThongtinUser(username);
 		}
 		JSONObject obj = new JSONObject();
@@ -130,7 +134,7 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		int result = userCtrl.xoaUser(username);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
