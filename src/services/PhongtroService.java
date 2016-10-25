@@ -105,11 +105,14 @@ public class PhongtroService {
 	@GET
 	@Produces("application/json")
 	public Response timkiemPhongtro(@QueryParam("giatien_min") int giatien_min,
-			@QueryParam("giatien_max") int giatien_max, @QueryParam("truong") String truong,
-			@QueryParam("nganh") String nganh, @QueryParam("gioitinh") String gioitinh) {
+			@QueryParam("giatien_max") int giatien_max, @QueryParam("tiencoc_min") int tiencoc_min,
+			@QueryParam("tiencoc_max") int tiencoc_max, @QueryParam("dientich_min") int dientich_min,
+			@QueryParam("dientich_max") int dientich_max, @QueryParam("truong") String truong,
+			@QueryParam("nganh") String nganh, @QueryParam("khoa") String khoa, @QueryParam("gioitinh") String gioitinh,
+			@QueryParam("wifi") int wifi, @QueryParam("chu") int chu) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(giatien_min, giatien_max, truong, nganh,
-				gioitinh);
+		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(giatien_min, giatien_max, tiencoc_min,
+				tiencoc_max, dientich_min, dientich_max, truong, nganh, khoa, gioitinh, wifi, chu);
 		if (listPT.size() > 0) {
 			return Response.status(200).entity(listPT).build();
 		}
@@ -125,7 +128,7 @@ public class PhongtroService {
 	public Response themPhongtro(PhongtroModel model) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.themPhongtro(model);
-		if (result != -999 && result !=0 && result !=0) {
+		if (result != -999 && result != 0 && result != 0) {
 			return layPhongtro(result);
 		}
 		JSONObject obj = new JSONObject();
@@ -145,7 +148,7 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.capnhatHinhanhPhongtro(id, fileStream);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result !=0 && result !=0) {
+		if (result != -999 && result != 0 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
@@ -161,7 +164,7 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		model.setId(id);
 		int result = phongtroCtrl.capnhatPhongtro(model);
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			return layPhongtro(id);
 		}
 		JSONObject obj = new JSONObject();
@@ -177,7 +180,7 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaPhongtro(id);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
@@ -193,7 +196,7 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaHinhanhPhongtro(id, deletehash);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result !=0) {
+		if (result != -999 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
