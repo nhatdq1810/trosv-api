@@ -128,7 +128,7 @@ public class PhongtroService {
 	public Response themPhongtro(PhongtroModel model) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.themPhongtro(model);
-		if (result != -999 && result != 0 && result != 0) {
+		if (result != -999 && result != 0) {
 			return layPhongtro(result);
 		}
 		JSONObject obj = new JSONObject();
@@ -142,13 +142,11 @@ public class PhongtroService {
 	@Produces("application/json")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response themHinhanhPhongtro(@DefaultValue("true") @FormDataParam("enabled") boolean enabled,
-			@FormDataParam("file") InputStream fileStream, @FormDataParam("id") int id
-	// , @FormDataParam("file") FormDataContentDisposition fileDetail,
-	) {
+			@FormDataParam("file") InputStream fileStream, @FormDataParam("id") int id) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.capnhatHinhanhPhongtro(id, fileStream);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result != 0 && result != 0) {
+		if (result != -999 && result != 0) {
 			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
