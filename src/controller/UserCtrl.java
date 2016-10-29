@@ -163,13 +163,14 @@ public class UserCtrl {
 	public int themUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
 				stm.setString("_password", model.getPassword());
 				stm.setString("_hoten", model.getHoten());
 				stm.setString("_email", model.getEmail());
+				stm.setString("_facebook", model.getFacebook());
 				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");
