@@ -171,15 +171,15 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{id}")
+	@Path("/{id}/user/{userID}")
 	@DELETE
 	@Produces("application/json")
-	public Response xoaPhongtroUser(@PathParam("id") int id) {
+	public Response xoaPhongtro(@PathParam("id") int id, @PathParam("userID") int userID) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaPhongtro(id);
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result != 0) {
-			obj.put("result", "success");
+			layPhongtroUser(userID);
 		} else {
 			obj.put("result", "fail");
 		}
