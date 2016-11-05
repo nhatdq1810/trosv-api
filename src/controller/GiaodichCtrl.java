@@ -29,8 +29,8 @@ public class GiaodichCtrl {
 				rs = stm.executeQuery();
 				while(rs.next()){
 					GiaodichModel model = new GiaodichModel();
-					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
-					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
+					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
+					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
@@ -55,8 +55,8 @@ public class GiaodichCtrl {
 				rs = stm.executeQuery();
 				while(rs.next()){
 					GiaodichModel model = new GiaodichModel();
-					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
-					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
+					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
+					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
@@ -81,8 +81,8 @@ public class GiaodichCtrl {
 				rs = stm.executeQuery();
 				while(rs.next()){
 					GiaodichModel model = new GiaodichModel();
-					model.setNganhangID_gui(rs.getInt("nganhangID_gui"));
-					model.setNganhangID_nhan(rs.getInt("nganhangID_nhan"));
+					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
+					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
@@ -103,8 +103,8 @@ public class GiaodichCtrl {
 			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_id_gui", model.getNganhangID_gui());
-				stm.setInt("_id_nhan", model.getNganhangID_nhan());
+				stm.setString("_id_gui", model.getNganhangID_gui());
+				stm.setString("_id_nhan", model.getNganhangID_nhan());
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
 				stm.setInt("_phongtroID", phongtroID);

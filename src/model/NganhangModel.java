@@ -1,7 +1,7 @@
 package model;
 
 public class NganhangModel {
-	private int id;
+	private String id;
 	private String username;
 	private String password;
 	private String hoten;
@@ -9,13 +9,12 @@ public class NganhangModel {
 	private String sodt;
 	private String cmnd;
 	private int tien;
-	private int userID;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -74,13 +73,4 @@ public class NganhangModel {
 	public void setTien(int tien) {
 		this.tien = tien;
 	}
-
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-
 }

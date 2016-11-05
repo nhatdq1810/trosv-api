@@ -1,7 +1,5 @@
 package services;
 
-import java.util.ArrayList;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -32,13 +30,13 @@ public class NganhangService {
 		return Response.status(200).entity(rs).build();
 	}
 	
-	@Path("/userID/{userID}")
+	@Path("/id/{id}")
 	@GET
 	@Produces("application/json")
-	public Response layThongtinNganhang(@PathParam("userID") int userID) {
+	public Response layThongtinNganhangTheoId(@PathParam("id") String id) {
 		NganhangCtrl nganhangCtrl = new NganhangCtrl();
-		ArrayList<NganhangModel> model = nganhangCtrl.layTkNghTheoUserID(userID);
-		if (model.size() > 0) {
+		NganhangModel model = nganhangCtrl.layThongtinNganhangTheoId(id);
+		if (model != null) {
 			return Response.status(200).entity(model).build();
 		}
 		JSONObject obj = new JSONObject();

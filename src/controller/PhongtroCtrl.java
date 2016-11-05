@@ -71,6 +71,11 @@ public class PhongtroCtrl {
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
 					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
 					listPT.add(model);
 				}
 			} catch (SQLException e) {
@@ -126,6 +131,11 @@ public class PhongtroCtrl {
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
 					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layPhongtro");
@@ -179,6 +189,11 @@ public class PhongtroCtrl {
 						model.setGhichu("");
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
+					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
 					}
 					listPhong.add(model);
 				}
@@ -235,6 +250,11 @@ public class PhongtroCtrl {
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
 					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
 					listPT.add(model);
 				}
 			} catch (SQLException e) {
@@ -289,6 +309,11 @@ public class PhongtroCtrl {
 						model.setGhichu("");
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
+					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
 					}
 					listPT.add(model);
 				}
@@ -357,6 +382,11 @@ public class PhongtroCtrl {
 					} else {
 						model.setGhichu(rs.getString("ghichu"));
 					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
 					listPhong.add(model);
 				}
 			} catch (SQLException e) {
@@ -372,7 +402,7 @@ public class PhongtroCtrl {
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_diachi", model.getDiachi());
@@ -390,6 +420,7 @@ public class PhongtroCtrl {
 				stm.setInt("_chu", model.getChu());
 				stm.setString("_ghichu", model.getGhichu());
 				stm.setInt("_userID", model.getUserID());
+				stm.setString("_nganhangID", model.getNganhangID());
 				stm.registerOutParameter("_id", java.sql.Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_id");
@@ -451,13 +482,17 @@ public class PhongtroCtrl {
 		}
 
 		if (conn.openConnection() && success) {
-			 query = "{call " + Constants.NAME_SQL +
-			 ".mysp_capnhatHinhanhPhongtro(?,?)}";
-			 try {
-			 stm = conn.getConn().prepareCall(query);
-			 stm.setInt("_id", id);
-			 stm.setString("_hinhanh", hinhanh);
-			 result = stm.executeUpdate();
+			PhongtroModel pt = layPhongtro(id);
+			if (!pt.getHinhanh().equals("")) {
+				String deletehash = pt.getHinhanh().split("-")[1];
+				xoaHinhanhPhongtro(id, deletehash);
+			}
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatHinhanhPhongtro(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_id", id);
+				stm.setString("_hinhanh", hinhanh);
+				result = stm.executeUpdate();
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatHinhanhPhongtro");
 				e.printStackTrace();
@@ -472,7 +507,7 @@ public class PhongtroCtrl {
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", model.getId());
@@ -489,6 +524,7 @@ public class PhongtroCtrl {
 				stm.setInt("_wifi", model.getWifi());
 				stm.setInt("_chu", model.getChu());
 				stm.setString("_ghichu", model.getGhichu());
+				stm.setString("_nganhangID", model.getNganhangID());
 				result = stm.executeUpdate();
 
 			} catch (SQLException e) {
@@ -557,4 +593,5 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return result;
 	}
+
 }

@@ -20,6 +20,7 @@ public class PhongtroModel {
 	private int chu;
 	private String ghichu;
 	private int userID;
+	private String nganhangID;
 
 	public PhongtroModel() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -152,5 +153,13 @@ public class PhongtroModel {
 
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+
+	public String getNganhangID() {
+		return nganhangID;
+	}
+
+	public void setNganhangID(String nganhangID) {
+		this.nganhangID = nganhangID;
 	}
 }

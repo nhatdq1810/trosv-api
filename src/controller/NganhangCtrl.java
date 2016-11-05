@@ -19,6 +19,35 @@ public class NganhangCtrl {
 		conn = new ConnectServer();
 	}
 
+	public NganhangModel layThongtinNganhangTheoId(String id) {
+		NganhangModel result = null;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".layThongtinNganhangTheoId(?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_id", id);
+				rs = stm.executeQuery();
+				if (rs.next()) {
+					result = new NganhangModel();
+					result.setId(id);
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setCmnd(rs.getString("cmnd"));
+					result.setDiachi(rs.getString("diachi"));
+					result.setSodt(rs.getString("sodt"));
+					result.setTien(rs.getInt("tien"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".layThongtinNganhangTheoId");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+	
 	public NganhangModel layThongtinNganhang(String username) {
 		NganhangModel result = null;
 		if (conn.openConnection()) {
@@ -29,7 +58,7 @@ public class NganhangCtrl {
 				rs = stm.executeQuery();
 				if (rs.next()) {
 					result = new NganhangModel();
-					result.setId(rs.getInt("id"));
+					result.setId(rs.getString("id"));
 					result.setUsername(username);
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
@@ -37,7 +66,6 @@ public class NganhangCtrl {
 					result.setDiachi(rs.getString("diachi"));
 					result.setSodt(rs.getString("sodt"));
 					result.setTien(rs.getInt("tien"));
-					result.setUserID(rs.getInt("userID"));
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layThongtinNganhang");
@@ -48,7 +76,7 @@ public class NganhangCtrl {
 		conn.closeConnection();
 		return result;
 	}
-	
+
 	public ArrayList<NganhangModel> layTkNghTheoUserID(int userID) {
 		ArrayList<NganhangModel> listTk = new ArrayList<>();
 		if (conn.openConnection()) {
@@ -59,7 +87,7 @@ public class NganhangCtrl {
 				rs = stm.executeQuery();
 				while (rs.next()) {
 					NganhangModel result = new NganhangModel();
-					result.setId(rs.getInt("id"));
+					result.setId(rs.getString("id"));
 					result.setUsername(rs.getString("username"));
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
@@ -67,7 +95,6 @@ public class NganhangCtrl {
 					result.setDiachi(rs.getString("diachi"));
 					result.setSodt(rs.getString("sodt"));
 					result.setTien(rs.getInt("tien"));
-					result.setUserID(rs.getInt("userID"));
 					listTk.add(result);
 				}
 			} catch (SQLException e) {
@@ -91,7 +118,7 @@ public class NganhangCtrl {
 				rs = stm.executeQuery();
 				if (rs.next()) {
 					nganhang = new NganhangModel();
-					nganhang.setId(rs.getInt("id"));
+					nganhang.setId(rs.getString("id"));
 					nganhang.setUsername(username);
 					nganhang.setPassword(password);
 					nganhang.setHoten(rs.getString("hoten"));
@@ -99,7 +126,6 @@ public class NganhangCtrl {
 					nganhang.setDiachi(rs.getString("diachi"));
 					nganhang.setSodt(rs.getString("sodt"));
 					nganhang.setTien(rs.getInt("tien"));
-					nganhang.setUserID(rs.getInt("userID"));
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_nghLogin");
@@ -193,5 +219,4 @@ public class NganhangCtrl {
 		conn.closeConnection();
 		return result;
 	}
-
 }
