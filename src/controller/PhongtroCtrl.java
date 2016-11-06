@@ -539,6 +539,11 @@ public class PhongtroCtrl {
 
 	public int xoaPhongtro(int id) {
 		int result = -999;
+		PhongtroModel pt = layPhongtro(id);
+		if (!pt.getHinhanh().equals("")) {
+			String deletehash = pt.getHinhanh().split("-")[1];
+			xoaHinhanhPhongtro(id, deletehash);
+		}
 		if (conn.openConnection()) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaPhongtro(?)}";
 			try {
@@ -566,7 +571,7 @@ public class PhongtroCtrl {
 			con = (HttpsURLConnection) obj.openConnection();
 
 			con.setRequestMethod("DELETE");
-			con.setRequestProperty("Authorization", "Client-ID f9ea705cdc1e4c9");
+			con.setRequestProperty("Authorization", Constants.IMG_CLIENTID);
 			con.setDoOutput(true);
 			con.connect();
 

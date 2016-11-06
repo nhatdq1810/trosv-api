@@ -22,7 +22,7 @@ public class NganhangCtrl {
 	public NganhangModel layThongtinNganhangTheoId(String id) {
 		NganhangModel result = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".layThongtinNganhangTheoId(?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinNganhangTheoId(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_id", id);
