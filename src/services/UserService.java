@@ -71,8 +71,7 @@ public class UserService {
 		JSONObject obj = new JSONObject();
 		if (result == 0) {
 			obj.put("result", "Username đã có người sử dụng");
-		}
-		else if (result == -2) {
+		} else if (result == -2) {
 			obj.put("result", "Email đã có người sử dụng");
 		} else {
 			return layThongtinUser(model.getUsername());
@@ -88,11 +87,14 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		model.setUsername(username);
 		int result = userCtrl.capnhatUser(model);
-		if (result != -999 && result != 0) {
-			return layThongtinUser(username);
-		}
 		JSONObject obj = new JSONObject();
-		obj.put("result", "fail");
+		if (result == -2) {
+			obj.put("result", "Email đã có người sử dụng");
+		} else if (result != -999) {
+			return layThongtinUser(username);
+		} else {
+			obj.put("result", "fail");
+		}
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}

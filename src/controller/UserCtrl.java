@@ -111,7 +111,7 @@ public class UserCtrl {
 		conn.closeConnection();
 		return result;
 	}
-	
+
 	public UserModel login(String username, String password) {
 		UserModel user = null;
 		if (conn.openConnection()) {
@@ -121,7 +121,7 @@ public class UserCtrl {
 				stm.setString("_username", username);
 				stm.setString("_password", password);
 				rs = stm.executeQuery();
-				if(rs.next()){
+				if (rs.next()) {
 					user = new UserModel();
 					user.setId(rs.getInt("id"));
 					user.setUsername(username);
@@ -187,7 +187,7 @@ public class UserCtrl {
 	public int capnhatUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
@@ -197,7 +197,9 @@ public class UserCtrl {
 				stm.setString("_email", model.getEmail());
 				stm.setString("_skype", model.getSkype());
 				stm.setString("_facebook", model.getFacebook());
-				result = stm.executeUpdate();
+				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
+				stm.executeUpdate();
+				result = stm.getInt("_result");
 
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_capnhatUser");
