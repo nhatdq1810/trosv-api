@@ -114,6 +114,22 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/{username}/password")
+	@POST
+	@Produces("application/json")
+	public Response phuchoiPassword(@PathParam("username") String username) {
+		UserCtrl userCtrl = new UserCtrl();
+		int result = userCtrl.phuchoiPassword(username);
+		JSONObject obj = new JSONObject();
+		if (result != 0 && result != -999) {
+			obj.put("result", "Mật khẩu mới đã được gửi tới email của bạn !");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/{username}/dotincay")
 	@PUT
 	@Produces("application/json")

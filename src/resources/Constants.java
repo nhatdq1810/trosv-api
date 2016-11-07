@@ -10,4 +10,7 @@ public class Constants {
 	public static final String PASSWORD_SQL = "N@025104686/";
 	public static final String IMG_URL = "https://api.imgur.com/3/";
 	public static final String IMG_CLIENTID = "Client-ID f9ea705cdc1e4c9";
+	public static final String GMAIL_USERNAME = "nhatdq1810@gmail.com";
+	public static final String GMAIL_PASSWORD = "nhat025104686/";
+	public static final String RESET_PASSWORD = "l0vetroSV4ever";
 }

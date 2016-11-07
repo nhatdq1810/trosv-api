@@ -3,6 +3,8 @@ package controller;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.Random;
 
 import connectSQL.ConnectServer;
 import model.UserModel;
@@ -171,7 +173,7 @@ public class UserCtrl {
 				stm.setString("_hoten", model.getHoten());
 				stm.setString("_email", model.getEmail());
 				stm.setString("_facebook", model.getFacebook());
-				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
+				stm.registerOutParameter("_result", Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");
 			} catch (SQLException e) {
@@ -197,7 +199,7 @@ public class UserCtrl {
 				stm.setString("_email", model.getEmail());
 				stm.setString("_skype", model.getSkype());
 				stm.setString("_facebook", model.getFacebook());
-				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
+				stm.registerOutParameter("_result", Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");
 
@@ -228,6 +230,53 @@ public class UserCtrl {
 			}
 		}
 		conn.closeConnection();
+		return result;
+	}
+
+	public int phuchoiPassword(String username) {
+		int result = -999;
+		String email = "";
+		String newPassword = "";
+		String noidung = "";
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_phuchoiPassword(?,?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_username", username);
+				stm.registerOutParameter("_result", Types.INTEGER);
+				stm.registerOutParameter("_email", Types.VARCHAR);
+				stm.registerOutParameter("_username_out", Types.VARCHAR);
+				stm.executeUpdate();
+				result = stm.getInt("_result");
+				username = stm.getString("_username_out");
+				email = stm.getString("_email");
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_phuchoiPassword");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		if (result != -999 && result != 0) {
+			StringBuilder strBuilder = new StringBuilder();
+			Random r = new Random();
+			int[] usedIndex = new int[15];
+			while (strBuilder.length() < 14) {
+				int index = (int) (r.nextFloat() * Constants.RESET_PASSWORD.length());
+				if (usedIndex[index] != 1) {
+					usedIndex[index] = 1;
+					strBuilder.append(Constants.RESET_PASSWORD.charAt(index));
+				}
+			}
+			newPassword = strBuilder.toString();
+			noidung = "Chào <strong>" + username + "</strong>," + "<p>Mật khẩu mới của bạn</p>" + "<p><strong> "
+					+ newPassword
+					+ "</strong></p><p> Đăng nhập vào <a href=\"http://localhost:4200/home\">troSV</a> và thay đổi mật khẩu lại ngay bây giờ"
+					+ "</p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+			EmailCtrl emailCtrl = new EmailCtrl();
+			emailCtrl.sendEmail(email, noidung);
+			result = capnhatPassword(username, newPassword);
+		}
 		return result;
 	}
 
@@ -268,5 +317,4 @@ public class UserCtrl {
 		conn.closeConnection();
 		return result;
 	}
-
 }
