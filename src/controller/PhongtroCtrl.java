@@ -349,10 +349,10 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> timkiemPhongtro(int giatien_min, int giatien_max, int tiencoc_min, int tiencoc_max,
 			int dientich_min, int dientich_max, String truong, String nganh, String khoa, String gioitinh, int wifi,
-			int chu) {
+			int chu, int gioihan) {
 		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_timkiemPhongtro(?,?,?,?,?,?,?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_timkiemPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_giatien_min", giatien_min);
@@ -367,6 +367,7 @@ public class PhongtroCtrl {
 				stm.setString("_gioitinh", gioitinh);
 				stm.setInt("_wifi", wifi);
 				stm.setInt("_chu", chu);
+				stm.setInt("_gioihan", gioihan);
 				rs = stm.executeQuery();
 				while (rs.next()) {
 					PhongtroModel model = new PhongtroModel();

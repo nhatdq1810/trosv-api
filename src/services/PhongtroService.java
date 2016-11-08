@@ -109,10 +109,10 @@ public class PhongtroService {
 			@QueryParam("tiencoc_max") int tiencoc_max, @QueryParam("dientich_min") int dientich_min,
 			@QueryParam("dientich_max") int dientich_max, @QueryParam("truong") String truong,
 			@QueryParam("nganh") String nganh, @QueryParam("khoa") String khoa, @QueryParam("gioitinh") String gioitinh,
-			@QueryParam("wifi") int wifi, @QueryParam("chu") int chu) {
+			@QueryParam("wifi") int wifi, @QueryParam("chu") int chu, @QueryParam("gioihan") int gioihan) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(giatien_min, giatien_max, tiencoc_min,
-				tiencoc_max, dientich_min, dientich_max, truong, nganh, khoa, gioitinh, wifi, chu);
+				tiencoc_max, dientich_min, dientich_max, truong, nganh, khoa, gioitinh, wifi, chu, gioihan);
 		if (listPT.size() > 0) {
 			return Response.status(200).entity(listPT).build();
 		}
