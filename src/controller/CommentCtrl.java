@@ -73,6 +73,48 @@ public class CommentCtrl {
 		return listComment;
 	}
 
+	public int layLuotThichComment(int id) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layLuotThichComment(?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_commentID", id);
+				rs = stm.executeQuery();
+				if (rs.next()) {
+					result = rs.getInt("thich");
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layLuotThichComment");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+
+	public ArrayList<Integer> layCommentUserThich(int userID) {
+		ArrayList<Integer> listCmtID = new ArrayList<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentUserThich(?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_userID", userID);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					listCmtID.add(rs.getInt("commentID"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layCommentUserThich");
+				e.printStackTrace();
+				return listCmtID;
+			}
+		}
+		conn.closeConnection();
+		return listCmtID;
+	}
+
 	public int themComment(CommentModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
@@ -115,6 +157,26 @@ public class CommentCtrl {
 		return result;
 	}
 
+	public int thichComment(int id, int userID) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thichComment(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_commentID", id);
+				stm.setInt("_userID", userID);
+				result = stm.executeUpdate();
+
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thichComment");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+
 	public int xoaComment(int id) {
 		int result = -999;
 		if (conn.openConnection()) {
@@ -133,4 +195,22 @@ public class CommentCtrl {
 		return result;
 	}
 
+	public int boThichComment(int id, int userID) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_boThichComment(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_commentID", id);
+				stm.setInt("_userID", userID);
+				result = stm.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_boThichComment");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
 }

@@ -49,6 +49,36 @@ public class CommentService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/{id}/like")
+	@GET
+	@Produces("application/json")
+	public Response layLuotThichComment(@PathParam("id") int id) {
+		CommentCtrl commentCtrl = new CommentCtrl();
+		int result = commentCtrl.layLuotThichComment(id);
+		if (result != -999) {
+			return Response.status(200).entity(result).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/like/user/{userID}")
+	@GET
+	@Produces("application/json")
+	public Response layCommentUserThich(@PathParam("userID") int userID) {
+		CommentCtrl commentCtrl = new CommentCtrl();
+		ArrayList<Integer> result = commentCtrl.layCommentUserThich(userID);
+		if (result.size() > 0) {
+			return Response.status(200).entity(result).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
@@ -80,12 +110,44 @@ public class CommentService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/{id}/like/user/{userID}")
+	@PUT
+	@Produces("application/json")
+	public Response thichComment(@PathParam("id") int id, @PathParam("userID") int userID) {
+		CommentCtrl commentCtrl = new CommentCtrl();
+		int result = commentCtrl.thichComment(id, userID);
+		JSONObject obj = new JSONObject();
+		if (result != -999 && result !=0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/{id}/phongtro/{phongtroID}")
 	@DELETE
 	@Produces("application/json")
 	public Response xoaComment(@PathParam("id") int id) {
 		CommentCtrl commentCtrl = new CommentCtrl();
 		int result = commentCtrl.xoaComment(id);
+		JSONObject obj = new JSONObject();
+		if (result != -999 && result !=0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/{id}/like/user/{userID}")
+	@DELETE
+	@Produces("application/json")
+	public Response boThichComment(@PathParam("id") int id, @PathParam("userID") int userID) {
+		CommentCtrl commentCtrl = new CommentCtrl();
+		int result = commentCtrl.boThichComment(id, userID);
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result !=0) {
 			obj.put("result", "success");

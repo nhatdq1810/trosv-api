@@ -347,6 +347,49 @@ public class PhongtroCtrl {
 		return listPT;
 	}
 
+	public int layLuotThichPhongtro(int id) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layLuotThichPhongtro(?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_phongtroID", id);
+				rs = stm.executeQuery();
+				if (rs.next()) {
+					result = rs.getInt("thich");
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layLuotThichPhongtro");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+
+	public int kiemtraUserThichPhongtro(int id, int userID) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_kiemtraUserThichPhongtro(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_phongtroID", id);
+				stm.setInt("_userID", userID);
+				rs = stm.executeQuery();
+				if(rs.next()){
+					result = rs.getInt("_result");
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_kiemtraUserThichPhongtro");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+	
 	public ArrayList<PhongtroModel> timkiemPhongtro(int giatien_min, int giatien_max, int tiencoc_min, int tiencoc_max,
 			int dientich_min, int dientich_max, String truong, String nganh, String khoa, String gioitinh, int wifi,
 			int chu, int gioihan) {
@@ -565,6 +608,26 @@ public class PhongtroCtrl {
 		return result;
 	}
 
+	public int thichPhongtro(int id, int userID) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thichPhongtro(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_phongtroID", id);
+				stm.setInt("_userID", userID);
+				result = stm.executeUpdate();
+
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thichPhongtro");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+
 	public int xoaPhongtro(int id) {
 		int result = -999;
 		PhongtroModel pt = layPhongtro(id);
@@ -627,4 +690,22 @@ public class PhongtroCtrl {
 		return result;
 	}
 
+	public int boThichPhongtro(int id, int userID) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_boThichPhongtro(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_phongtroID", id);
+				stm.setInt("_userID", userID);
+				result = stm.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_boThichPhongtro");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
 }

@@ -101,6 +101,37 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/{id}/like")
+	@GET
+	@Produces("application/json")
+	public Response layLuotThichPhongtro(@PathParam("id") int id) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.layLuotThichPhongtro(id);
+		if (result != -999) {
+			return Response.status(200).entity(result).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/{id}/like/user/{userID}")
+	@GET
+	@Produces("application/json")
+	public Response kiemtraUserThichPhongtro(@PathParam("id") int id, @PathParam("userID") int userID) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.kiemtraUserThichPhongtro(id, userID);
+		JSONObject obj = new JSONObject();
+		if (result != -999 && result != 0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/timkiem")
 	@GET
 	@Produces("application/json")
@@ -171,6 +202,22 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/{id}/like/user/{userID}")
+	@PUT
+	@Produces("application/json")
+	public Response thichPhongtro(@PathParam("id") int id, @PathParam("userID") int userID) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.thichPhongtro(id, userID);
+		JSONObject obj = new JSONObject();
+		if (result != -999 && result != 0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/{id}/user/{userID}")
 	@DELETE
 	@Produces("application/json")
@@ -193,6 +240,22 @@ public class PhongtroService {
 	public Response xoaHinhanhPhongtro(@PathParam("id") int id, @PathParam("deletehash") String deletehash) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaHinhanhPhongtro(id, deletehash);
+		JSONObject obj = new JSONObject();
+		if (result != -999 && result != 0) {
+			obj.put("result", "success");
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/{id}/like/user/{userID}")
+	@DELETE
+	@Produces("application/json")
+	public Response boThichPhongtro(@PathParam("id") int id, @PathParam("userID") int userID) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.boThichPhongtro(id, userID);
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result != 0) {
 			obj.put("result", "success");

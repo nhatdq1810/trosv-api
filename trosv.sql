@@ -177,13 +177,151 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'nhat','nhat025104686/','nhat1','dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,0),(2,'nhat2','rVleervS04eovt','nhat1','dangquangnhat18101994@gmail.com','4/4 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',2),(3,'nhat3','SrtV0oelv4evre','nhat3','dangquangnhat18101994@gmail.com',NULL,'0123456789',NULL,NULL,0),(4,'nhat4','lreverv4e0VotS','nhat4','dangquangnhat18101994@gmail.com',NULL,'0987654321',NULL,NULL,10),(5,'nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,'https://www.facebook.com/abc',0),(6,'nhatdq','ote4errlv0evVS','DQN','dangquangnhat18101994@gmail.com','abc/123 le duc tho',NULL,NULL,NULL,5),(7,'nhatdq1810','N@025104686/','dqn','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(8,'nhatdq1','N@025104686/','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(9,'nhatdq2','StvroleveVer40','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(10,'f-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','f-dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'g-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','g-nhatdq1810@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,0),(12,'g-nhatdq1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','g-nhatdq1810@gmail.com',NULL,NULL,NULL,NULL,0),(13,'nhatTest','N@025104686/','nhat','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0);
+INSERT INTO `user` VALUES (1,'nhat','nhat025104686/','nhat1','dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,3),(2,'nhat2','rVleervS04eovt','nhat1','dangquangnhat18101994@gmail.com','4/4 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',0),(3,'nhat3','SrtV0oelv4evre','nhat3','dangquangnhat18101994@gmail.com',NULL,'0123456789',NULL,NULL,0),(4,'nhat4','lreverv4e0VotS','nhat4','dangquangnhat18101994@gmail.com',NULL,'0987654321',NULL,NULL,3),(5,'nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,'https://www.facebook.com/abc',2),(6,'nhatdq','ote4errlv0evVS','DQN','dangquangnhat18101994@gmail.com','abc/123 le duc tho',NULL,NULL,NULL,0),(7,'nhatdq1810','N@025104686/','dqn','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(8,'nhatdq1','N@025104686/','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(9,'nhatdq2','StvroleveVer40','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(10,'f-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','f-dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'g-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','g-nhatdq1810@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,0),(12,'g-nhatdq1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','g-nhatdq1810@gmail.com',NULL,NULL,NULL,NULL,0),(13,'nhatTest','N@025104686/','nhat','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_like_comment`
+--
+
+DROP TABLE IF EXISTS `user_like_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_like_comment` (
+  `userID` int(11) NOT NULL,
+  `commentID` int(11) NOT NULL,
+  PRIMARY KEY (`userID`,`commentID`),
+  KEY `fk_user_has_comment_comment1_idx` (`commentID`),
+  KEY `fk_user_has_comment_user1_idx` (`userID`),
+  CONSTRAINT `fk_user_has_comment_comment1` FOREIGN KEY (`commentID`) REFERENCES `comment` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_has_comment_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_like_comment`
+--
+
+LOCK TABLES `user_like_comment` WRITE;
+/*!40000 ALTER TABLE `user_like_comment` DISABLE KEYS */;
+INSERT INTO `user_like_comment` VALUES (5,2),(6,2),(11,2),(1,27),(11,27),(13,27);
+/*!40000 ALTER TABLE `user_like_comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_like_phongtro`
+--
+
+DROP TABLE IF EXISTS `user_like_phongtro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_like_phongtro` (
+  `userID` int(11) NOT NULL,
+  `phongtroID` int(11) NOT NULL,
+  PRIMARY KEY (`userID`,`phongtroID`),
+  KEY `fk_user_has_phongtro_phongtro1_idx` (`phongtroID`),
+  KEY `fk_user_has_phongtro_user1_idx` (`userID`),
+  CONSTRAINT `fk_user_has_phongtro_phongtro1` FOREIGN KEY (`phongtroID`) REFERENCES `phongtro` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `fk_user_has_phongtro_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_like_phongtro`
+--
+
+LOCK TABLES `user_like_phongtro` WRITE;
+/*!40000 ALTER TABLE `user_like_phongtro` DISABLE KEYS */;
+INSERT INTO `user_like_phongtro` VALUES (3,2),(13,2);
+/*!40000 ALTER TABLE `user_like_phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'trosv'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_boThichComment` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_boThichComment`(IN _commentID int, IN _userID int)
+BEGIN
+	DECLARE exit handler for sqlexception
+	  BEGIN
+		-- ERROR
+	  ROLLBACK;
+	END;
+
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+		-- WARNING
+	 ROLLBACK;
+	END;
+    
+    START TRANSACTION;
+	delete from user_like_comment
+    where commentID = _commentID
+    and userID = _userID;
+    
+    select @userID_comment := userID from comment where id = _commentID;
+    
+    update user
+    set dotincay = dotincay - 1
+    where id = @userID_comment;
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_boThichPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_boThichPhongtro`(IN _phongtroID int, IN _userID int)
+BEGIN
+	DECLARE exit handler for sqlexception
+	  BEGIN
+		-- ERROR
+	  ROLLBACK;
+	END;
+
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+		-- WARNING
+	 ROLLBACK;
+	END;
+    
+    START TRANSACTION;
+	delete from user_like_phongtro
+    where phongtroID = _phongtroID
+    and userID = _userID;
+    
+    select @userID_pt := userID from phongtro where id = _phongtroID;
+    
+    update user
+    set dotincay = dotincay - 1
+    where id = @userID_pt;
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `mysp_capnhatComment` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -283,7 +421,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_capnhatPhongtro`(IN _id int, IN _diachi mediumtext, IN _giatien int
 , IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _dientich decimal(10,1), IN _gioitinh varchar(5), IN _truong varchar(45)
@@ -320,7 +458,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_capnhatUser`(IN _username varchar(45), IN _hoten varchar(45)
 , IN _diachi mediumtext
@@ -412,6 +550,27 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_kiemtraUserThichPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_kiemtraUserThichPhongtro`(IN _phongtroID int, IN _userID int)
+BEGIN
+	select count(*) as _result 
+    from user_like_phongtro 
+    where phongtroID = _phongtroID and userID = _userID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `mysp_layCommentPhongtro` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -448,6 +607,27 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layCommentUser`(IN _userID int
 BEGIN
 	select * 
     from comment
+    where userID = _userID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layCommentUserThich` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layCommentUserThich`(IN _userID int)
+BEGIN
+	select commentID
+    from user_like_comment
     where userID = _userID;
 END ;;
 DELIMITER ;
@@ -534,6 +714,48 @@ BEGIN
 	select id into _id
 	from user
 	where username = _username;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layLuotThichComment` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layLuotThichComment`(IN _commentID int)
+BEGIN
+	select count(*) as thich
+    from user_like_comment
+    where commentID = _commentID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layLuotThichPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layLuotThichPhongtro`(IN _phongtroID int)
+BEGIN
+	select count(*) as thich
+    from user_like_phongtro
+    where phongtroID = _phongtroID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -702,7 +924,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layThongtinNganhangTheoId`(IN _id varchar(45))
 BEGIN
@@ -811,7 +1033,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_phuchoiPassword`(IN _username varchar(45), OUT _result int, OUT _email varchar(100), OUT _username_out varchar(45))
 BEGIN
@@ -874,7 +1096,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themPhongtro`(IN _diachi mediumtext, IN _giatien int
 , IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _dientich decimal(10,1), IN _hinhanh varchar(45), IN _gioitinh varchar(5), IN _truong varchar(45)
@@ -914,7 +1136,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themUser`(IN _username varchar(45), IN _password varchar(45)
 , IN _hoten varchar(45), IN _email varchar(45), IN _facebook varchar(100), OUT _result int)
@@ -941,7 +1163,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `mysp_timkiemPhongtro` */;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thichComment` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -950,6 +1172,87 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thichComment`(IN _commentID int, IN _userID int)
+BEGIN
+	DECLARE exit handler for sqlexception
+	  BEGIN
+		-- ERROR
+	  ROLLBACK;
+	END;
+
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+		-- WARNING
+	 ROLLBACK;
+	END;
+    
+    START TRANSACTION;
+	insert into user_like_comment(commentID, userID)
+    values(_commentID, _userID);
+    
+    select @userID_comment := userID from comment where id = _commentID;
+    
+    update user
+    set dotincay = dotincay + 1
+    where id = @userID_comment;
+    COMMIT;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thichPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thichPhongtro`(IN _phongtroID int, IN _userID int)
+BEGIN
+	DECLARE exit handler for sqlexception
+	  BEGIN
+		-- ERROR
+	  ROLLBACK;
+	END;
+
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+		-- WARNING
+	 ROLLBACK;
+	END;
+    
+    START TRANSACTION;
+	insert into user_like_phongtro(phongtroID, userID)
+    values(_phongtroID, _userID);
+    
+    select @userID_pt := userID from phongtro where id = _phongtroID;
+    
+    update user
+    set dotincay = dotincay + 1
+    where id = @userID_pt;
+    COMMIT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_timkiemPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_timkiemPhongtro`(IN _giatien_min int, IN _giatien_max int
 , IN _tiencoc_min int, IN _tiencoc_max int, IN _dientich_min int, IN _dientich_max int, IN _truong varchar(45)
@@ -1056,7 +1359,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_xoaPhongtro`(IN _id int)
 BEGIN
@@ -1103,4 +1406,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-08 22:29:51
+-- Dump completed on 2016-11-10  0:03:50
