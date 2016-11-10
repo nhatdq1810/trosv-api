@@ -33,7 +33,7 @@ CREATE TABLE `comment` (
   KEY `fk_comment_phongtro1_idx` (`phongtroID`),
   CONSTRAINT `fk_comment_phongtro1` FOREIGN KEY (`phongtroID`) REFERENCES `phongtro` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_comment_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (2,'ment1comment1','2016-10-03 00:00:00',1,2),(3,'comment3','2016-10-01 00:00:00',4,2),(4,'comment4','2016-10-02 00:00:00',2,3),(5,'comment5','2016-10-10 00:00:00',1,3),(6,'comment6','2016-10-09 00:00:00',2,7),(13,'comment8','2016-09-09 00:00:00',5,3),(14,'comment9','2016-09-10 20:00:00',2,3),(15,'comment10','2016-10-08 00:00:00',4,7),(16,'comment11','2016-10-09 00:00:00',1,7),(17,'comment12','2016-10-09 00:00:00',5,10),(19,'nhat comment','2016-11-03 23:13:44',1,20),(20,'nhat comment 2','2016-11-03 23:15:20',1,20),(21,'nhat4 commented','2016-11-03 23:22:06',4,20),(22,'nhat4 commented22222','2016-11-03 23:22:12',4,20),(26,'phong tro nay an ninh tot','2016-11-04 00:00:34',4,21),(27,'phong tro gia re, tam dc :D','2016-11-04 00:00:56',4,21),(28,'phòng trọ rộng, nhưng hơi khó tìm','2016-11-06 10:41:58',1,2),(29,'phong tro sach se','2016-11-06 21:43:14',10,15),(30,'phong tro hoi nho','2016-11-06 21:43:49',10,21),(31,'giá quá rẻ :)','2016-11-06 21:44:17',10,22),(32,'giá hơi chua, có thể fix một ít được không','2016-11-06 21:44:57',10,17);
+INSERT INTO `comment` VALUES (2,'ment1comment1','2016-10-03 00:00:00',1,2),(3,'comment3','2016-10-01 00:00:00',4,2),(4,'comment4','2016-10-02 00:00:00',2,3),(5,'comment5','2016-10-10 00:00:00',1,3),(13,'comment8','2016-09-09 00:00:00',5,3),(14,'comment9','2016-09-10 20:00:00',2,3),(17,'comment12','2016-10-09 00:00:00',5,10),(19,'nhat comment','2016-11-03 23:13:44',1,20),(20,'nhat comment 2','2016-11-03 23:15:20',1,20),(21,'nhat4 commented','2016-11-03 23:22:06',4,20),(22,'nhat4 commented22222','2016-11-03 23:22:12',4,20),(26,'phong tro nay an ninh tot','2016-11-04 00:00:34',4,21),(27,'phong tro gia re, tam dc :D','2016-11-04 00:00:56',4,21),(28,'phòng trọ rộng, nhưng hơi khó tìm','2016-11-06 10:41:58',1,2),(29,'phong tro sach se','2016-11-06 21:43:14',10,15),(30,'phong tro hoi nho','2016-11-06 21:43:49',10,21),(31,'giá quá rẻ :)','2016-11-06 21:44:17',10,22),(32,'giá hơi chua, có thể fix một ít được không','2016-11-06 21:44:57',10,17),(34,'Phòng trọ tốt lắm , các bạn mau nhanh chân không hết chỗ :)','2016-11-10 21:30:56',1,6),(35,'test comment mới','2016-11-10 21:00:00',3,6),(36,'test function thichComment moi','2016-11-10 21:46:46',1,6),(37,'test\ntest\ntest\ntest','2016-11-10 21:49:06',1,6),(40,'good (y)','2016-11-10 22:09:48',2,4),(41,'not good\n','2016-11-10 22:13:52',1,4),(42,'sao lại k good bạn','2016-11-10 22:19:42',2,4),(43,'xa trường quá','2016-11-10 22:31:12',2,25);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ CREATE TABLE `giaodich` (
 
 LOCK TABLES `giaodich` WRITE;
 /*!40000 ALTER TABLE `giaodich` DISABLE KEYS */;
-INSERT INTO `giaodich` VALUES ('123786540','98456372','2016-10-03 00:00:00',5000000),('123786540','98456372','2016-10-22 23:30:39',3000000),('255569139','456973822','2016-10-11 18:00:00',1000000),('255569139','98456372','2016-11-06 10:38:51',1500000),('255569139','98456372','2016-11-06 10:41:00',1500000),('456973822','255569139','2016-10-09 18:00:00',550000),('456973822','499800056','2016-10-03 15:00:00',400000),('499800056','255569139','2016-10-22 23:37:36',1500000),('98456372','123786540','2016-09-30 00:00:00',2000000),('98456372','123786540','2016-10-01 00:00:00',2500000),('98456372','123786540','2016-10-10 00:00:00',2000000),('98456372','123786540','2016-10-10 05:00:00',1000000),('98456372','255569139','2016-10-22 23:42:04',1500000),('98456372','255569139','2016-10-23 18:08:40',1500000),('98456372','255569139','2016-11-06 10:25:13',3000000),('98456372','255569139','2016-11-06 10:34:41',3000000),('98456372','456973822','2016-11-06 21:38:22',3000000);
+INSERT INTO `giaodich` VALUES ('123786540','98456372','2016-10-03 00:00:00',5000000),('123786540','98456372','2016-10-22 23:30:39',3000000),('255569139','456973822','2016-10-11 18:00:00',1000000),('255569139','98456372','2016-11-06 10:38:51',1500000),('255569139','98456372','2016-11-06 10:41:00',1500000),('255569139','98456372','2016-11-10 22:32:21',3000000),('456973822','255569139','2016-10-09 18:00:00',550000),('456973822','499800056','2016-10-03 15:00:00',400000),('499800056','255569139','2016-10-22 23:37:36',1500000),('98456372','123786540','2016-09-30 00:00:00',2000000),('98456372','123786540','2016-10-01 00:00:00',2500000),('98456372','123786540','2016-10-10 00:00:00',2000000),('98456372','123786540','2016-10-10 05:00:00',1000000),('98456372','255569139','2016-10-22 23:42:04',1500000),('98456372','255569139','2016-10-23 18:08:40',1500000),('98456372','255569139','2016-11-06 10:25:13',3000000),('98456372','255569139','2016-11-06 10:34:41',3000000),('98456372','456973822','2016-11-06 21:38:22',3000000);
 /*!40000 ALTER TABLE `giaodich` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +102,7 @@ CREATE TABLE `nganhang` (
 
 LOCK TABLES `nganhang` WRITE;
 /*!40000 ALTER TABLE `nganhang` DISABLE KEYS */;
-INSERT INTO `nganhang` VALUES ('123786540','nhat2','123456','nhat2','1234 abc','0123456789','987654321',1000000),('255569139','nhat5','123456','nhat5','1234 aabc','0123456089','987054321',5000000),('456973822','nhat3','123456','nhat1','123 abc','0123456789','123456789',1000000),('499800056','nhat4','123456','nhat4','1234 aqbc','0133456789','982654321',0),('98456372','nhat','123456','nhat1','123 abc','0123456789','123456789',3500000);
+INSERT INTO `nganhang` VALUES ('123786540','nhat2','123456','nhat2','1234 abc','0123456789','987654321',1000000),('255569139','nhat5','123456','nhat5','1234 aabc','0123456089','987054321',2000000),('456973822','nhat3','123456','nhat1','123 abc','0123456789','123456789',1000000),('499800056','nhat4','123456','nhat4','1234 aqbc','0133456789','982654321',0),('98456372','nhat','123456','nhat1','123 abc','0123456789','123456789',6500000);
 /*!40000 ALTER TABLE `nganhang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +136,7 @@ CREATE TABLE `phongtro` (
   KEY `fk_phongtro_nganhang1_idx` (`nganhangID`),
   CONSTRAINT `fk_phongtro_nganhang1` FOREIGN KEY (`nganhangID`) REFERENCES `nganhang` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_phongtro_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +145,7 @@ CREATE TABLE `phongtro` (
 
 LOCK TABLES `phongtro` WRITE;
 /*!40000 ALTER TABLE `phongtro` DISABLE KEYS */;
-INSERT INTO `phongtro` VALUES (2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,'2016-09-30 00:00:00',0,'nam','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012 - 2017',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',2000000,'2016-10-08 00:00:00',2,'nữ','http://i.imgur.com/Q1NKKod.jpg-4jkyPePvFio9qUp',20.0,2000000,'ueh',NULL,NULL,1,1,NULL,6,NULL),(4,'222 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,'2016-09-09 00:00:00',2,'nam','http://i.imgur.com/nTfzYIG.jpg-iTe74TveCVViUmg',25.0,0,'sư phạm kỹ thuật',NULL,'2013 - 2018',1,1,NULL,2,NULL),(5,'333 bạch đằng, phường 1, quận bình thạnh, thành phố ho chi minh',2500000,'2016-09-09 00:00:00',2,'nam','http://i.imgur.com/L1GJjTn.jpg-1FQAi6Z37JrjthV',15.0,2500000,'đh công nghiệp',NULL,NULL,1,1,NULL,2,NULL),(6,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,'2016-10-08 00:00:00',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,0,'huflit',NULL,NULL,1,1,NULL,1,NULL),(7,'125 nguyễn oanh, phường 3, quận gò vấp, thành phố ho chi minh',1000000,'2016-10-01 00:00:00',0,'nữ','http://i.imgur.com/IxhzQem.jpg-M3izFX98me1rK4w',22.0,3000000,NULL,'cntt',NULL,1,1,NULL,2,'255569139'),(8,'12/12 quang trung, phường 8, quận gò vấp, thành phố ho chi minh',3500000,'2016-09-29 00:00:00',1,'nam','http://i.imgur.com/HXzMNM9.jpg-7TZLcCGmeUOzIrt',15.0,0,'ueh',NULL,'2012 - 2017',1,1,NULL,2,NULL),(10,'33 phan văn trị, phường 5, quận gò vấp, thành phố ho chi minh',3000000,'2016-09-20 00:00:00',1,'nữ','http://i.imgur.com/6pt9H1O.png-etkjvPcDiUW9Ugi',25.0,300000,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,'123/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1300000,'2016-10-26 22:50:01',3,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',12.0,3000000,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,'321/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1000000,'2016-10-26 23:00:57',1,'nữ','http://i.imgur.com/3T7PqsT.jpg-J8TPFrRUuU0zOXr',12.0,0,'sư phạm kỹ thuật',NULL,'2014 - 2019',1,1,NULL,1,NULL),(15,'123/223b nguyễn oanh, phường 6, quận gò vấp, thành phố ho chi minh',2500000,'2016-11-05 20:55:31',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',2000000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,'bách khoa','điện tử',NULL,1,0,NULL,11,NULL),(20,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',1500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,1500000,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,'333 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-05 15:43:18',2,'nam','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(24,'590 cách mạng tháng 8, phường 11, quận 3, thành phố hồ chí minh',2500000,'2016-11-06 23:35:59',5,'nam','http://i.imgur.com/vPvUijp.jpg-ADCdKAWgXwjDDRY',14.0,0,NULL,'viễn thông',NULL,1,0,'Có bãi giữ xe riêng miễn phí',12,NULL);
+INSERT INTO `phongtro` VALUES (2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,'2016-09-30 00:00:00',0,'nam','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012 - 2017',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',2000000,'2016-10-08 00:00:00',2,'nữ','http://i.imgur.com/Q1NKKod.jpg-4jkyPePvFio9qUp',20.0,2000000,'ueh',NULL,NULL,1,1,NULL,6,'456973822'),(4,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,2,'123786540'),(6,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,'2016-10-08 00:00:00',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,0,'huflit',NULL,NULL,1,1,NULL,1,NULL),(10,'33 phan văn trị, phường 5, quận gò vấp, thành phố ho chi minh',3000000,'2016-09-20 00:00:00',1,'nữ','http://i.imgur.com/6pt9H1O.png-etkjvPcDiUW9Ugi',25.0,3000000,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,'123/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1300000,'2016-10-26 22:50:01',2,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',12.0,3000000,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,'321/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1000000,'2016-10-26 23:00:57',1,'nữ','http://i.imgur.com/3T7PqsT.jpg-J8TPFrRUuU0zOXr',12.0,0,'sư phạm kỹ thuật',NULL,'2014 - 2019',1,1,NULL,1,NULL),(15,'123/223b nguyễn oanh, phường 6, quận gò vấp, thành phố ho chi minh',2500000,'2016-11-05 20:55:31',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',2000000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,'bách khoa','điện tử',NULL,1,0,NULL,11,NULL),(20,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',1500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,'333 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-05 15:43:18',2,'nam','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(25,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,2,NULL);
 /*!40000 ALTER TABLE `phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'nhat','nhat025104686/','nhat1','dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,3),(2,'nhat2','rVleervS04eovt','nhat1','dangquangnhat18101994@gmail.com','4/4 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',0),(3,'nhat3','SrtV0oelv4evre','nhat3','dangquangnhat18101994@gmail.com',NULL,'0123456789',NULL,NULL,0),(4,'nhat4','lreverv4e0VotS','nhat4','dangquangnhat18101994@gmail.com',NULL,'0987654321',NULL,NULL,3),(5,'nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,'https://www.facebook.com/abc',2),(6,'nhatdq','ote4errlv0evVS','DQN','dangquangnhat18101994@gmail.com','abc/123 le duc tho',NULL,NULL,NULL,0),(7,'nhatdq1810','N@025104686/','dqn','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(8,'nhatdq1','N@025104686/','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(9,'nhatdq2','StvroleveVer40','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(10,'f-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','f-dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'g-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','g-nhatdq1810@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,0),(12,'g-nhatdq1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','g-nhatdq1810@gmail.com',NULL,NULL,NULL,NULL,0),(13,'nhatTest','N@025104686/','nhat','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0);
+INSERT INTO `user` VALUES (1,'nhat','nhat025104686/','nhat1','dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,6),(2,'nhat2','nhat025104686/','nhat2','dangquangnhat18101994@gmail.com','4/444 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',2),(3,'nhat3','SrtV0oelv4evre','nhat3','dangquangnhat18101994@gmail.com',NULL,'0123456789',NULL,NULL,0),(4,'nhat4','lreverv4e0VotS','nhat4','dangquangnhat18101994@gmail.com',NULL,'0987654321',NULL,NULL,5),(5,'nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,'https://www.facebook.com/abc',2),(6,'nhatdq','ote4errlv0evVS','DQN','dangquangnhat18101994@gmail.com','abc/123 le duc tho',NULL,NULL,NULL,0),(7,'nhatdq1810','N@025104686/','dqn','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(8,'nhatdq1','N@025104686/','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(9,'nhatdq2','StvroleveVer40','nhatdq','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0),(10,'f-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','f-dangquangnhat18101994@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'g-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','g-nhatdq1810@gmail.com','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,0),(12,'g-nhatdq1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','g-nhatdq1810@gmail.com',NULL,NULL,NULL,NULL,0),(13,'nhatTest','N@025104686/','nhat','dangquangnhat18101994@gmail.com',NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +205,7 @@ CREATE TABLE `user_like_comment` (
 
 LOCK TABLES `user_like_comment` WRITE;
 /*!40000 ALTER TABLE `user_like_comment` DISABLE KEYS */;
-INSERT INTO `user_like_comment` VALUES (5,2),(6,2),(11,2),(1,27),(11,27),(13,27);
+INSERT INTO `user_like_comment` VALUES (5,2),(6,2),(11,2),(2,19),(2,20),(2,21),(2,22),(1,27),(11,27),(13,27),(2,36);
 /*!40000 ALTER TABLE `user_like_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +233,7 @@ CREATE TABLE `user_like_phongtro` (
 
 LOCK TABLES `user_like_phongtro` WRITE;
 /*!40000 ALTER TABLE `user_like_phongtro` DISABLE KEYS */;
-INSERT INTO `user_like_phongtro` VALUES (3,2),(13,2);
+INSERT INTO `user_like_phongtro` VALUES (3,2),(13,2),(1,4);
 /*!40000 ALTER TABLE `user_like_phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1054,13 +1054,16 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themComment`(IN _noidung longtext, IN _ngay varchar(45)
 , IN _userID int, IN _phongtroID int)
 BEGIN
 	insert into comment(noidung, ngay, userID, phongtroID)
     values (_noidung, _ngay, _userID, _phongtroID);
+    
+    set @last_id = LAST_INSERT_ID();
+    select * from comment where id = @last_id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1359,11 +1362,17 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_xoaPhongtro`(IN _id int)
 BEGIN
+	delete from user_like_comment
+    where commentID in (select id from comment where phongtroID = _id);
+
 	delete from comment
+    where phongtroID = _id;
+    
+	delete from user_like_phongtro
     where phongtroID = _id;
     
 	delete from phongtro
@@ -1406,4 +1415,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10  0:03:50
+-- Dump completed on 2016-11-10 22:47:44

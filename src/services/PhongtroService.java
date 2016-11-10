@@ -225,7 +225,7 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xoaPhongtro(id);
 		JSONObject obj = new JSONObject();
-		if (result != -999 && result != 0) {
+		if (result != -999) {
 			layPhongtroUser(userID);
 		} else {
 			obj.put("result", "fail");

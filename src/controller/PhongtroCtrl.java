@@ -640,7 +640,8 @@ public class PhongtroCtrl {
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_id", id);
-				result = stm.executeUpdate();
+				stm.executeUpdate();
+				result = 1;
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaPhongtro");
 				e.printStackTrace();

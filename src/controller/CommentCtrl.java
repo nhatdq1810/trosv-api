@@ -115,8 +115,8 @@ public class CommentCtrl {
 		return listCmtID;
 	}
 
-	public int themComment(CommentModel model) {
-		int result = -999;
+	public CommentModel themComment(CommentModel model) {
+		CommentModel cmt = null;
 		if (conn.openConnection()) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_themComment(?,?,?,?)}";
 			try {
@@ -125,15 +125,23 @@ public class CommentCtrl {
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_userID", model.getUserID());
 				stm.setInt("_phongtroID", model.getPhongtroID());
-				result = stm.executeUpdate();
+				rs = stm.executeQuery();
+				if(rs.next()) {
+					cmt = new CommentModel();
+					cmt.setId(rs.getInt("id"));
+					cmt.setNgay(rs.getString("ngay"));
+					cmt.setNoidung(rs.getString("noidung"));
+					cmt.setPhongtroID(rs.getInt("phongtroID"));
+					cmt.setUserID(rs.getInt("userID"));
+				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_themComment");
 				e.printStackTrace();
-				return result;
+				return cmt;
 			}
 		}
 		conn.closeConnection();
-		return result;
+		return cmt;
 	}
 
 	public int capnhatComment(CommentModel model) {

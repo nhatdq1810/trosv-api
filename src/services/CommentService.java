@@ -84,9 +84,9 @@ public class CommentService {
 	@Produces("application/json")
 	public Response themComment(CommentModel model) {
 		CommentCtrl commentCtrl = new CommentCtrl();
-		int result = commentCtrl.themComment(model);
-		if (result != -999 && result !=0) {
-			return layCommentPhongtro(model.getPhongtroID());
+		CommentModel result = commentCtrl.themComment(model);
+		if (result != null) {
+			return Response.status(200).entity(result).build();
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
