@@ -6,6 +6,7 @@ import java.util.Date;
 public class GiaodichModel {
 	private String nganhangID_gui;
 	private String nganhangID_nhan;
+	private int phongtroID;
 	private String ngay;
 	private int tien;
 
@@ -28,6 +29,14 @@ public class GiaodichModel {
 
 	public void setNganhangID_nhan(String nganhangID_nhan) {
 		this.nganhangID_nhan = nganhangID_nhan;
+	}
+
+	public int getPhongtroID() {
+		return phongtroID;
+	}
+
+	public void setPhongtroID(int phongtroID) {
+		this.phongtroID = phongtroID;
 	}
 
 	public String getNgay() {

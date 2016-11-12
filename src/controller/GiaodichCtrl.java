@@ -31,6 +31,7 @@ public class GiaodichCtrl {
 					GiaodichModel model = new GiaodichModel();
 					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
+					model.setPhongtroID(rs.getInt("phongtroID"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
@@ -57,6 +58,7 @@ public class GiaodichCtrl {
 					GiaodichModel model = new GiaodichModel();
 					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
+					model.setPhongtroID(rs.getInt("phongtroID"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
@@ -83,6 +85,7 @@ public class GiaodichCtrl {
 					GiaodichModel model = new GiaodichModel();
 					model.setNganhangID_gui(rs.getString("nganhangID_gui"));
 					model.setNganhangID_nhan(rs.getString("nganhangID_nhan"));
+					model.setPhongtroID(rs.getInt("phongtroID"));
 					model.setNgay(rs.getString("ngay"));
 					model.setTien(rs.getInt("tien"));
 					listGiaodich.add(model);
