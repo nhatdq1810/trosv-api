@@ -118,14 +118,17 @@ DROP TABLE IF EXISTS `phongtro`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phongtro` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loaiPhong` int(11) NOT NULL DEFAULT '2',
   `diachi` mediumtext NOT NULL,
   `giatien` int(11) unsigned NOT NULL DEFAULT '0',
+  `giatienTheoNguoi` int(10) unsigned NOT NULL DEFAULT '0',
   `ngaydang` datetime NOT NULL,
   `songuoi` int(11) unsigned NOT NULL DEFAULT '1',
   `gioitinh` varchar(5) NOT NULL DEFAULT 'nam',
   `hinhanh` mediumtext,
   `dientich` decimal(10,1) NOT NULL,
   `tiencoc` int(11) unsigned DEFAULT '0',
+  `tiencocTheoNguoi` int(10) unsigned DEFAULT '0',
   `truong` varchar(45) DEFAULT NULL,
   `nganh` varchar(45) DEFAULT NULL,
   `khoa` varchar(45) DEFAULT NULL,
@@ -139,7 +142,7 @@ CREATE TABLE `phongtro` (
   KEY `fk_phongtro_nganhang1_idx` (`nganhangID`),
   CONSTRAINT `fk_phongtro_nganhang1` FOREIGN KEY (`nganhangID`) REFERENCES `nganhang` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_phongtro_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +151,7 @@ CREATE TABLE `phongtro` (
 
 LOCK TABLES `phongtro` WRITE;
 /*!40000 ALTER TABLE `phongtro` DISABLE KEYS */;
-INSERT INTO `phongtro` VALUES (2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,'2016-09-30 00:00:00',0,'nam','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',2000000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,2000000,'ueh',NULL,NULL,1,1,NULL,6,'456973822'),(4,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,2,'123786540'),(6,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,'2016-11-12 23:03:47',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,2500000,'huflit',NULL,'2013',1,1,NULL,1,'255569139'),(10,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,'2016-11-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,'123/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1300000,'2016-10-26 22:50:01',2,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',12.0,3000000,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,'321/22 lê văn thọ, phường 13, quận gò vấp, thành phố ho chi minh',2000000,'2016-11-11 20:29:25',1,'nữ','http://i.imgur.com/I4ZpIkW.jpg-IyXYTMq6M2Xfy6C',12.0,2000000,'sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,'499800056'),(15,'123/223b nguyễn oanh, phường 6, quận gò vấp, thành phố ho chi minh',2500000,'2016-11-05 20:55:31',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',2000000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,'bách khoa','điện tử',NULL,1,0,NULL,11,NULL),(20,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',1500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,'333 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,'2016-11-05 15:43:18',2,'nam','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(25,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,2,NULL),(26,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,NULL,NULL,NULL,1,0,NULL,11,'456973822');
+INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,0,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,2000000,'ueh',NULL,NULL,1,1,NULL,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,2,'123786540'),(6,2,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-12 23:03:47',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,2500000,0,'huflit',NULL,'2013',1,1,NULL,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-11-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,0,'123/22b lê văn thọ, phường 16, quận gò vấp, thành phố ho chi minh',1300000,0,'2016-10-26 22:50:01',2,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',12.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,2,'321/22 lê văn thọ, phường 13, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-11 20:29:25',1,'nữ','http://i.imgur.com/I4ZpIkW.jpg-IyXYTMq6M2Xfy6C',12.0,2000000,0,'sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,'499800056'),(15,0,'189 nguyễn oanh, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-11-13 22:44:25',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,0,'333 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,0,'2016-11-05 15:43:18',2,'nam','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,11,'456973822');
 /*!40000 ALTER TABLE `phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,10 +427,10 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_capnhatPhongtro`(IN _id int, IN _diachi mediumtext, IN _giatien int
-, IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _dientich decimal(10,1), IN _gioitinh varchar(5), IN _truong varchar(45)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_capnhatPhongtro`(IN _id int, IN _loaiPhong int, IN _diachi mediumtext, IN _giatien int, IN _giatienTheoNguoi int
+, IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _tiencocTheoNguoi int, IN _dientich decimal(10,1), IN _gioitinh varchar(5), IN _truong varchar(45)
 , IN _nganh varchar(45), IN _khoa varchar(45), IN _wifi int, IN _chu int
 , IN _ghichu mediumtext, IN _nganhangID varchar(45))
 BEGIN
@@ -443,8 +446,8 @@ BEGIN
     end if;
 
 	update phongtro
-    set diachi = _diachi, giatien = _giatien, ngaydang = _ngaydang, songuoi = _songuoi
-    , tiencoc = _tiencoc, dientich = _dientich, gioitinh = _gioitinh, truong = _truong, nganh = _nganh, khoa = _khoa
+    set loaiPhong = _loaiPhong, diachi = _diachi, giatien = _giatien, giatienTheoNguoi = _giatienTheoNguoi, ngaydang = _ngaydang, songuoi = _songuoi
+    , tiencoc = _tiencoc, tiencocTheoNguoi = _tiencocTheoNguoi, dientich = _dientich, gioitinh = _gioitinh, truong = _truong, nganh = _nganh, khoa = _khoa
     , wifi = _wifi, chu = _chu, ghichu = _ghichu, nganhangID = _nganhangID 
     where id = _id;
 END ;;
@@ -520,7 +523,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_chuyenTien`(IN _id_gui varchar(45), IN _id_nhan varchar(45), IN _ngay varchar(45), IN _tien int, IN _phongtroID int, OUT _result int)
 BEGIN
@@ -529,8 +532,8 @@ BEGIN
 	select @compare := _tien <= (select tien from nganhang where id = _id_gui);
 	
     if @compare = 1 then
-		insert into giaodich
-        values (_id_gui, _id_nhan, _ngay, _tien);
+		insert into giaodich(nganhangID_gui, nganhangID_nhan, phongtroID, ngay, tien)
+        values (_id_gui, _id_nhan, _phongtroID, _ngay, _tien);
         
         update nganhang
         set tien = tien - _tien
@@ -1110,10 +1113,10 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themPhongtro`(IN _diachi mediumtext, IN _giatien int
-, IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _dientich decimal(10,1), IN _hinhanh varchar(45), IN _gioitinh varchar(5), IN _truong varchar(45)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themPhongtro`(IN _loaiPhong int, IN _diachi mediumtext, IN _giatien int, IN _giatienTheoNguoi int
+, IN _ngaydang varchar(45), IN _songuoi int, IN _tiencoc int, IN _tiencocTheoNguoi int, IN _dientich decimal(10,1), IN _hinhanh varchar(45), IN _gioitinh varchar(5), IN _truong varchar(45)
 , IN _nganh varchar(45), IN _khoa varchar(45), IN _wifi int, IN _chu int
 , IN _ghichu mediumtext, IN _userID int, IN _nganhangID varchar(45), OUT _id int)
 BEGIN
@@ -1130,9 +1133,9 @@ BEGIN
     if _nganhangID = '' then set _nganhangID = NULL;
     end if;
 
-	insert into phongtro(diachi, giatien, ngaydang, songuoi, tiencoc, dientich, hinhanh, gioitinh, truong, nganh, khoa
+	insert into phongtro(loaiPhong, diachi, giatien, giatienTheoNguoi, ngaydang, songuoi, tiencoc, tiencocTheoNguoi, dientich, hinhanh, gioitinh, truong, nganh, khoa
     , wifi, chu, ghichu, userID, nganhangID)
-    values (_diachi, _giatien, _ngaydang, _songuoi, _tiencoc, _dientich, _hinhanh, _gioitinh, _truong, _nganh, _khoa
+    values (_loaiPhong, _diachi, _giatien, _giatienTheoNguoi, _ngaydang, _songuoi, _tiencoc, _tiencocTheoNguoi, _dientich, _hinhanh, _gioitinh, _truong, _nganh, _khoa
     , _wifi, _chu, _ghichu, _userID, _nganhangID);
     
     set _id = LAST_INSERT_ID();
@@ -1269,14 +1272,14 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_timkiemPhongtro`(IN _giatien_min int, IN _giatien_max int
-, IN _tiencoc_min int, IN _tiencoc_max int, IN _dientich_min int, IN _dientich_max int, IN _truong varchar(45)
-, IN _nganh varchar(45), IN _khoa varchar(45), IN _gioitinh varchar(5), IN _wifi int, IN _chu int, IN _gioihan int)
+, IN _giatienTheoNguoi_min int, IN _giatienTheoNguoi_max int, IN _dientich_min int, IN _dientich_max int, IN _truong varchar(45)
+, IN _nganh varchar(45), IN _khoa varchar(45), IN _gioitinh varchar(5), IN _wifi int, IN _chu int, IN _gioihan int, IN _loaiPhong int, IN _diachi mediumtext)
 BEGIN
 	if _giatien_max = 5000000 then
 		set _giatien_max = (select max(giatien) from phongtro);
 	end if;
-	if _tiencoc_max = 5000000 then
-		set _tiencoc_max = (select max(tiencoc) from phongtro);
+	if _giatienTheoNguoi_max = 5000000 then
+		set _giatienTheoNguoi_max = (select max(giatienTheoNguoi) from phongtro);
 	end if;
     
     if _dientich_max = 20 then
@@ -1285,12 +1288,14 @@ BEGIN
     
 	select *
     from phongtro
-    where giatien >= _giatien_min 
+    where loaiPhong = _loaiPhong 
+    and giatien >= _giatien_min 
     and giatien <= _giatien_max
-    and tiencoc >= _tiencoc_min 
-    and tiencoc <= _tiencoc_max
+    and giatienTheoNguoi >= _giatienTheoNguoi_min 
+    and giatienTheoNguoi <= _giatienTheoNguoi_max
     and dientich >= _dientich_min 
     and dientich <= _dientich_max
+    and (diachi like concat('%',_diachi,'%') or _diachi = '')
     and (truong like concat('%',_truong,'%') or _truong = '')
     and (nganh like concat('%',_nganh,'%') or _nganh = '')
     and (khoa like concat('%',_khoa,'%') or _khoa = '')
@@ -1427,4 +1432,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 23:19:12
+-- Dump completed on 2016-11-13 23:26:10

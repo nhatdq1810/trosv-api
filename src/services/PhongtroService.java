@@ -135,15 +135,18 @@ public class PhongtroService {
 	@Path("/timkiem")
 	@GET
 	@Produces("application/json")
-	public Response timkiemPhongtro(@QueryParam("giatien_min") int giatien_min,
-			@QueryParam("giatien_max") int giatien_max, @QueryParam("tiencoc_min") int tiencoc_min,
-			@QueryParam("tiencoc_max") int tiencoc_max, @QueryParam("dientich_min") int dientich_min,
+	public Response timkiemPhongtro(@QueryParam("loaiPhong") int loaiPhong,
+			@QueryParam("giatienTheoNguoi_min") int giatienTheoNguoi_min,
+			@QueryParam("giatienTheoNguoi_max") int giatienTheoNguoi_max, @QueryParam("giatien_min") int giatien_min,
+			@QueryParam("giatien_max") int giatien_max, @QueryParam("dientich_min") int dientich_min,
 			@QueryParam("dientich_max") int dientich_max, @QueryParam("truong") String truong,
 			@QueryParam("nganh") String nganh, @QueryParam("khoa") String khoa, @QueryParam("gioitinh") String gioitinh,
-			@QueryParam("wifi") int wifi, @QueryParam("chu") int chu, @QueryParam("gioihan") int gioihan) {
+			@QueryParam("wifi") int wifi, @QueryParam("chu") int chu, @QueryParam("gioihan") int gioihan,
+			@QueryParam("diachi") String diachi) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(giatien_min, giatien_max, tiencoc_min,
-				tiencoc_max, dientich_min, dientich_max, truong, nganh, khoa, gioitinh, wifi, chu, gioihan);
+		ArrayList<PhongtroModel> listPT = phongtroCtrl.timkiemPhongtro(loaiPhong, giatien_min, giatien_max,
+				giatienTheoNguoi_min, giatienTheoNguoi_max, dientich_min, dientich_max, truong, nganh, khoa, gioitinh,
+				wifi, chu, gioihan, diachi);
 		if (listPT.size() > 0) {
 			return Response.status(200).entity(listPT).build();
 		}

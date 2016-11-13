@@ -5,12 +5,15 @@ import java.util.Date;
 
 public class PhongtroModel {
 	private int id;
+	private int loaiPhong;
 	private String diachi;
 	private int giatien;
+	private int giatienTheoNguoi;
 	private String ngaydang;
 	private int songuoi;
 	private String hinhanh;
 	private int tiencoc;
+	private int tiencocTheoNguoi;
 	private float dientich;
 	private String gioitinh;
 	private String truong;
@@ -33,6 +36,22 @@ public class PhongtroModel {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getLoaiPhong() {
+		return loaiPhong;
+	}
+
+	public void setLoaiPhong(int loaiPhong) {
+		this.loaiPhong = loaiPhong;
+	}
+
+	public int getGiatienTheoNguoi() {
+		return giatienTheoNguoi;
+	}
+
+	public void setGiatienTheoNguoi(int giatienTheoNguoi) {
+		this.giatienTheoNguoi = giatienTheoNguoi;
 	}
 
 	public String getDiachi() {
@@ -85,6 +104,14 @@ public class PhongtroModel {
 
 	public float getDientich() {
 		return dientich;
+	}
+
+	public int getTiencocTheoNguoi() {
+		return tiencocTheoNguoi;
+	}
+
+	public void setTiencocTheoNguoi(int tiencocTheoNguoi) {
+		this.tiencocTheoNguoi = tiencocTheoNguoi;
 	}
 
 	public void setDientich(float dientich) {
