@@ -63,12 +63,12 @@ public class GiaodichService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/phongtro/{phongtroID}/chuyenTien")
+	@Path("/phongtro/chuyenTien")
 	@POST
 	@Produces("application/json")
-	public Response chuyenTien(@PathParam("phongtroID") int phongtroID, GiaodichModel model) {
+	public Response chuyenTien(GiaodichModel model) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
-		int result = giaodichCtrl.chuyenTien(phongtroID, model);
+		int result = giaodichCtrl.chuyenTien(model);
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result != 0) {
 			obj.put("result", "success");

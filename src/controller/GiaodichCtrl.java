@@ -100,7 +100,7 @@ public class GiaodichCtrl {
 		return listGiaodich;
 	}
 
-	public int chuyenTien(int phongtroID, GiaodichModel model) {
+	public int chuyenTien(GiaodichModel model) {
 		int result = -999;
 		if (conn.openConnection()) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?)}";
@@ -110,7 +110,7 @@ public class GiaodichCtrl {
 				stm.setString("_id_nhan", model.getNganhangID_nhan());
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
-				stm.setInt("_phongtroID", phongtroID);
+				stm.setInt("_phongtroID", model.getPhongtroID());
 				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");
