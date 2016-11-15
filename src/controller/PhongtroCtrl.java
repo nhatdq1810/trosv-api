@@ -405,6 +405,42 @@ public class PhongtroCtrl {
 		return result;
 	}
 
+	public ArrayList<PhongtroModel> layDulieuTimkiemPhongtro() {
+		ArrayList<PhongtroModel> listPT = new ArrayList<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layDulieuTimkiemPhongtro()}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					PhongtroModel model = new PhongtroModel();
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setNganh("");
+					} else {
+						model.setNganh(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setKhoa("");
+					} else {
+						model.setKhoa(rs.getString("khoa"));
+					}
+					listPT.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layDulieuTimkiemPhongtro");
+				e.printStackTrace();
+				return listPT;
+			}
+		}
+		conn.closeConnection();
+		return listPT;
+	}
+	
 	public ArrayList<PhongtroModel> timkiemPhongtro(int loaiPhong, int giatien_min, int giatien_max,
 			int giatienTheoNguoi_min, int giatienTheoNguoi_max, int dientich_min, int dientich_max, String truong,
 			String nganh, String khoa, String gioitinh, int wifi, int chu, int gioihan, String diachi) {

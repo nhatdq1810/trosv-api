@@ -142,7 +142,7 @@ CREATE TABLE `phongtro` (
   KEY `fk_phongtro_nganhang1_idx` (`nganhangID`),
   CONSTRAINT `fk_phongtro_nganhang1` FOREIGN KEY (`nganhangID`) REFERENCES `nganhang` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_phongtro_user1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +151,7 @@ CREATE TABLE `phongtro` (
 
 LOCK TABLES `phongtro` WRITE;
 /*!40000 ALTER TABLE `phongtro` DISABLE KEYS */;
-INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,0,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,1,1,NULL,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,2,'123786540'),(6,2,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-12 23:03:47',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,2500000,0,'huflit',NULL,'2013',1,1,NULL,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-11-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,1000000,'2016-11-14 21:22:40',5,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',17.0,0,1000000,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,2,'321/22 lê văn thọ, phường 13, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-11 20:29:25',1,'nữ','http://i.imgur.com/I4ZpIkW.jpg-IyXYTMq6M2Xfy6C',12.0,2000000,0,'sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,'499800056'),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-11-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,0,'333 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,0,'2016-11-05 15:43:18',2,'nam','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,1,1,NULL,12,'499800056');
+INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,0,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố ho chi minh',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,1,1,NULL,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố ho chi minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,'2012',1,0,NULL,2,'123786540'),(6,2,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-12 23:03:47',2,'nam','http://i.imgur.com/drjfYcs.jpg-zY38A8jZlhy8DgB',20.0,2500000,0,'huflit',NULL,'2013',1,1,NULL,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-11-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,1000000,'2016-11-14 21:22:40',5,'nữ','http://i.imgur.com/CLrmkGq.jpg-SGE0QLqKRx0o7Ac',17.0,0,1000000,NULL,NULL,NULL,1,0,NULL,1,'98456372'),(14,2,'321/22 lê văn thọ, phường 13, quận gò vấp, thành phố ho chi minh',2000000,500000,'2016-11-11 20:29:25',1,'nữ','http://i.imgur.com/I4ZpIkW.jpg-IyXYTMq6M2Xfy6C',12.0,2000000,0,'sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,'499800056'),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-11-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-10-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,4,'98456372'),(22,0,'368 nguyễn oanh, phường 17, quận gò vấp, thành phố hồ chí minh',1500000,0,'2016-11-15 22:12:11',2,'','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,1,1,NULL,12,'499800056'),(28,1,'11 hẻm 11, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1000000,'2016-11-15 22:03:46',5,'','http://i.imgur.com/tfybyTe.jpg-cO3vtMbxmbfTuSX',5.0,0,500000,'đại học công nghiệp thực phẩm',NULL,NULL,1,0,NULL,7,'123786540'),(29,0,'68/10 xuân hồng, phường 4, quận tân bình, thành phố hồ chí minh',3000000,0,'2016-11-15 22:07:10',5,'nam','http://i.imgur.com/E9tbTo3.jpg-iqHTnphaq9sm0hD',12.0,0,0,NULL,NULL,NULL,1,0,NULL,7,NULL),(30,1,'69/1b lê văn thọ, phường 8, quận gò vấp, thành phố hồ chí minh',0,1500000,'2016-11-15 22:14:01',4,'','http://i.imgur.com/whRkCDe.jpg-KP3q2wrkqg5qYH0',11.0,0,0,NULL,NULL,NULL,1,1,NULL,10,NULL);
 /*!40000 ALTER TABLE `phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -651,6 +651,27 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layDulieuTimkiemPhongtro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layDulieuTimkiemPhongtro`()
+BEGIN
+	select truong, nganh, khoa
+    from phongtro
+    where !isnull(truong) or !isnull(nganh) or !isnull(khoa);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `mysp_layGiaodich` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1138,8 +1159,6 @@ BEGIN
     end if;
     if _ghichu = '' then set _ghichu = NULL;
     end if;
-    if _gioitinh = '' then set _gioitinh = 'nam';
-    end if;
     if _nganhangID = '' then set _nganhangID = NULL;
     end if;
 
@@ -1456,4 +1475,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-14 23:55:59
+-- Dump completed on 2016-11-16  0:03:57

@@ -132,6 +132,21 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/dulieu/timkiem")
+	@GET
+	@Produces("application/json")
+	public Response layDulieuTimkiemPhongtro() {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> listPT = phongtroCtrl.layDulieuTimkiemPhongtro();
+		if (listPT.size() > 0) {
+			return Response.status(200).entity(listPT).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/timkiem")
 	@GET
 	@Produces("application/json")
