@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.HashMap;
 import java.util.Random;
 
 import connectSQL.ConnectServer;
@@ -112,6 +113,50 @@ public class UserCtrl {
 		}
 		conn.closeConnection();
 		return result;
+	}
+
+	public HashMap<Integer, Integer> thongkeUserTheoThang(String thangBD, String thangKT) {
+		HashMap<Integer, Integer> list = new HashMap<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserTheoThang(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_thangBD", thangBD);
+				stm.setString("_thangKT", thangKT);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					list.put(rs.getInt("thangDK"), rs.getInt("countUser"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserTheoThang");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+
+	public HashMap<String, Integer> thongkeUserMoiTrenTongso(String thang) {
+		HashMap<String, Integer> list = new HashMap<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserMoiTrenTongso(?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_thang", thang);
+				stm.registerOutParameter("_slUserMoi", Types.INTEGER);
+				stm.registerOutParameter("_slUserCu", Types.INTEGER);
+				stm.executeQuery();
+				list.put("new", stm.getInt("_slUserMoi"));
+				list.put("old", stm.getInt("_slUserCu"));
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserMoiTrenTongso");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
 	}
 
 	public UserModel login(String username, String password) {

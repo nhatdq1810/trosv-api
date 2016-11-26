@@ -11,6 +11,7 @@ public class UserModel {
 	private String skype;
 	private String facebook;
 	private int dotincay;
+	private String ngayDK;
 
 	public int getId() {
 		return id;
@@ -90,5 +91,13 @@ public class UserModel {
 
 	public void setDotincay(int dotincay) {
 		this.dotincay = dotincay;
+	}
+
+	public String getNgayDK() {
+		return ngayDK;
+	}
+
+	public void setNgayDK(String ngayDK) {
+		this.ngayDK = ngayDK;
 	}
 }

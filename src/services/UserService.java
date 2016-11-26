@@ -1,5 +1,7 @@
 package services;
 
+import java.util.HashMap;
+
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -39,6 +41,36 @@ public class UserService {
 		UserCtrl userCtrl = new UserCtrl();
 		UserModel model = userCtrl.layThongtinUserID(id);
 		if (model != null) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkeUserTheoThang/{thangBD}/{thangKT}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserTheoThang(@PathParam("thangBD") String thangBD, @PathParam("thangKT") String thangKT) {
+		UserCtrl userCtrl = new UserCtrl();
+		HashMap<Integer, Integer> model = userCtrl.thongkeUserTheoThang(thangBD, thangKT);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/thongkeUserMoiTrenTongso/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserMoiTrenTongso(@PathParam("thang") String thang) {
+		UserCtrl userCtrl = new UserCtrl();
+		HashMap<String, Integer> model = userCtrl.thongkeUserMoiTrenTongso(thang);
+		if (model != null && model.size() > 0) {
 			return Response.status(200).entity(model).build();
 		}
 		JSONObject obj = new JSONObject();
@@ -129,7 +161,7 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/{username}/dotincay")
 	@PUT
 	@Produces("application/json")

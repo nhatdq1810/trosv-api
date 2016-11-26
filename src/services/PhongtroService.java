@@ -2,6 +2,7 @@ package services;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -146,7 +147,7 @@ public class PhongtroService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/timkiem")
 	@GET
 	@Produces("application/json")
@@ -164,6 +165,36 @@ public class PhongtroService {
 				wifi, chu, gioihan, diachi);
 		if (listPT.size() > 0) {
 			return Response.status(200).entity(listPT).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkePTTheoThang/{thangBD}/{thangKT}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoThang(@PathParam("thangBD") String thangBD, @PathParam("thangKT") String thangKT) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		HashMap<Integer, Integer> model = ptCtrl.thongkePTTheoThang(thangBD, thangKT);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkePTMoiTrenTongso/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTMoiTrenTongso(@PathParam("thang") String thang) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		HashMap<String, Integer> model = ptCtrl.thongkePTMoiTrenTongso(thang);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");

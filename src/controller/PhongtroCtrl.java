@@ -9,7 +9,9 @@ import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -51,6 +53,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
 
 					if (rs.getString("hinhanh") == null) {
@@ -118,6 +122,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
 
 					if (rs.getString("hinhanh") == null) {
@@ -184,6 +190,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(userID);
 
 					if (rs.getString("hinhanh") == null) {
@@ -251,6 +259,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
 
 					if (rs.getString("hinhanh") == null) {
@@ -318,6 +328,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
 
 					if (rs.getString("hinhanh") == null) {
@@ -440,7 +452,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return listPT;
 	}
-	
+
 	public ArrayList<PhongtroModel> timkiemPhongtro(int loaiPhong, int giatien_min, int giatien_max,
 			int giatienTheoNguoi_min, int giatienTheoNguoi_max, int dientich_min, int dientich_max, String truong,
 			String nganh, String khoa, String gioitinh, int wifi, int chu, int gioihan, String diachi) {
@@ -522,6 +534,50 @@ public class PhongtroCtrl {
 		}
 		conn.closeConnection();
 		return listPhong;
+	}
+
+	public HashMap<Integer, Integer> thongkePTTheoThang(String thangBD, String thangKT) {
+		HashMap<Integer, Integer> list = new HashMap<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoThang(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_thangBD", thangBD);
+				stm.setString("_thangKT", thangKT);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					list.put(rs.getInt("thangDK"), rs.getInt("countPT"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoThang");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+	
+	public HashMap<String, Integer> thongkePTMoiTrenTongso(String thang) {
+		HashMap<String, Integer> list = new HashMap<>();
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTMoiTrenTongso(?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_thang", thang);
+				stm.registerOutParameter("_slPTMoi", Types.INTEGER);
+				stm.registerOutParameter("_slPTCu", Types.INTEGER);
+				stm.executeQuery();
+				list.put("new", stm.getInt("_slPTMoi"));
+				list.put("old", stm.getInt("_slPTCu"));
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTMoiTrenTongso");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
 	}
 
 	public int themPhongtro(PhongtroModel model) {
