@@ -31,12 +31,13 @@ public class PhongtroCtrl {
 		conn = new ConnectServer();
 	}
 
-	public ArrayList<PhongtroModel> layTatcaPhongtro() {
-		ArrayList<PhongtroModel> listPT = new ArrayList<>();
+	public ArrayList<PhongtroModel> layTatcaPhongtro(int duyet) {
+		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro()}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_duyet", duyet);
 				rs = stm.executeQuery();
 				while (rs.next()) {
 					PhongtroModel model = new PhongtroModel();
@@ -87,16 +88,16 @@ public class PhongtroCtrl {
 					} else {
 						model.setNganhangID(rs.getString("nganhangID"));
 					}
-					listPT.add(model);
+					listPhong.add(model);
 				}
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro");
 				e.printStackTrace();
-				return listPT;
+				return listPhong;
 			}
 		}
 		conn.closeConnection();
-		return listPT;
+		return listPhong;
 	}
 
 	public PhongtroModel layPhongtro(int id) {
@@ -492,6 +493,8 @@ public class PhongtroCtrl {
 					model.setGioitinh(rs.getString("gioitinh"));
 					model.setWifi(rs.getInt("wifi"));
 					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
 
 					if (rs.getString("hinhanh") == null) {
@@ -557,7 +560,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return list;
 	}
-	
+
 	public HashMap<String, Integer> thongkePTMoiTrenTongso(String thang) {
 		HashMap<String, Integer> list = new HashMap<>();
 		if (conn.openConnection()) {
@@ -746,6 +749,46 @@ public class PhongtroCtrl {
 		return result;
 	}
 
+	public int xetduyetPT(int id, int duyet) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_xetduyetPT(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_id", id);
+				stm.setInt("_duyet", duyet);
+				result = stm.executeUpdate();
+
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xetduyetPT");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+	
+	public int anPT(int id, int an) {
+		int result = -999;
+		if (conn.openConnection()) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_anPT(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_id", id);
+				stm.setInt("_an", an);
+				result = stm.executeUpdate();
+
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_anPT");
+				e.printStackTrace();
+				return result;
+			}
+		}
+		conn.closeConnection();
+		return result;
+	}
+	
 	public int xoaPhongtro(int id) {
 		int result = -999;
 		PhongtroModel pt = layPhongtro(id);

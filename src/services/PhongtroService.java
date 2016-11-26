@@ -27,14 +27,14 @@ import model.PhongtroModel;
 @Path("/phongtro")
 public class PhongtroService {
 
-	@Path("/tatca")
+	@Path("/tatca/{duyet}")
 	@GET
 	@Produces("application/json")
-	public Response layTatcaPhongtro() {
+	public Response layTatcaPhongtro(@PathParam("duyet") int duyet) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		ArrayList<PhongtroModel> listPT = phongtroCtrl.layTatcaPhongtro();
-		if (listPT.size() > 0) {
-			return Response.status(200).entity(listPT).build();
+		ArrayList<PhongtroModel> model = phongtroCtrl.layTatcaPhongtro(duyet);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
@@ -263,6 +263,36 @@ public class PhongtroService {
 		} else {
 			obj.put("result", "fail");
 		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/{id}/duyet/{duyet}")
+	@PUT
+	@Produces("application/json")
+	public Response xetduyetPT(@PathParam("id") int id, @PathParam("duyet") int duyet) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.xetduyetPT(id, duyet);
+		if (result != -999 && result != 0) {
+			return layPhongtro(id);
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/{id}/an/{an}")
+	@PUT
+	@Produces("application/json")
+	public Response anPT(@PathParam("id") int id, @PathParam("an") int an) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.anPT(id, an);
+		if (result != -999 && result != 0) {
+			return layPhongtro(id);
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
