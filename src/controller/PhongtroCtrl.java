@@ -755,7 +755,7 @@ public class PhongtroCtrl {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xetduyetPT(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_id", id);
+				stm.setInt("_phongtroID", id);
 				stm.setInt("_duyet", duyet);
 				result = stm.executeUpdate();
 
@@ -775,7 +775,7 @@ public class PhongtroCtrl {
 			query = "{call " + Constants.NAME_SQL + ".mysp_anPT(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_id", id);
+				stm.setInt("_phongtroID", id);
 				stm.setInt("_an", an);
 				result = stm.executeUpdate();
 

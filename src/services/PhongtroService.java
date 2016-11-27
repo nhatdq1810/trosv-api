@@ -274,7 +274,11 @@ public class PhongtroService {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		int result = phongtroCtrl.xetduyetPT(id, duyet);
 		if (result != -999 && result != 0) {
-			return layPhongtro(id);
+			if(duyet == 1){
+				return layTatcaPhongtro(0);
+			} else {
+				return layTatcaPhongtro(1);
+			}
 		}
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
