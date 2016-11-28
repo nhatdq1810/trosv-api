@@ -266,15 +266,15 @@ public class PhongtroService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
-	@Path("/{id}/duyet/{duyet}")
+
+	@Path("/duyet/{duyet}")
 	@PUT
 	@Produces("application/json")
-	public Response xetduyetPT(@PathParam("id") int id, @PathParam("duyet") int duyet) {
+	public Response xetduyetPT(int[] listID, @PathParam("duyet") int duyet) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		int result = phongtroCtrl.xetduyetPT(id, duyet);
+		int result = phongtroCtrl.xetduyetPT(listID, duyet);
 		if (result != -999 && result != 0) {
-			if(duyet == 1){
+			if (duyet == 1) {
 				return layTatcaPhongtro(0);
 			} else {
 				return layTatcaPhongtro(1);
@@ -285,7 +285,7 @@ public class PhongtroService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/{id}/an/{an}")
 	@PUT
 	@Produces("application/json")

@@ -749,26 +749,28 @@ public class PhongtroCtrl {
 		return result;
 	}
 
-	public int xetduyetPT(int id, int duyet) {
+	public int xetduyetPT(int[] listID, int duyet) {
 		int result = -999;
 		if (conn.openConnection()) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xetduyetPT(?,?)}";
-			try {
-				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_phongtroID", id);
-				stm.setInt("_duyet", duyet);
-				result = stm.executeUpdate();
+			for (int i = 0; i < listID.length; i++) {
+				try {
+					stm = conn.getConn().prepareCall(query);
+					stm.setInt("_phongtroID", listID[i]);
+					stm.setInt("_duyet", duyet);
+					result = stm.executeUpdate();
 
-			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xetduyetPT");
-				e.printStackTrace();
-				return result;
+				} catch (SQLException e) {
+					System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xetduyetPT");
+					e.printStackTrace();
+					return result;
+				}
 			}
 		}
 		conn.closeConnection();
 		return result;
 	}
-	
+
 	public int anPT(int id, int an) {
 		int result = -999;
 		if (conn.openConnection()) {
@@ -788,7 +790,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return result;
 	}
-	
+
 	public int xoaPhongtro(int id) {
 		int result = -999;
 		PhongtroModel pt = layPhongtro(id);
