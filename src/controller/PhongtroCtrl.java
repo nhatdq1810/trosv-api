@@ -47,7 +47,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -116,7 +116,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -184,7 +184,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -253,7 +253,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -322,7 +322,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -486,7 +486,7 @@ public class PhongtroCtrl {
 					model.setGiatien(rs.getInt("giatien"));
 					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
 					model.setNgaydang(rs.getString("ngaydang"));
-					model.setSonguoi(rs.getInt("songuoi"));
+					model.setSophong(rs.getInt("sophong"));
 					model.setTiencoc(rs.getInt("tiencoc"));
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
@@ -594,7 +594,7 @@ public class PhongtroCtrl {
 				stm.setInt("_giatien", model.getGiatien());
 				stm.setInt("_giatienTheoNguoi", model.getGiatienTheoNguoi());
 				stm.setString("_ngaydang", model.getNgaydang());
-				stm.setInt("_songuoi", model.getSonguoi());
+				stm.setInt("_sophong", model.getSophong());
 				stm.setInt("_tiencoc", model.getTiencoc());
 				stm.setInt("_tiencocTheoNguoi", model.getTiencocTheoNguoi());
 				stm.setFloat("_dientich", model.getDientich());
@@ -705,7 +705,7 @@ public class PhongtroCtrl {
 				stm.setInt("_giatien", model.getGiatien());
 				stm.setInt("_giatienTheoNguoi", model.getGiatienTheoNguoi());
 				stm.setString("_ngaydang", model.getNgaydang());
-				stm.setInt("_songuoi", model.getSonguoi());
+				stm.setInt("_sophong", model.getSophong());
 				stm.setInt("_tiencoc", model.getTiencoc());
 				stm.setInt("_tiencocTheoNguoi", model.getTiencocTheoNguoi());
 				stm.setFloat("_dientich", model.getDientich());

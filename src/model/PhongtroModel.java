@@ -10,7 +10,7 @@ public class PhongtroModel {
 	private int giatien;
 	private int giatienTheoNguoi;
 	private String ngaydang;
-	private int songuoi;
+	private int sophong;
 	private String hinhanh;
 	private int tiencoc;
 	private int tiencocTheoNguoi;
@@ -80,12 +80,12 @@ public class PhongtroModel {
 		this.ngaydang = ngaydang;
 	}
 
-	public int getSonguoi() {
-		return songuoi;
+	public int getSophong() {
+		return sophong;
 	}
 
-	public void setSonguoi(int songuoi) {
-		this.songuoi = songuoi;
+	public void setSophong(int sophong) {
+		this.sophong = sophong;
 	}
 
 	public String getHinhanh() {
