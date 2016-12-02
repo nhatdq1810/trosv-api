@@ -2,6 +2,7 @@ package model;
 
 public class UserModel {
 	private int id;
+	private String loai;
 	private String username;
 	private String password;
 	private String hoten;
@@ -19,6 +20,14 @@ public class UserModel {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getLoai() {
+		return loai;
+	}
+
+	public void setLoai(String loai) {
+		this.loai = loai;
 	}
 
 	public String getUsername() {

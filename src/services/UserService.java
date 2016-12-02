@@ -63,7 +63,7 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/thongkeUserMoiTrenTongso/{thang}")
 	@GET
 	@Produces("application/json")
@@ -79,12 +79,12 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/login")
+	@Path("/login/{type}")
 	@POST
 	@Produces("application/json")
-	public Response login(UserModel model) {
+	public Response login(UserModel model, @PathParam("loai") String loai) {
 		UserCtrl userCtrl = new UserCtrl();
-		UserModel user = userCtrl.login(model.getUsername(), model.getPassword());
+		UserModel user = userCtrl.login(model.getUsername(), model.getPassword(), loai);
 		if (user != null) {
 			return Response.status(200).entity(user).build();
 		}

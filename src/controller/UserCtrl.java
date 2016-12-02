@@ -32,6 +32,7 @@ public class UserCtrl {
 				if (rs.next()) {
 					result = new UserModel();
 					result.setId(rs.getInt("id"));
+					result.setLoai(rs.getString("loai"));
 					result.setUsername(username);
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
@@ -79,6 +80,7 @@ public class UserCtrl {
 				if (rs.next()) {
 					result = new UserModel();
 					result.setId(id);
+					result.setLoai(rs.getString("loai"));
 					result.setUsername(rs.getString("username"));
 					result.setPassword(rs.getString("password"));
 					result.setHoten(rs.getString("hoten"));
@@ -159,18 +161,20 @@ public class UserCtrl {
 		return list;
 	}
 
-	public UserModel login(String username, String password) {
+	public UserModel login(String username, String password, String loai) {
 		UserModel user = null;
 		if (conn.openConnection()) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_login(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_login(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", username);
 				stm.setString("_password", password);
+				stm.setString("_loai", loai);
 				rs = stm.executeQuery();
 				if (rs.next()) {
 					user = new UserModel();
 					user.setId(rs.getInt("id"));
+					user.setLoai(rs.getString("loai"));
 					user.setUsername(username);
 					user.setPassword(rs.getString("password"));
 					user.setHoten(rs.getString("hoten"));
