@@ -166,6 +166,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loai` varchar(45) NOT NULL DEFAULT 'user',
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `hoten` varchar(45) NOT NULL,
@@ -177,7 +178,7 @@ CREATE TABLE `user` (
   `facebook` varchar(100) DEFAULT NULL,
   `dotincay` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +187,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'nhat','N@025104686/','nhat1','dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,9),(2,'nhat2','nhat025104686/','nhat2','dangquangnhat18101994@gmail.com','2016-07-29 00:00:00','4/444 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',3),(3,'nhat3','SrtV0oelv4evre','nhat3','dangquangnhat18101994@gmail.com','2016-08-01 00:00:00',NULL,'0123456789',NULL,NULL,2),(4,'nhat4','lreverv4e0VotS','nhat4','dangquangnhat18101994@gmail.com','2016-06-29 00:00:00',NULL,'0987654321',NULL,NULL,5),(5,'nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat18101994@gmail.com','2016-06-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/abc',3),(6,'nhatdq','ote4errlv0evVS','DQN','dangquangnhat18101994@gmail.com','2016-07-29 00:00:00','abc/123 le duc tho',NULL,NULL,NULL,1),(7,'nhatdq1810','N@025104686/','dqn','dangquangnhat18101994@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(8,'nhatdq1','N@025104686/','nhatdq','dangquangnhat18101994@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(9,'nhatdq2','StvroleveVer40','nhatdq','dangquangnhat18101994@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(10,'fb-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','fb-dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'gg-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','gg-nhatdq1810@gmail.com','2016-09-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm','0987654333',NULL,NULL,0),(12,'gg-nhatdq1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','gg-nhatdq1810@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(13,'nhatTest','N@025104686/','nhat','dangquangnhat18101994@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(14,'nhat1810','nhat025104686/','d.q.n','dqn@dqn.com','2016-10-29 00:00:00',NULL,'0123987456',NULL,NULL,0);
+INSERT INTO `user` VALUES (1,'user','nhat','N@025104686/','nhat1','dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,9),(2,'user','nhat2','nhat025104686/','nhat2','dangquangnhat2@gmail.com','2016-07-29 00:00:00','4/444 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',3),(3,'user','nhat3','SrtV0oelv4evre','nhat3','dangquangnhat3@gmail.com','2016-08-01 00:00:00',NULL,'0123456789',NULL,NULL,2),(4,'user','nhat4','lreverv4e0VotS','nhat4','dangquangnhat4@gmail.com','2016-06-29 00:00:00',NULL,'0987654321',NULL,NULL,5),(5,'user','nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat5@gmail.com','2016-06-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/abc',3),(6,'user','nhatdq','ote4errlv0evVS','DQN','dangquangnhat6@gmail.com','2016-07-29 00:00:00','abc/123 le duc tho',NULL,NULL,NULL,1),(7,'user','nhatdq1810','N@025104686/','dqn','dangquangnhat7@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(8,'user','nhatdq1','N@025104686/','nhatdq','dangquangnhat8@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(9,'user','nhatdq2','StvroleveVer40','nhatdq','dangquangnhat9@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(10,'user','fb-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','fb-dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'user','gg-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','gg-dangquangnhat18101994@gmail.com','2016-09-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm','0987654333',NULL,NULL,0),(12,'user','gg-dqn1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','gg-dqn1810@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(13,'user','nhatTest','N@025104686/','nhat','dangquangnhat10@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(14,'user','nhat1810','nhat025104686/','d.q.n','dqn@dqn.com','2016-10-29 00:00:00',NULL,'0123987456',NULL,NULL,0),(15,'admin','admin','N@025104686/','DQN','nhatdq1810@gmail.com','2016-06-01 00:00:00',NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1064,14 +1065,16 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_login`(IN _username varchar(45), IN _password varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_login`(IN _username varchar(45), IN _password varchar(45)
+, IN _loai varchar(45))
 BEGIN
 	select *
     from user
     where username = _username
-    and password = _password;
+    and password = _password
+    and loai = _loai;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1614,4 +1617,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-02  0:04:20
+-- Dump completed on 2016-12-03  0:41:05
