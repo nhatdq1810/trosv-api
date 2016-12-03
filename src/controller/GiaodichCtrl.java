@@ -21,7 +21,7 @@ public class GiaodichCtrl {
 	
 	public ArrayList<GiaodichModel> layGiaodich(int nganhangID) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layGiaodich")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodich(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -48,7 +48,7 @@ public class GiaodichCtrl {
 
 	public ArrayList<GiaodichModel> layGiaodichGui(int nganhangID_gui) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layGiaodichGui")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodichGui(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -75,7 +75,7 @@ public class GiaodichCtrl {
 	
 	public ArrayList<GiaodichModel> layGiaodichNhan(int nganhangID_nhan) {
 		ArrayList<GiaodichModel> listGiaodich = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layGiaodichNhan")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layGiaodichNhan(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -102,7 +102,7 @@ public class GiaodichCtrl {
 
 	public int chuyenTien(GiaodichModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("chuyenTien")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -126,7 +126,7 @@ public class GiaodichCtrl {
 	
 	public int xoaGiaodich(int nganhangID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("xoaGiaodich")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaGiaodich(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);

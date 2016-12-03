@@ -23,7 +23,7 @@ public class UserCtrl {
 
 	public UserModel layThongtinUser(String username) {
 		UserModel result = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layThongtinUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -71,7 +71,7 @@ public class UserCtrl {
 
 	public UserModel layThongtinUserID(int id) {
 		UserModel result = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layThongtinUserID")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinUserID(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -119,7 +119,7 @@ public class UserCtrl {
 
 	public HashMap<Integer, Integer> thongkeUserTheoThang(String thangBD, String thangKT) {
 		HashMap<Integer, Integer> list = new HashMap<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("thongkeUserTheoThang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserTheoThang(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -141,7 +141,7 @@ public class UserCtrl {
 
 	public HashMap<String, Integer> thongkeUserMoiTrenTongso(String thang) {
 		HashMap<String, Integer> list = new HashMap<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("thongkeUserMoiTrenTongso")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserMoiTrenTongso(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -163,7 +163,7 @@ public class UserCtrl {
 
 	public UserModel login(String username, String password, String loai) {
 		UserModel user = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("login")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_login(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -213,7 +213,7 @@ public class UserCtrl {
 
 	public int themUser(UserModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("themUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -237,7 +237,7 @@ public class UserCtrl {
 
 	public int capnhatUser(UserModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatUser(?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -264,7 +264,7 @@ public class UserCtrl {
 
 	public int capnhatPassword(String username, String password) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatPassword")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPassword(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -287,7 +287,7 @@ public class UserCtrl {
 		String email = "";
 		String newPassword = "";
 		String noidung = "";
-		if (conn.openConnection()) {
+		if (conn.openConnection("phuchoiPassword")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_phuchoiPassword(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -331,7 +331,7 @@ public class UserCtrl {
 
 	public int capnhatDotincay(String username, int dotincay) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatDotincay")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatDotincay(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -351,7 +351,7 @@ public class UserCtrl {
 
 	public int xoaUser(String username) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("xoaUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);

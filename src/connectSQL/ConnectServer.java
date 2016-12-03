@@ -17,7 +17,7 @@ public class ConnectServer {
 		this.conn = conn;
 	}
 
-	public boolean openConnection() {
+	public boolean openConnection(String funcName) {
 		conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -36,6 +36,7 @@ public class ConnectServer {
 		}
 
 		if (conn != null) {
+			System.out.println(funcName);
 			System.out.println("Connect successfully");
 		} else {
 			System.out.println("Connect failed");

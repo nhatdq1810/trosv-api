@@ -21,7 +21,7 @@ public class NganhangCtrl {
 
 	public NganhangModel layThongtinNganhangTheoId(String id) {
 		NganhangModel result = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layThongtinNganhangTheoId")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinNganhangTheoId(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -47,10 +47,10 @@ public class NganhangCtrl {
 		conn.closeConnection();
 		return result;
 	}
-	
+
 	public NganhangModel layThongtinNganhang(String username) {
 		NganhangModel result = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layThongtinNganhang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layThongtinNganhang(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -79,7 +79,7 @@ public class NganhangCtrl {
 
 	public ArrayList<NganhangModel> layTkNghTheoUserID(int userID) {
 		ArrayList<NganhangModel> listTk = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layTkNghTheoUserID")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layTkNghTheoUserID(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -109,7 +109,7 @@ public class NganhangCtrl {
 
 	public NganhangModel login(String username, String password) {
 		NganhangModel nganhang = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("login")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_nghLogin(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -139,7 +139,7 @@ public class NganhangCtrl {
 
 	public int themNganhang(NganhangModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("themNganhang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_themNganhang(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -160,7 +160,7 @@ public class NganhangCtrl {
 
 	public int capnhatNganhang(NganhangModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatNganhang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatNganhang(?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -184,7 +184,7 @@ public class NganhangCtrl {
 
 	public int capnhatPassword(String username, String password) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatPassword")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPassword(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -204,7 +204,7 @@ public class NganhangCtrl {
 
 	public int xoaNganhang(String username) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("xoaNganhang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaNganhang(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);

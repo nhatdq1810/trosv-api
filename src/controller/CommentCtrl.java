@@ -21,7 +21,7 @@ public class CommentCtrl {
 
 	public ArrayList<CommentModel> layCommentPhongtro(int phongtroID) {
 		ArrayList<CommentModel> listComment = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layCommentPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -48,7 +48,7 @@ public class CommentCtrl {
 
 	public ArrayList<CommentModel> layCommentUser(int userID) {
 		ArrayList<CommentModel> listComment = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layCommentUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -75,7 +75,7 @@ public class CommentCtrl {
 
 	public int layLuotThichComment(int id) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layLuotThichComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layLuotThichComment(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -96,7 +96,7 @@ public class CommentCtrl {
 
 	public ArrayList<Integer> layCommentUserThich(int userID) {
 		ArrayList<Integer> listCmtID = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layCommentUserThich")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layCommentUserThich(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -117,7 +117,7 @@ public class CommentCtrl {
 
 	public CommentModel themComment(CommentModel model) {
 		CommentModel cmt = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("themComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_themComment(?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -146,7 +146,7 @@ public class CommentCtrl {
 
 	public int capnhatComment(CommentModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatComment(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -167,7 +167,7 @@ public class CommentCtrl {
 
 	public int thichComment(int id, int userID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("thichComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thichComment(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -187,7 +187,7 @@ public class CommentCtrl {
 
 	public int xoaComment(int id) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("xoaComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaComment(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -205,7 +205,7 @@ public class CommentCtrl {
 
 	public int boThichComment(int id, int userID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("boThichComment")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_boThichComment(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);

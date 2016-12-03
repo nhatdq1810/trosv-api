@@ -33,7 +33,7 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> layTatcaPhongtro(int duyet) {
 		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layTatcaPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layTatcaPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -102,7 +102,7 @@ public class PhongtroCtrl {
 
 	public PhongtroModel layPhongtro(int id) {
 		PhongtroModel model = null;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -170,7 +170,7 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> layPhongtroUser(int userID) {
 		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layPhongtroUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layPhongtroUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -239,7 +239,7 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> layPhongtroMoi(int gioihan) {
 		ArrayList<PhongtroModel> listPT = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layPhongtroMoi")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layPhongtroMoi(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -308,7 +308,7 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> layPhongtroHot(int gioihan) {
 		ArrayList<PhongtroModel> listPT = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layPhongtroHot")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layPhongtroHot(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -377,7 +377,7 @@ public class PhongtroCtrl {
 
 	public int layLuotThichPhongtro(int id) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("layLuotThichPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layLuotThichPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -398,7 +398,7 @@ public class PhongtroCtrl {
 
 	public int kiemtraUserThichPhongtro(int id, int userID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("kiemtraUserThichPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_kiemtraUserThichPhongtro(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -420,7 +420,7 @@ public class PhongtroCtrl {
 
 	public ArrayList<PhongtroModel> layDulieuTimkiemPhongtro() {
 		ArrayList<PhongtroModel> listPT = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("layDulieuTimkiemPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_layDulieuTimkiemPhongtro()}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -458,7 +458,7 @@ public class PhongtroCtrl {
 			int giatienTheoNguoi_min, int giatienTheoNguoi_max, int dientich_min, int dientich_max, String truong,
 			String nganh, String khoa, String gioitinh, int wifi, int chu, int gioihan, String diachi) {
 		ArrayList<PhongtroModel> listPhong = new ArrayList<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("timkiemPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_timkiemPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -541,7 +541,7 @@ public class PhongtroCtrl {
 
 	public HashMap<Integer, Integer> thongkePTTheoThang(String thangBD, String thangKT) {
 		HashMap<Integer, Integer> list = new HashMap<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("thongkePTTheoThang")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoThang(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -563,7 +563,7 @@ public class PhongtroCtrl {
 
 	public HashMap<String, Integer> thongkePTMoiTrenTongso(String thang) {
 		HashMap<String, Integer> list = new HashMap<>();
-		if (conn.openConnection()) {
+		if (conn.openConnection("thongkePTMoiTrenTongso")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTMoiTrenTongso(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -585,7 +585,7 @@ public class PhongtroCtrl {
 
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("themPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_themPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -674,7 +674,7 @@ public class PhongtroCtrl {
 				xoaHinhanhPhongtro(id, deletehash);
 			}
 		}
-		if (conn.openConnection() && success) {
+		if (conn.openConnection("capnhatHinhanhPhongtro") && success) {
 
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatHinhanhPhongtro(?,?)}";
 			try {
@@ -695,7 +695,7 @@ public class PhongtroCtrl {
 
 	public int capnhatPhongtro(PhongtroModel model) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("capnhatPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_capnhatPhongtro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -731,7 +731,7 @@ public class PhongtroCtrl {
 
 	public int thichPhongtro(int id, int userID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("thichPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_thichPhongtro(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -751,7 +751,7 @@ public class PhongtroCtrl {
 
 	public int xetduyetPT(int[] listID, int duyet) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("xetduyetPT")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xetduyetPT(?,?)}";
 			for (int i = 0; i < listID.length; i++) {
 				try {
@@ -773,7 +773,7 @@ public class PhongtroCtrl {
 
 	public int anPT(int id, int an) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("anPT")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_anPT(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -798,7 +798,7 @@ public class PhongtroCtrl {
 			String deletehash = pt.getHinhanh().split("-")[1];
 			xoaHinhanhPhongtro(id, deletehash);
 		}
-		if (conn.openConnection()) {
+		if (conn.openConnection("xoaPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -838,7 +838,7 @@ public class PhongtroCtrl {
 			return result;
 		}
 
-		if (conn.openConnection() && responseCode == 200) {
+		if (conn.openConnection("xoaHinhanhPhongtro") && responseCode == 200) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaHinhanhPhongtro(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
@@ -856,7 +856,7 @@ public class PhongtroCtrl {
 
 	public int boThichPhongtro(int id, int userID) {
 		int result = -999;
-		if (conn.openConnection()) {
+		if (conn.openConnection("boThichPhongtro")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_boThichPhongtro(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);

@@ -79,7 +79,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/login/{type}")
+	@Path("/login/{loai}")
 	@POST
 	@Produces("application/json")
 	public Response login(UserModel model, @PathParam("loai") String loai) {

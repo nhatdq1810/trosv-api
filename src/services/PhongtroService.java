@@ -33,7 +33,7 @@ public class PhongtroService {
 	public Response layTatcaPhongtro(@PathParam("duyet") int duyet) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
 		ArrayList<PhongtroModel> model = phongtroCtrl.layTatcaPhongtro(duyet);
-		if (model != null && model.size() > 0) {
+		if (model != null) {
 			return Response.status(200).entity(model).build();
 		}
 		JSONObject obj = new JSONObject();
@@ -310,6 +310,22 @@ public class PhongtroService {
 		JSONObject obj = new JSONObject();
 		if (result != -999) {
 			layPhongtroUser(userID);
+		} else {
+			obj.put("result", "fail");
+		}
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/{id}/admin")
+	@DELETE
+	@Produces("application/json")
+	public Response adminXoaPhongtro(@PathParam("id") int id, @QueryParam("duyet") int duyet) {
+		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
+		int result = phongtroCtrl.xoaPhongtro(id);
+		JSONObject obj = new JSONObject();
+		if (result != -999) {
+			layTatcaPhongtro(duyet);
 		} else {
 			obj.put("result", "fail");
 		}
