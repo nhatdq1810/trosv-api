@@ -202,6 +202,52 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/thongkePTTheoDiachi/{loai}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoDiachi(@PathParam("loai") String loai, @QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		HashMap<String, Integer> model = ptCtrl.thongkePTTheoDiachi(loai, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkePTTheoInput/{column}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoInput(@PathParam("column") String column, @QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		HashMap<String, Integer> model = ptCtrl.thongkePTTheoInput(column, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkePTTheoTienVaDientich/{column}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoTienVaDientich(@PathParam("column") String column,
+			@QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		HashMap<Integer, Integer> model = ptCtrl.thongkePTTheoTienVaDientich(column, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/moi")
 	@POST
 	@Produces("application/json")

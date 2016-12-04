@@ -583,6 +583,80 @@ public class PhongtroCtrl {
 		return list;
 	}
 
+	public HashMap<String, Integer> thongkePTTheoDiachi(String loai, int gioihan) {
+		HashMap<String, Integer> list = new HashMap<>();
+		if (conn.openConnection("thongkePTTheoDiachi")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoDiachi(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				if (loai.equals("phường")) {
+					stm.setInt("_loai", 2);
+				}
+				if (loai.equals("quận")) {
+					stm.setInt("_loai", 3);
+				}
+				if (loai.equals("tp")) {
+					stm.setInt("_loai", 4);
+				}
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					list.put(rs.getString("value"), rs.getInt("counter"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoDiachi");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+
+	public HashMap<String, Integer> thongkePTTheoInput(String column, int gioihan) {
+		HashMap<String, Integer> list = new HashMap<>();
+		if (conn.openConnection("thongkePTTheoInput")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoInput(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_column", column);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					list.put(rs.getString(column), rs.getInt("counter"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoInput");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+
+	public HashMap<Integer, Integer> thongkePTTheoTienVaDientich(String column, int gioihan) {
+		HashMap<Integer, Integer> list = new HashMap<>();
+		if (conn.openConnection("thongkePTTheoTienVaDientich")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoTienVaDientich(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setString("_column", column);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					list.put(rs.getInt(column), rs.getInt("counter"));
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoTienVaDientich");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection("themPhongtro")) {

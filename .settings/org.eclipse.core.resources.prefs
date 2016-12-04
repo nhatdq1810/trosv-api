@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/controller/EmailCtrl.java=UTF-8
+encoding//src/controller/PhongtroCtrl.java=UTF-8
 encoding//src/controller/SMSCtrl.java=UTF-8
 encoding//src/controller/UserCtrl.java=UTF-8
 encoding//src/services/SMSservice.java=UTF-8
