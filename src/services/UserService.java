@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.ws.rs.DELETE;
@@ -18,6 +19,21 @@ import model.UserModel;
 
 @Path("/user")
 public class UserService {
+
+	@Path("/tatca")
+	@GET
+	@Produces("application/json")
+	public Response layTatcaUser() {
+		UserCtrl userCtrl = new UserCtrl();
+		ArrayList<UserModel> model = userCtrl.layTatcaUser();
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
 
 	@Path("/{username}")
 	@GET
@@ -177,12 +193,12 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{username}")
+	@Path("/{id}")
 	@DELETE
 	@Produces("application/json")
-	public Response xoaUser(@PathParam("username") String username) {
+	public Response xoaUser(@PathParam("id") int id) {
 		UserCtrl userCtrl = new UserCtrl();
-		int result = userCtrl.xoaUser(username);
+		int result = userCtrl.xoaUser(id);
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result != 0) {
 			obj.put("result", "success");

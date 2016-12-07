@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -19,6 +20,55 @@ public class UserCtrl {
 
 	public UserCtrl() {
 		conn = new ConnectServer();
+	}
+
+	public ArrayList<UserModel> layTatcaUser() {
+		ArrayList<UserModel> listUser = new ArrayList<>();
+		if (conn.openConnection("layTatcaUser")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layTatcaUser()}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					UserModel result = new UserModel();
+					result.setId(rs.getInt("id"));
+					result.setLoai(rs.getString("loai"));
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setEmail(rs.getString("email"));
+					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
+					if (rs.getString("diachi") == null) {
+						result.setDiachi("");
+					} else {
+						result.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						result.setSodt("");
+					} else {
+						result.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						result.setSkype("");
+					} else {
+						result.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						result.setFacebook("");
+					} else {
+						result.setFacebook(rs.getString("facebook"));
+					}
+					listUser.add(result);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layTatcaUser");
+				e.printStackTrace();
+				return listUser;
+			}
+		}
+		conn.closeConnection();
+		return listUser;
 	}
 
 	public UserModel layThongtinUser(String username) {
@@ -38,6 +88,7 @@ public class UserCtrl {
 					result.setHoten(rs.getString("hoten"));
 					result.setEmail(rs.getString("email"));
 					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
 					if (rs.getString("diachi") == null) {
 						result.setDiachi("");
 					} else {
@@ -86,6 +137,7 @@ public class UserCtrl {
 					result.setHoten(rs.getString("hoten"));
 					result.setEmail(rs.getString("email"));
 					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
 					if (rs.getString("diachi") == null) {
 						result.setDiachi("");
 					} else {
@@ -180,6 +232,7 @@ public class UserCtrl {
 					user.setHoten(rs.getString("hoten"));
 					user.setEmail(rs.getString("email"));
 					user.setDotincay(rs.getInt("dotincay"));
+					user.setNgayDK(rs.getString("ngayDK"));
 					if (rs.getString("diachi") == null) {
 						user.setDiachi("");
 					} else {
@@ -214,7 +267,7 @@ public class UserCtrl {
 	public int themUser(UserModel model) {
 		int result = -999;
 		if (conn.openConnection("themUser")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_themUser(?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_username", model.getUsername());
@@ -222,6 +275,7 @@ public class UserCtrl {
 				stm.setString("_hoten", model.getHoten());
 				stm.setString("_email", model.getEmail());
 				stm.setString("_facebook", model.getFacebook());
+				stm.setString("_ngayDK", model.getNgayDK());
 				stm.registerOutParameter("_result", Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");
@@ -349,14 +403,15 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int xoaUser(String username) {
+	public int xoaUser(int id) {
 		int result = -999;
 		if (conn.openConnection("xoaUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaUser(?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
-				stm.setString("_username", username);
-				result = stm.executeUpdate();
+				stm.setInt("_id", id);
+				stm.executeUpdate();
+				result = 1;
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaUser");
 				e.printStackTrace();
