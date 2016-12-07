@@ -583,12 +583,15 @@ public class PhongtroCtrl {
 		return list;
 	}
 
-	public HashMap<String, Integer> thongkePTTheoDiachi(String loai, int gioihan) {
+	public HashMap<String, Integer> thongkePTTheoDiachi(String loai, int thang, int gioihan) {
 		HashMap<String, Integer> list = new HashMap<>();
 		if (conn.openConnection("thongkePTTheoDiachi")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoDiachi(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoDiachi(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
+				if (loai.equals("đường")) {
+					stm.setInt("_loai", 1);
+				}
 				if (loai.equals("phường")) {
 					stm.setInt("_loai", 2);
 				}
@@ -598,6 +601,7 @@ public class PhongtroCtrl {
 				if (loai.equals("tp")) {
 					stm.setInt("_loai", 4);
 				}
+				stm.setInt("_thang", thang);
 				stm.setInt("_limit", gioihan);
 				rs = stm.executeQuery();
 				while (rs.next()) {
@@ -613,13 +617,14 @@ public class PhongtroCtrl {
 		return list;
 	}
 
-	public HashMap<String, Integer> thongkePTTheoInput(String column, int gioihan) {
+	public HashMap<String, Integer> thongkePTTheoInput(String column, int thang, int gioihan) {
 		HashMap<String, Integer> list = new HashMap<>();
 		if (conn.openConnection("thongkePTTheoInput")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoInput(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoInput(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_column", column);
+				stm.setInt("_thang", thang);
 				stm.setInt("_limit", gioihan);
 				rs = stm.executeQuery();
 				while (rs.next()) {
@@ -635,13 +640,14 @@ public class PhongtroCtrl {
 		return list;
 	}
 
-	public HashMap<Integer, Integer> thongkePTTheoTienVaDientich(String column, int gioihan) {
+	public HashMap<Integer, Integer> thongkePTTheoTienVaDientich(String column, int thang, int gioihan) {
 		HashMap<Integer, Integer> list = new HashMap<>();
 		if (conn.openConnection("thongkePTTheoTienVaDientich")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoTienVaDientich(?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoTienVaDientich(?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_column", column);
+				stm.setInt("_thang", thang);
 				stm.setInt("_limit", gioihan);
 				rs = stm.executeQuery();
 				while (rs.next()) {
