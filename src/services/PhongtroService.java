@@ -250,6 +250,36 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/thongkePTTheoLike/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoLike(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> model = ptCtrl.thongkePTTheoLike(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkePTTheoComment/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkePTTheoComment(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		ArrayList<PhongtroModel> model = ptCtrl.thongkePTTheoComment(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/moi")
 	@POST
 	@Produces("application/json")

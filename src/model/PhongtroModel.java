@@ -26,6 +26,7 @@ public class PhongtroModel {
 	private String nganhangID;
 	private int duyet;
 	private int an;
+	private int thich;
 
 	public PhongtroModel() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -207,4 +208,13 @@ public class PhongtroModel {
 	public void setAn(int an) {
 		this.an = an;
 	}
+
+	public int getThich() {
+		return thich;
+	}
+
+	public void setThich(int thich) {
+		this.thich = thich;
+	}
+
 }

@@ -663,6 +663,148 @@ public class PhongtroCtrl {
 		return list;
 	}
 
+	public ArrayList<PhongtroModel> thongkePTTheoLike(int thang, int gioihan) {
+		ArrayList<PhongtroModel> list = new ArrayList<>();
+		if (conn.openConnection("thongkePTTheoLike")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoLike(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					PhongtroModel model = new PhongtroModel();
+					model.setId(rs.getInt("id"));
+					model.setLoaiPhong(rs.getInt("loaiPhong"));
+					model.setDiachi(rs.getString("diachi"));
+					model.setGiatien(rs.getInt("giatien"));
+					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
+					model.setNgaydang(rs.getString("ngaydang"));
+					model.setSophong(rs.getInt("sophong"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
+					model.setDientich(rs.getFloat("dientich"));
+					model.setGioitinh(rs.getString("gioitinh"));
+					model.setWifi(rs.getInt("wifi"));
+					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
+					model.setUserID(rs.getInt("userID"));
+					model.setThich(rs.getInt("counter"));
+
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setNganh("");
+					} else {
+						model.setNganh(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setKhoa("");
+					} else {
+						model.setKhoa(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setGhichu("");
+					} else {
+						model.setGhichu(rs.getString("ghichu"));
+					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
+					list.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoLike");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+	
+	public ArrayList<PhongtroModel> thongkePTTheoComment(int thang, int gioihan) {
+		ArrayList<PhongtroModel> list = new ArrayList<>();
+		if (conn.openConnection("thongkePTTheoComment")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkePTTheoComment(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					PhongtroModel model = new PhongtroModel();
+					model.setId(rs.getInt("id"));
+					model.setLoaiPhong(rs.getInt("loaiPhong"));
+					model.setDiachi(rs.getString("diachi"));
+					model.setGiatien(rs.getInt("giatien"));
+					model.setGiatienTheoNguoi(rs.getInt("giatienTheoNguoi"));
+					model.setNgaydang(rs.getString("ngaydang"));
+					model.setSophong(rs.getInt("sophong"));
+					model.setTiencoc(rs.getInt("tiencoc"));
+					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
+					model.setDientich(rs.getFloat("dientich"));
+					model.setGioitinh(rs.getString("gioitinh"));
+					model.setWifi(rs.getInt("wifi"));
+					model.setChu(rs.getInt("chu"));
+					model.setDuyet(rs.getInt("duyet"));
+					model.setAn(rs.getInt("an"));
+					model.setUserID(rs.getInt("userID"));
+					model.setThich(rs.getInt("counter"));
+
+					if (rs.getString("hinhanh") == null) {
+						model.setHinhanh("");
+					} else {
+						model.setHinhanh(rs.getString("hinhanh"));
+					}
+					if (rs.getString("truong") == null) {
+						model.setTruong("");
+					} else {
+						model.setTruong(rs.getString("truong"));
+					}
+					if (rs.getString("nganh") == null) {
+						model.setNganh("");
+					} else {
+						model.setNganh(rs.getString("nganh"));
+					}
+					if (rs.getString("khoa") == null) {
+						model.setKhoa("");
+					} else {
+						model.setKhoa(rs.getString("khoa"));
+					}
+					if (rs.getString("ghichu") == null) {
+						model.setGhichu("");
+					} else {
+						model.setGhichu(rs.getString("ghichu"));
+					}
+					if (rs.getString("nganhangID") == null) {
+						model.setNganhangID("");
+					} else {
+						model.setNganhangID(rs.getString("nganhangID"));
+					}
+					list.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkePTTheoComment");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+	
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection("themPhongtro")) {
