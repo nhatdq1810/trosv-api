@@ -277,9 +277,9 @@ public class UserCtrl {
 				stm.registerOutParameter("_slGGUser", Types.INTEGER);
 				stm.registerOutParameter("_slNormalUser", Types.INTEGER);
 				stm.executeQuery();
-				list.put("fbUser", stm.getInt("_slFBUser"));
-				list.put("ggUser", stm.getInt("_slGGUser"));
-				list.put("normalUser", stm.getInt("_slNormalUser"));
+				list.put("Đăng ký qua facebook", stm.getInt("_slFBUser"));
+				list.put("Đăng ký qua gmail", stm.getInt("_slGGUser"));
+				list.put("Đăng ký qua web", stm.getInt("_slNormalUser"));
 			} catch (SQLException e) {
 				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserKieuLogin");
 				e.printStackTrace();
