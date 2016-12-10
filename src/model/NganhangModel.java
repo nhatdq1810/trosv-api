@@ -9,6 +9,7 @@ public class NganhangModel {
 	private String sodt;
 	private String cmnd;
 	private int tien;
+	private int counter;
 
 	public String getId() {
 		return id;
@@ -72,5 +73,13 @@ public class NganhangModel {
 
 	public void setTien(int tien) {
 		this.tien = tien;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 }

@@ -81,7 +81,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkeUserMoiTrenTongso/{thang}")
+	@Path("/thongkeUserMoiTrenTongso/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkeUserMoiTrenTongso(@PathParam("thang") String thang) {
@@ -96,7 +96,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkeUserComment/{thang}")
+	@Path("/thongkeUserComment/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkeUserComment(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
@@ -111,7 +111,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkeUserKieuLogin/{thang}")
+	@Path("/thongkeUserKieuLogin/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkeUserKieuLogin(@PathParam("thang") int thang) {
@@ -126,7 +126,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkeUserTaoPT/{thang}")
+	@Path("/thongkeUserTaoPT/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkeUserTaoPT(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
@@ -141,7 +141,7 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 	
-	@Path("/thongkeUserTheoDTC/{thang}")
+	@Path("/thongkeUserTheoDTC/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkeUserTheoDTC(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {

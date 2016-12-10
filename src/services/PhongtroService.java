@@ -187,7 +187,7 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkePTMoiTrenTongso/{thang}")
+	@Path("/thongkePTMoiTrenTongso/thang/{thang}")
 	@GET
 	@Produces("application/json")
 	public Response thongkePTMoiTrenTongso(@PathParam("thang") String thang) {

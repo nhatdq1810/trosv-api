@@ -8,12 +8,15 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
 import controller.GiaodichCtrl;
 import model.GiaodichModel;
+import model.NganhangModel;
+import model.PhongtroModel;
 
 @Path("/giaodich")
 public class GiaodichService {
@@ -63,6 +66,51 @@ public class GiaodichService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/thongkeGDGui/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeGDGui(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		ArrayList<NganhangModel> model = giaodichCtrl.thongkeGDGui(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/thongkeGDNhan/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeGDNhan(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		ArrayList<NganhangModel> model = giaodichCtrl.thongkeGDNhan(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/thongkeGDTheoPT/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeGDTheoPT(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		ArrayList<PhongtroModel> model = giaodichCtrl.thongkeGDTheoPT(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/phongtro/chuyenTien")
 	@POST
 	@Produces("application/json")
