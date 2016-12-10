@@ -13,6 +13,7 @@ public class UserModel {
 	private String facebook;
 	private int dotincay;
 	private String ngayDK;
+	private int counter;
 
 	public int getId() {
 		return id;
@@ -108,5 +109,13 @@ public class UserModel {
 
 	public void setNgayDK(String ngayDK) {
 		this.ngayDK = ngayDK;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 }

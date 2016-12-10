@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
@@ -95,6 +96,66 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/thongkeUserComment/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserComment(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		UserCtrl userCtrl = new UserCtrl();
+		ArrayList<UserModel> model = userCtrl.thongkeUserComment(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkeUserKieuLogin/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserKieuLogin(@PathParam("thang") int thang) {
+		UserCtrl userCtrl = new UserCtrl();
+		HashMap<String, Integer> model = userCtrl.thongkeUserKieuLogin(thang);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkeUserTaoPT/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserTaoPT(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		UserCtrl userCtrl = new UserCtrl();
+		ArrayList<UserModel> model = userCtrl.thongkeUserTaoPT(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
+	@Path("/thongkeUserTheoDTC/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeUserTheoDTC(@PathParam("thang") int thang, @QueryParam("gioihan") int gioihan) {
+		UserCtrl userCtrl = new UserCtrl();
+		ArrayList<UserModel> model = userCtrl.thongkeUserTheoDTC(thang, gioihan);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+	
 	@Path("/login/{loai}")
 	@POST
 	@Produces("application/json")

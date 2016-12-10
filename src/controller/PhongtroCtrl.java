@@ -690,7 +690,7 @@ public class PhongtroCtrl {
 					model.setDuyet(rs.getInt("duyet"));
 					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
-					model.setThich(rs.getInt("counter"));
+					model.setCounter(rs.getInt("counter"));
 
 					if (rs.getString("hinhanh") == null) {
 						model.setHinhanh("");
@@ -761,7 +761,7 @@ public class PhongtroCtrl {
 					model.setDuyet(rs.getInt("duyet"));
 					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
-					model.setThich(rs.getInt("counter"));
+					model.setCounter(rs.getInt("counter"));
 
 					if (rs.getString("hinhanh") == null) {
 						model.setHinhanh("");

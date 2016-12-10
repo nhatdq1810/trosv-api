@@ -26,7 +26,7 @@ public class PhongtroModel {
 	private String nganhangID;
 	private int duyet;
 	private int an;
-	private int thich;
+	private int counter;
 
 	public PhongtroModel() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -209,12 +209,12 @@ public class PhongtroModel {
 		this.an = an;
 	}
 
-	public int getThich() {
-		return thich;
+	public int getCounter() {
+		return counter;
 	}
 
-	public void setThich(int thich) {
-		this.thich = thich;
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 }

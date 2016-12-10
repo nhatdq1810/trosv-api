@@ -213,6 +213,188 @@ public class UserCtrl {
 		return list;
 	}
 
+	public ArrayList<UserModel> thongkeUserComment(int thang, int gioihan) {
+		ArrayList<UserModel> listUser = new ArrayList<>();
+		if (conn.openConnection("thongkeUserComment")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserComment(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					UserModel result = new UserModel();
+					result.setId(rs.getInt("id"));
+					result.setLoai(rs.getString("loai"));
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setEmail(rs.getString("email"));
+					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
+					result.setCounter(rs.getInt("counter"));
+
+					if (rs.getString("diachi") == null) {
+						result.setDiachi("");
+					} else {
+						result.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						result.setSodt("");
+					} else {
+						result.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						result.setSkype("");
+					} else {
+						result.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						result.setFacebook("");
+					} else {
+						result.setFacebook(rs.getString("facebook"));
+					}
+					listUser.add(result);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserComment");
+				e.printStackTrace();
+				return listUser;
+			}
+		}
+		conn.closeConnection();
+		return listUser;
+	}
+
+	public HashMap<String, Integer> thongkeUserKieuLogin(int thang) {
+		HashMap<String, Integer> list = new HashMap<>();
+		if (conn.openConnection("thongkeUserKieuLogin")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserKieuLogin(?,?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.registerOutParameter("_slFBUser", Types.INTEGER);
+				stm.registerOutParameter("_slGGUser", Types.INTEGER);
+				stm.registerOutParameter("_slNormalUser", Types.INTEGER);
+				stm.executeQuery();
+				list.put("fbUser", stm.getInt("_slFBUser"));
+				list.put("ggUser", stm.getInt("_slGGUser"));
+				list.put("normalUser", stm.getInt("_slNormalUser"));
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserKieuLogin");
+				e.printStackTrace();
+				return list;
+			}
+		}
+		conn.closeConnection();
+		return list;
+	}
+	
+	public ArrayList<UserModel> thongkeUserTaoPT(int thang, int gioihan) {
+		ArrayList<UserModel> listUser = new ArrayList<>();
+		if (conn.openConnection("thongkeUserTaoPT")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserTaoPT(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					UserModel result = new UserModel();
+					result.setId(rs.getInt("id"));
+					result.setLoai(rs.getString("loai"));
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setEmail(rs.getString("email"));
+					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
+					result.setCounter(rs.getInt("counter"));
+
+					if (rs.getString("diachi") == null) {
+						result.setDiachi("");
+					} else {
+						result.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						result.setSodt("");
+					} else {
+						result.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						result.setSkype("");
+					} else {
+						result.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						result.setFacebook("");
+					} else {
+						result.setFacebook(rs.getString("facebook"));
+					}
+					listUser.add(result);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserTaoPT");
+				e.printStackTrace();
+				return listUser;
+			}
+		}
+		conn.closeConnection();
+		return listUser;
+	}
+	
+	public ArrayList<UserModel> thongkeUserTheoDTC(int thang, int gioihan) {
+		ArrayList<UserModel> listUser = new ArrayList<>();
+		if (conn.openConnection("thongkeUserTheoDTC")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeUserTheoDTC(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.setInt("_limit", gioihan);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					UserModel result = new UserModel();
+					result.setId(rs.getInt("id"));
+					result.setLoai(rs.getString("loai"));
+					result.setUsername(rs.getString("username"));
+					result.setPassword(rs.getString("password"));
+					result.setHoten(rs.getString("hoten"));
+					result.setEmail(rs.getString("email"));
+					result.setDotincay(rs.getInt("dotincay"));
+					result.setNgayDK(rs.getString("ngayDK"));
+
+					if (rs.getString("diachi") == null) {
+						result.setDiachi("");
+					} else {
+						result.setDiachi(rs.getString("diachi"));
+					}
+					if (rs.getString("sodt") == null) {
+						result.setSodt("");
+					} else {
+						result.setSodt(rs.getString("sodt"));
+					}
+					if (rs.getString("skype") == null) {
+						result.setSkype("");
+					} else {
+						result.setSkype(rs.getString("skype"));
+					}
+					if (rs.getString("facebook") == null) {
+						result.setFacebook("");
+					} else {
+						result.setFacebook(rs.getString("facebook"));
+					}
+					listUser.add(result);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeUserTheoDTC");
+				e.printStackTrace();
+				return listUser;
+			}
+		}
+		conn.closeConnection();
+		return listUser;
+	}
+
 	public UserModel login(String username, String password, String loai) {
 		UserModel user = null;
 		if (conn.openConnection("login")) {
