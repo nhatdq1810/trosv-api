@@ -153,7 +153,7 @@ CREATE TABLE `phongtro` (
 
 LOCK TABLES `phongtro` WRITE;
 /*!40000 ALTER TABLE `phongtro` DISABLE KEYS */;
-INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',0,0,5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố HCM',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,1,1,NULL,0,1,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố hồ chí minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,'2012',1,0,NULL,1,0,2,'123786540'),(6,0,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,0,'2016-10-20 19:56:53',2,'','http://i.imgur.com/RuH6SwU.jpg-oKrlBIiYGnv8FDq',20.0,2500000,0,'huflit',NULL,NULL,0,1,NULL,1,0,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-08-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,1,0,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,950000,'2016-10-18 22:39:18',5,'','http://i.imgur.com/847Pf7p.jpg-UoTqdHJvIYqyHSw',17.0,0,0,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,1,1,NULL),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-09-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',0,0,10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,0,0,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-08-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,-1,0,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,0,4,'98456372'),(22,0,'368 nguyễn oanh, phường 17, quận gò vấp, thành phố hồ chí minh',1500000,0,'2016-09-15 22:12:11',2,'','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,0,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,-1,0,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,-1,0,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,1,1,NULL,1,0,12,'499800056'),(28,1,'11 hẻm 11, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1000000,'2016-11-15 22:03:46',5,'','http://i.imgur.com/tfybyTe.jpg-cO3vtMbxmbfTuSX',5.0,0,500000,'đại học công nghiệp thực phẩm',NULL,NULL,1,0,NULL,-1,0,7,'123786540'),(30,1,'69/1b lê văn thọ, phường 8, quận gò vấp, thành phố hồ chí minh',0,1500000,'2016-09-15 22:14:01',4,'','http://i.imgur.com/whRkCDe.jpg-KP3q2wrkqg5qYH0',11.0,0,0,NULL,NULL,NULL,1,1,NULL,0,0,10,NULL),(31,2,'718 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',2500000,800000,'2016-11-18 22:26:16',5,'','http://i.imgur.com/6QEP5NJ.jpg-mdqAOr6XO7bVp2G',13.0,0,0,NULL,NULL,NULL,1,1,NULL,0,0,12,NULL),(32,1,'311 lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',0,750000,'2016-10-18 23:07:43',5,'','http://i.imgur.com/m6GIIFO.jpg-y79x7SZpRylnIRF',12.0,0,0,'đại học sài gòn','kế toán',NULL,1,1,NULL,1,0,1,NULL),(33,2,'107 cộng hòa, phường 13, quận tân bình, thành phố hồ chí minh',2300000,1000000,'2016-11-20 22:50:27',5,'','http://i.imgur.com/Lr3IWBr.jpg-wGrf5oiPDGBwtx8',11.0,0,0,'đại học mở','quản trị kinh doanh','2014',0,1,NULL,-1,0,8,NULL),(34,2,'hẻm b22 bạch đằng, phường 2, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-20 23:17:09',1,'nữ','http://i.imgur.com/bQRbPj8.jpg-9iIElsd5Sve98Zt',14.0,0,0,NULL,'ngân hàng',NULL,1,0,NULL,0,0,9,NULL),(35,2,'149 lê văn sỹ, phường 14, quận phú nhuận, thành phố hồ chí minh',4000000,2000000,'2016-11-20 23:18:53',2,'nam','http://i.imgur.com/0Hv1las.jpg-ld9heSqmnLw8p8J',15.0,0,0,NULL,NULL,NULL,1,0,NULL,0,0,9,NULL),(36,0,'248 nguyễn văn nghi, phường 7, quận gò vấp, thành phố hồ chí minh',1800000,0,'2016-11-20 23:24:41',2,'nam','http://i.imgur.com/HJXgy3y.jpg-shOGQjskR3ry6MQ',11.0,0,0,'công nghiệp 4','công nghệ thông tin','2015',1,1,NULL,-1,0,13,NULL),(37,0,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-11-20 23:45:26',4,'','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,1000000,0,NULL,NULL,'2015',1,1,NULL,-1,0,1,'123786540'),(53,2,'26 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',2000000,1000000,'2016-12-04 14:46:52',2,'','http://i.imgur.com/bZ3t2x6.jpg-MpTgSCRHUA3LrkT',5.0,0,0,NULL,NULL,NULL,1,1,NULL,-1,0,1,NULL);
+INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',1,0,5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố HCM',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,1,1,NULL,1,1,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố hồ chí minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,'2012',1,0,NULL,1,0,2,'123786540'),(6,0,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,0,'2016-10-20 19:56:53',2,'','http://i.imgur.com/RuH6SwU.jpg-oKrlBIiYGnv8FDq',20.0,2500000,0,'huflit',NULL,NULL,0,1,NULL,1,0,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-08-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,1,0,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,950000,'2016-10-18 22:39:18',5,'','http://i.imgur.com/847Pf7p.jpg-UoTqdHJvIYqyHSw',17.0,0,0,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,1,1,1,NULL),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-09-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',0,0,10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,0,0,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-08-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,1,0,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,0,4,'98456372'),(22,0,'368 nguyễn oanh, phường 17, quận gò vấp, thành phố hồ chí minh',1500000,0,'2016-09-15 22:12:11',2,'','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,0,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,-1,0,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,-1,0,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,1,1,NULL,1,0,12,'499800056'),(28,1,'11 hẻm 11, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1000000,'2016-11-15 22:03:46',5,'','http://i.imgur.com/tfybyTe.jpg-cO3vtMbxmbfTuSX',5.0,0,500000,'đại học công nghiệp thực phẩm',NULL,NULL,1,0,NULL,-1,0,7,'123786540'),(30,1,'69/1b lê văn thọ, phường 8, quận gò vấp, thành phố hồ chí minh',0,1500000,'2016-09-15 22:14:01',4,'','http://i.imgur.com/whRkCDe.jpg-KP3q2wrkqg5qYH0',11.0,0,0,NULL,NULL,NULL,1,1,NULL,0,0,10,NULL),(31,2,'718 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',2500000,800000,'2016-11-18 22:26:16',5,'','http://i.imgur.com/6QEP5NJ.jpg-mdqAOr6XO7bVp2G',13.0,0,0,NULL,NULL,NULL,1,1,NULL,0,0,12,NULL),(32,1,'311 lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',0,750000,'2016-10-18 23:07:43',5,'','http://i.imgur.com/m6GIIFO.jpg-y79x7SZpRylnIRF',12.0,0,0,'đại học sài gòn','kế toán',NULL,1,1,NULL,1,0,1,NULL),(33,2,'107 cộng hòa, phường 13, quận tân bình, thành phố hồ chí minh',2300000,1000000,'2016-11-20 22:50:27',5,'','http://i.imgur.com/Lr3IWBr.jpg-wGrf5oiPDGBwtx8',11.0,0,0,'đại học mở','quản trị kinh doanh','2014',0,1,NULL,-1,0,8,NULL),(34,2,'hẻm b22 bạch đằng, phường 2, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-20 23:17:09',1,'nữ','http://i.imgur.com/bQRbPj8.jpg-9iIElsd5Sve98Zt',14.0,0,0,NULL,'ngân hàng',NULL,1,0,NULL,0,0,9,NULL),(35,2,'149 lê văn sỹ, phường 14, quận phú nhuận, thành phố hồ chí minh',4000000,2000000,'2016-11-20 23:18:53',2,'nam','http://i.imgur.com/0Hv1las.jpg-ld9heSqmnLw8p8J',15.0,0,0,NULL,NULL,NULL,1,0,NULL,0,0,9,NULL),(36,0,'248 nguyễn văn nghi, phường 7, quận gò vấp, thành phố hồ chí minh',1800000,0,'2016-11-20 23:24:41',2,'nam','http://i.imgur.com/HJXgy3y.jpg-shOGQjskR3ry6MQ',11.0,0,0,'công nghiệp 4','công nghệ thông tin','2015',1,1,NULL,-1,0,13,NULL),(37,0,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-11-20 23:45:26',4,'','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,1000000,0,NULL,NULL,'2015',1,1,NULL,-1,0,1,'123786540'),(53,2,'26 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',2000000,1000000,'2016-12-04 14:46:52',2,'','http://i.imgur.com/bZ3t2x6.jpg-MpTgSCRHUA3LrkT',5.0,0,0,NULL,NULL,NULL,1,1,NULL,-1,0,1,NULL);
 /*!40000 ALTER TABLE `phongtro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,7 +187,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'user','nhat','N@025104686/','nhat1','dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,9),(2,'user','nhat2','nhat025104686/','nhat2','dangquangnhat2@gmail.com','2016-07-29 00:00:00','4/444 nhat','0987654321','sutrix.nhat.dang','https://www.facebook.com/dqn-dqn-dqn',3),(3,'user','nhat3','SrtV0oelv4evre','nhat3','dangquangnhat3@gmail.com','2016-08-01 00:00:00',NULL,'0123456789',NULL,NULL,2),(4,'user','nhat4','lreverv4e0VotS','nhat4','dangquangnhat4@gmail.com','2016-06-29 00:00:00',NULL,'0987654321',NULL,NULL,5),(5,'user','nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat5@gmail.com','2016-06-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/abc',3),(6,'user','nhatdq','ote4errlv0evVS','DQN','dangquangnhat6@gmail.com','2016-07-29 00:00:00','abc/123 le duc tho',NULL,NULL,NULL,1),(7,'user','nhatdq1810','N@025104686/','dqn','dangquangnhat7@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(8,'user','nhatdq1','N@025104686/','nhatdq','dangquangnhat8@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(9,'user','nhatdq2','StvroleveVer40','nhatdq','dangquangnhat9@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(10,'user','fb-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','fb-dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'user','gg-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','gg-dangquangnhat18101994@gmail.com','2016-09-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm','0987654333',NULL,NULL,0),(12,'user','gg-dqn1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','gg-dqn1810@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(13,'user','nhatTest','N@025104686/','nhat','dangquangnhat10@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(14,'user','nhat1810','nhat025104686/','d.q.n','dqn@dqn.com','2016-10-29 00:00:00',NULL,'0123987456',NULL,NULL,0),(15,'admin','admin','N@025104686/','DQN','nhatdq1810@gmail.com','2016-06-01 00:00:00',NULL,NULL,NULL,NULL,0),(16,'user','nhatTestNgay','nhat025104686/','nhat dang','nhat.dang@gmail.com','2016-12-01 00:00:00',NULL,NULL,NULL,NULL,0);
+INSERT INTO `user` VALUES (1,'user','nhat','N@025104686/','nhat1','dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,NULL,9),(2,'user','nhat2','nhat025104686/','nhat2','dangquangnhat2@gmail.com','2016-07-29 00:00:00','4/444 nhat','0987654321','nhat.dang','https://www.facebook.com/dqn-dqn-dqn',3),(3,'user','nhat3','SrtV0oelv4evre','nhat3','dangquangnhat3@gmail.com','2016-08-01 00:00:00',NULL,'0123456789',NULL,NULL,2),(4,'user','nhat4','lreverv4e0VotS','nhat4','dangquangnhat4@gmail.com','2016-06-29 00:00:00',NULL,'0987654321',NULL,NULL,5),(5,'user','nhat5','0rVeoe4rStvlve','nhat5','dangquangnhat5@gmail.com','2016-06-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/abc',3),(6,'user','nhatdq','ote4errlv0evVS','DQN','dangquangnhat6@gmail.com','2016-07-29 00:00:00','abc/123 le duc tho',NULL,NULL,NULL,1),(7,'user','nhatdq1810','N@025104686/','dqn','dangquangnhat7@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(8,'user','nhatdq1','N@025104686/','nhatdq','dangquangnhat8@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(9,'user','nhatdq2','StvroleveVer40','nhatdq','dangquangnhat9@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(10,'user','fb-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Quang Nhat','fb-dangquangnhat18101994@gmail.com','2016-08-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm',NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(11,'user','gg-dangquangnhat18101994','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','Dang Nhat','gg-dangquangnhat18101994@gmail.com','2016-09-29 00:00:00','864 lê đức thọ, phường 15, quận gò vấp, tp.hcm','0987654333',NULL,NULL,0),(12,'user','gg-dqn1810','W86crS2GtE2H6uTKOSsiEemJpLuutnVB','dang nhat','gg-dqn1810@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,'https://www.facebook.com/QuangNhatDang',0),(13,'user','nhatTest','N@025104686/','nhat','dangquangnhat10@gmail.com','2016-09-29 00:00:00',NULL,NULL,NULL,NULL,0),(14,'user','nhat1810','nhat025104686/','d.q.n','dqn@dqn.com','2016-10-29 00:00:00',NULL,'0123987456',NULL,NULL,0),(15,'admin','admin','N@025104686/','DQN','nhatdq1810@gmail.com','2016-06-01 00:00:00',NULL,NULL,NULL,NULL,0),(16,'user','nhatTestNgay','nhat025104686/','nhat dang','nhat.dang@gmail.com','2016-12-01 00:00:00',NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1385,6 +1385,87 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeGDGui` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDGui`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from nganhang,
+    (select nganhangID_gui, count(*) as counter
+    from giaodich
+    where month(ngay) <= _thang
+    group by nganhangID_gui) as gd
+    where nganhang.id = gd.nganhangID_gui
+    order by counter desc
+    limit _limit;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeGDNhan` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDNhan`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from nganhang,
+    (select nganhangID_nhan, count(*) as counter
+    from giaodich
+    where month(ngay) <= _thang
+    group by nganhangID_nhan) as gd
+    where nganhang.id = gd.nganhangID_nhan
+    order by counter desc
+    limit _limit;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeGDTheoPT` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDTheoPT`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from phongtro,
+    (select phongtroID, count(*) as counter
+    from giaodich
+    where month(ngay) <= _thang
+    group by phongtroID) as gd
+    where phongtro.id = gd.phongtroID
+    order by counter desc
+    limit _limit;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkePTMoiTrenTongso` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1586,6 +1667,69 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeUserComment` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserComment`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from user,
+    (select userID, count(*) as counter
+    from comment
+    group by userID
+    order by counter desc) as cmt
+    where user.id = cmt.userID
+    and month(ngayDK) <= _thang
+    limit _limit;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeUserKieuLogin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserKieuLogin`(IN _thang int, 
+OUT _slFBUser int, OUT _slGGUser int, OUT _slNormalUser int)
+BEGIN
+	select count(id) into _slFBUser
+    from user
+    where (substring(username,1,2) = 'fb')
+    and month(ngayDK) = _thang
+    and loai = 'user';
+    
+    select count(id) into _slGGUser
+    from user
+    where (substring(username,1,2) = 'gg')
+    and month(ngayDK) = _thang
+    and loai = 'user';
+    
+    select count(id) into _slNormalUser
+    from user
+    where (substring(username,1,2) != 'gg' and substring(username,1,2) != 'fb')
+    and month(ngayDK) = _thang
+    and loai = 'user';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeUserMoiTrenTongso` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1600,6 +1744,57 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserMoiTrenTongso`(IN _
 BEGIN
 	select count(id) into _slUserMoi from user where month(ngayDK) = _thang and loai='user';   				
 	select count(id) into _slUserCu from user where month(ngayDK) < _thang and loai='user';
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeUserTaoPT` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserTaoPT`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from user,
+    (select userID, count(*) as counter
+    from phongtro
+    group by userID
+    order by counter desc) as pt
+    where user.id = pt.userID
+    and month(ngayDK) <= _thang
+    limit _limit;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_thongkeUserTheoDTC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserTheoDTC`(IN _thang int, IN _limit int)
+BEGIN
+	select *
+    from user
+    where month(ngayDK) <= _thang
+    and loai = 'user'
+    order by dotincay desc
+    limit _limit;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1848,4 +2043,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-09  1:06:09
+-- Dump completed on 2016-12-11  0:21:10
