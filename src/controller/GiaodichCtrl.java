@@ -3,7 +3,9 @@ package controller;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import connectSQL.ConnectServer;
 import model.GiaodichModel;
@@ -133,7 +135,7 @@ public class GiaodichCtrl {
 		conn.closeConnection();
 		return listModel;
 	}
-	
+
 	public ArrayList<NganhangModel> thongkeGDNhan(int thang, int gioihan) {
 		ArrayList<NganhangModel> listModel = new ArrayList<>();
 		if (conn.openConnection("thongkeGDNhan")) {
@@ -165,7 +167,7 @@ public class GiaodichCtrl {
 		conn.closeConnection();
 		return listModel;
 	}
-	
+
 	public ArrayList<PhongtroModel> thongkeGDTheoPT(int thang, int gioihan) {
 		ArrayList<PhongtroModel> listModel = new ArrayList<>();
 		if (conn.openConnection("thongkeGDTheoPT")) {
@@ -237,10 +239,66 @@ public class GiaodichCtrl {
 		return listModel;
 	}
 
+	public HashMap<Integer, Integer> thongkeGDTheoLoaiGD(int thangBD, int thangKT) {
+		HashMap<Integer, Integer> listModel = new HashMap<>();
+		if (conn.openConnection("thongkeGDTheoLoaiGD")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGD(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thangBD", thangBD);
+				stm.setInt("_thangKT", thangKT);
+				rs = stm.executeQuery();
+				int count = 0;
+				rs.next();
+				while (true) {
+					if (rs.getInt("thang") == (thangBD + count)) {
+						listModel.put(rs.getInt("thang"), rs.getInt("counter"));
+						rs.next();
+					} else {
+						listModel.put((thangBD + count), 0);
+					}
+					if ((thangBD + count) == thangKT) {
+						break;
+					} else {
+						count++;
+					}
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGD");
+				e.printStackTrace();
+				return listModel;
+			}
+		}
+		conn.closeConnection();
+		return listModel;
+	}
+
+	public HashMap<String, Integer> thongkeGDTheoLoaiGDMoiThang(int thang) {
+		HashMap<String, Integer> listModel = new HashMap<>();
+		if (conn.openConnection("thongkeGDTheoLoaiGDMoiThang")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGDMoiThang(?,?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_thang", thang);
+				stm.registerOutParameter("_slGDNguyenPhong", Types.INTEGER);
+				stm.registerOutParameter("_slGDTheoNguoi", Types.INTEGER);
+				stm.executeQuery();
+				listModel.put("Đặt cọc nguyên phòng", stm.getInt("_slGDNguyenPhong"));
+				listModel.put("Đặt cọc từng người", stm.getInt("_slGDTheoNguoi"));
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGDMoiThang");
+				e.printStackTrace();
+				return listModel;
+			}
+		}
+		conn.closeConnection();
+		return listModel;
+	}
+
 	public int chuyenTien(GiaodichModel model) {
 		int result = -999;
 		if (conn.openConnection("chuyenTien")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?)}";
+			query = "{call " + Constants.NAME_SQL + ".mysp_chuyenTien(?,?,?,?,?,?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setString("_id_gui", model.getNganhangID_gui());
@@ -248,6 +306,7 @@ public class GiaodichCtrl {
 				stm.setString("_ngay", model.getNgay());
 				stm.setInt("_tien", model.getTien());
 				stm.setInt("_phongtroID", model.getPhongtroID());
+				stm.setInt("_loaiGD", model.getLoaiGD());
 				stm.registerOutParameter("_result", java.sql.Types.INTEGER);
 				stm.executeUpdate();
 				result = stm.getInt("_result");

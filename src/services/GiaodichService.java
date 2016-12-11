@@ -1,6 +1,7 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -80,7 +81,7 @@ public class GiaodichService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/thongkeGDNhan/thang/{thang}")
 	@GET
 	@Produces("application/json")
@@ -95,7 +96,7 @@ public class GiaodichService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/thongkeGDTheoPT/thang/{thang}")
 	@GET
 	@Produces("application/json")
@@ -110,7 +111,37 @@ public class GiaodichService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
+	@Path("/thongkeGDTheoLoaiGD/{thangBD}/{thangKT}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeGDTheoLoaiGD(@PathParam("thangBD") int thangBD, @PathParam("thangKT") int thangKT) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		HashMap<Integer, Integer> model = giaodichCtrl.thongkeGDTheoLoaiGD(thangBD, thangKT);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
+	@Path("/thongkeGDTheoLoaiGDMoiThang/thang/{thang}")
+	@GET
+	@Produces("application/json")
+	public Response thongkeGDTheoLoaiGDMoiThang(@PathParam("thang") int thang) {
+		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
+		HashMap<String, Integer> model = giaodichCtrl.thongkeGDTheoLoaiGDMoiThang(thang);
+		if (model != null && model.size() > 0) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/phongtro/chuyenTien")
 	@POST
 	@Produces("application/json")
