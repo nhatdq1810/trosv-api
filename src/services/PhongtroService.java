@@ -279,7 +279,7 @@ public class PhongtroService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/moi")
 	@POST
 	@Produces("application/json")
@@ -395,12 +395,13 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{id}/admin")
-	@DELETE
+	@Path("/{id}/user/{userID}/admin")
+	@POST
 	@Produces("application/json")
-	public Response adminXoaPhongtro(@PathParam("id") int id, @QueryParam("duyet") int duyet) {
+	public Response adminXoaPhongtro(@PathParam("id") int id, @PathParam("userID") int userID,
+			@QueryParam("duyet") int duyet, String lydo) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		int result = phongtroCtrl.xoaPhongtro(id);
+		int result = phongtroCtrl.adminXoaPhongtro(id, userID, lydo);
 		JSONObject obj = new JSONObject();
 		if (result != -999) {
 			layTatcaPhongtro(duyet);

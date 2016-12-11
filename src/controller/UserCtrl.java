@@ -522,6 +522,7 @@ public class UserCtrl {
 		int result = -999;
 		String email = "";
 		String newPassword = "";
+		String subject = "";
 		String noidung = "";
 		if (conn.openConnection("phuchoiPassword")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_phuchoiPassword(?,?,?,?)}";
@@ -554,12 +555,13 @@ public class UserCtrl {
 				}
 			}
 			newPassword = strBuilder.toString();
+			subject = "Phục hồi mật khẩu";
 			noidung = "Chào <strong>" + username + "</strong>," + "<p>Mật khẩu mới của bạn</p>" + "<p><strong> "
 					+ newPassword
 					+ "</strong></p><p> Đăng nhập vào <a href=\"http://localhost:4200/home\">troSV</a> và thay đổi mật khẩu lại ngay bây giờ"
 					+ "</p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 			EmailCtrl emailCtrl = new EmailCtrl();
-			emailCtrl.sendEmail(email, noidung);
+			emailCtrl.sendEmail(email, subject, noidung);
 			result = capnhatPassword(username, newPassword);
 		}
 		return result;

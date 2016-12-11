@@ -19,6 +19,7 @@ import org.json.JSONObject;
 
 import connectSQL.ConnectServer;
 import model.PhongtroModel;
+import model.UserModel;
 import resources.Constants;
 
 public class PhongtroCtrl {
@@ -733,7 +734,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return list;
 	}
-	
+
 	public ArrayList<PhongtroModel> thongkePTTheoComment(int thang, int gioihan) {
 		ArrayList<PhongtroModel> list = new ArrayList<>();
 		if (conn.openConnection("thongkePTTheoComment")) {
@@ -804,7 +805,7 @@ public class PhongtroCtrl {
 		conn.closeConnection();
 		return list;
 	}
-	
+
 	public int themPhongtro(PhongtroModel model) {
 		int result = -999;
 		if (conn.openConnection("themPhongtro")) {
@@ -1034,6 +1035,27 @@ public class PhongtroCtrl {
 			}
 		}
 		conn.closeConnection();
+		return result;
+	}
+
+	public int adminXoaPhongtro(int id, int userID, String lydo) {
+		int result = -999;
+		String subject = "";
+		String noidung = "";
+		PhongtroCtrl ptCtrl = new PhongtroCtrl();
+		PhongtroModel pt = ptCtrl.layPhongtro(id);
+		result = xoaPhongtro(id);
+		if (result != -999) {
+			UserCtrl userCtrl = new UserCtrl();
+			UserModel user = userCtrl.layThongtinUserID(userID);
+			subject = "Xóa phòng trọ";
+			noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>" + "<p>Địa chỉ: "
+					+ pt.getDiachi() + "</p><p>Diện tích: " + pt.getDientich() + "</p><p>Giá thuê: " + pt.getGiatien()
+					+ " - " + pt.getGiatienTheoNguoi() + "/người</p><p>Đã bị xóa vì lý do: <strong>" + lydo
+					+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+			EmailCtrl emailCtrl = new EmailCtrl();
+			emailCtrl.sendEmail(user.getEmail(), subject, noidung);
+		}
 		return result;
 	}
 

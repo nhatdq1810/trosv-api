@@ -14,8 +14,8 @@ import javax.mail.internet.MimeMessage;
 import resources.Constants;
 
 public class EmailCtrl {
-	
-	public void sendEmail(String email, String noidung) {
+
+	public void sendEmail(String email, String subject, String noidung) {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -28,12 +28,12 @@ public class EmailCtrl {
 				return new PasswordAuthentication(Constants.GMAIL_USERNAME, Constants.GMAIL_PASSWORD);
 			}
 		});
-		
+
 		try {
 			MimeMessage msg = new MimeMessage(session);
 			msg.setFrom(new InternetAddress(Constants.GMAIL_USERNAME));
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			msg.setSubject("troSV-Phục hồi mật khẩu", "utf-8");
+			msg.setSubject("troSV - " + subject, "utf-8");
 			msg.setContent(noidung, "text/html; charset=utf-8");
 			Transport.send(msg);
 		} catch (MessagingException e) {
@@ -41,9 +41,9 @@ public class EmailCtrl {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
-//		EmailCtrl ctrl = new EmailCtrl();
-//		ctrl.sendEmail("dangquangnhat18101994@gmail.com", "Test email");
+		// EmailCtrl ctrl = new EmailCtrl();
+		// ctrl.sendEmail("dangquangnhat18101994@gmail.com", "Test email");
 	}
 }
