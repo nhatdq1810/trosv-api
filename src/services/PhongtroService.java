@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import com.sun.jersey.multipart.FormDataParam;
 
 import controller.PhongtroCtrl;
+import model.ListInfo;
 import model.PhongtroModel;
 
 @Path("/phongtro")
@@ -348,9 +349,16 @@ public class PhongtroService {
 	@Path("/duyet/{duyet}")
 	@PUT
 	@Produces("application/json")
-	public Response xetduyetPT(int[] listID, @PathParam("duyet") int duyet) {
+	public Response xetduyetPT(ListInfo listInfo, @PathParam("duyet") int duyet) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		int result = phongtroCtrl.xetduyetPT(listID, duyet);
+		// for (int i = 0; i < listInfo.getListPT().length; i++) {
+		// System.out.println(listInfo.getListPT()[i].getId());
+		// }
+		// for (int i = 0; i < listInfo.getListReason().length; i++) {
+		// System.out.println(listInfo.getListReason()[i]);
+		// }
+
+		int result = phongtroCtrl.xetduyetPT(listInfo.getListPT(), listInfo.getListReason(), duyet);
 		if (result != -999 && result != 0) {
 			if (duyet == 1) {
 				return layTatcaPhongtro(0);
@@ -395,16 +403,15 @@ public class PhongtroService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{id}/user/{userID}/admin")
+	@Path("/admin/xoa")
 	@POST
 	@Produces("application/json")
-	public Response adminXoaPhongtro(@PathParam("id") int id, @PathParam("userID") int userID,
-			@QueryParam("duyet") int duyet, String lydo) {
+	public Response adminXoaPhongtro(ListInfo listInfo) {
 		PhongtroCtrl phongtroCtrl = new PhongtroCtrl();
-		int result = phongtroCtrl.adminXoaPhongtro(id, userID, lydo);
+		int result = phongtroCtrl.adminXoaPhongtro(listInfo.getListPT(), listInfo.getListReason());
 		JSONObject obj = new JSONObject();
 		if (result != -999) {
-			layTatcaPhongtro(duyet);
+			obj.put("result", "success");
 		} else {
 			obj.put("result", "fail");
 		}

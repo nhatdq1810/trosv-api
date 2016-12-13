@@ -10,6 +10,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -972,17 +973,41 @@ public class PhongtroCtrl {
 		return result;
 	}
 
-	public int xetduyetPT(int[] listID, int duyet) {
+	public int xetduyetPT(PhongtroModel[] listPT, String[] listReason, int duyet) {
 		int result = -999;
 		if (conn.openConnection("xetduyetPT")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xetduyetPT(?,?)}";
-			for (int i = 0; i < listID.length; i++) {
+			for (int i = 0; i < listPT.length; i++) {
 				try {
 					stm = conn.getConn().prepareCall(query);
-					stm.setInt("_phongtroID", listID[i]);
+					stm.setInt("_phongtroID", listPT[i].getId());
 					stm.setInt("_duyet", duyet);
 					result = stm.executeUpdate();
-
+					if (result != 0 && duyet == -1) {
+						String subject = "";
+						String noidung = "";
+						DecimalFormat formatter = new DecimalFormat("###,###");
+						UserCtrl userCtrl = new UserCtrl();
+						UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
+						subject = "Không duyệt phòng trọ";
+						noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
+								+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: "
+								+ listPT[i].getDientich() + " m<sup>2</sup></p><p>Giá thuê nguyên phòng: "
+								+ formatter.format(listPT[i].getGiatien()) + " VNĐ</p><p>Giá thuê từng người: "
+								+ formatter.format(listPT[i].getGiatienTheoNguoi())
+								+ " VNĐ</p><p>Đã không được duyệt vì lý do: <strong>" + listReason[listPT[i].getId()]
+								+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+						EmailCtrl emailCtrl = new EmailCtrl();
+						String userEmail = user.getEmail();
+						if (user.getEmail().indexOf("gg-") > -1 || user.getEmail().indexOf("fb-") > -1) {
+							userEmail = user.getEmail().substring(3, user.getEmail().length());
+						}
+						emailCtrl.sendEmail(userEmail, subject, noidung);
+					} else {
+						if (result == 0) {
+							break;
+						}
+					}
 				} catch (SQLException e) {
 					System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xetduyetPT");
 					e.printStackTrace();
@@ -1038,23 +1063,32 @@ public class PhongtroCtrl {
 		return result;
 	}
 
-	public int adminXoaPhongtro(int id, int userID, String lydo) {
+	public int adminXoaPhongtro(PhongtroModel[] listPT, String[] listReason) {
 		int result = -999;
-		String subject = "";
-		String noidung = "";
-		PhongtroCtrl ptCtrl = new PhongtroCtrl();
-		PhongtroModel pt = ptCtrl.layPhongtro(id);
-		result = xoaPhongtro(id);
-		if (result != -999) {
-			UserCtrl userCtrl = new UserCtrl();
-			UserModel user = userCtrl.layThongtinUserID(userID);
-			subject = "Xóa phòng trọ";
-			noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>" + "<p>Địa chỉ: "
-					+ pt.getDiachi() + "</p><p>Diện tích: " + pt.getDientich() + "</p><p>Giá thuê: " + pt.getGiatien()
-					+ " - " + pt.getGiatienTheoNguoi() + "/người</p><p>Đã bị xóa vì lý do: <strong>" + lydo
-					+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
-			EmailCtrl emailCtrl = new EmailCtrl();
-			emailCtrl.sendEmail(user.getEmail(), subject, noidung);
+		for (int i = 0; i < listPT.length; i++) {
+			result = xoaPhongtro(listPT[i].getId());
+			if (result != -999) {
+				String subject = "";
+				String noidung = "";
+				DecimalFormat formatter = new DecimalFormat("###,###");
+				UserCtrl userCtrl = new UserCtrl();
+				UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
+				subject = "Xóa phòng trọ";
+				noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
+						+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: " + listPT[i].getDientich()
+						+ " m<sup>2</sup></p><p>Giá thuê nguyên phòng: " + formatter.format(listPT[i].getGiatien())
+						+ " VNĐ</p><p>Giá thuê từng người: " + formatter.format(listPT[i].getGiatienTheoNguoi())
+						+ " VNĐ</p><p>Đã bị xóa vì lý do: <strong>" + listReason[listPT[i].getId()]
+						+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+				EmailCtrl emailCtrl = new EmailCtrl();
+				String userEmail = user.getEmail();
+				if (user.getEmail().indexOf("gg-") > -1 || user.getEmail().indexOf("fb-") > -1) {
+					userEmail = user.getEmail().substring(3, user.getEmail().length());
+				}
+				emailCtrl.sendEmail(userEmail, subject, noidung);
+			} else {
+				break;
+			}
 		}
 		return result;
 	}
