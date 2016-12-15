@@ -3,7 +3,6 @@ package services;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -16,6 +15,7 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import controller.UserCtrl;
+import model.ListInfo;
 import model.UserModel;
 
 @Path("/user")
@@ -140,7 +140,7 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/thongkeUserTheoDTC/thang/{thang}")
 	@GET
 	@Produces("application/json")
@@ -155,7 +155,7 @@ public class UserService {
 		String rs = "" + obj;
 		return Response.status(200).entity(rs).build();
 	}
-	
+
 	@Path("/login/{loai}")
 	@POST
 	@Produces("application/json")
@@ -254,12 +254,12 @@ public class UserService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/{id}")
-	@DELETE
+	@Path("/xoa")
+	@POST
 	@Produces("application/json")
-	public Response xoaUser(@PathParam("id") int id) {
+	public Response xoaUser(ListInfo listInfo) {
 		UserCtrl userCtrl = new UserCtrl();
-		int result = userCtrl.xoaUser(id);
+		int result = userCtrl.xoaUser(listInfo.getListUser(), listInfo.getListReason());
 		JSONObject obj = new JSONObject();
 		if (result != -999 && result != 0) {
 			obj.put("result", "success");

@@ -986,16 +986,18 @@ public class PhongtroCtrl {
 					if (result != 0 && duyet == -1) {
 						String subject = "";
 						String noidung = "";
+						String reason = Character.toUpperCase(listReason[listPT[i].getId()].charAt(0))
+								+ listReason[listPT[i].getId()].substring(1);
 						DecimalFormat formatter = new DecimalFormat("###,###");
 						UserCtrl userCtrl = new UserCtrl();
 						UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
-						subject = "Không duyệt phòng trọ";
+						subject = "không duyệt phòng trọ";
 						noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
 								+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: "
 								+ listPT[i].getDientich() + " m<sup>2</sup></p><p>Giá thuê nguyên phòng: "
 								+ formatter.format(listPT[i].getGiatien()) + " VNĐ</p><p>Giá thuê từng người: "
 								+ formatter.format(listPT[i].getGiatienTheoNguoi())
-								+ " VNĐ</p><p>Đã không được duyệt vì lý do: <strong>" + listReason[listPT[i].getId()]
+								+ " VNĐ</p><p>Đã không được duyệt vì lý do: <strong>" + reason
 								+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 						EmailCtrl emailCtrl = new EmailCtrl();
 						String userEmail = user.getEmail();
@@ -1070,15 +1072,17 @@ public class PhongtroCtrl {
 			if (result != -999) {
 				String subject = "";
 				String noidung = "";
+				String reason = Character.toUpperCase(listReason[listPT[i].getId()].charAt(0))
+						+ listReason[listPT[i].getId()].substring(1);
 				DecimalFormat formatter = new DecimalFormat("###,###");
 				UserCtrl userCtrl = new UserCtrl();
 				UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
-				subject = "Xóa phòng trọ";
+				subject = "xóa phòng trọ";
 				noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
 						+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: " + listPT[i].getDientich()
 						+ " m<sup>2</sup></p><p>Giá thuê nguyên phòng: " + formatter.format(listPT[i].getGiatien())
 						+ " VNĐ</p><p>Giá thuê từng người: " + formatter.format(listPT[i].getGiatienTheoNguoi())
-						+ " VNĐ</p><p>Đã bị xóa vì lý do: <strong>" + listReason[listPT[i].getId()]
+						+ " VNĐ</p><p>Đã bị xóa vì lý do: <strong>" + reason
 						+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 				EmailCtrl emailCtrl = new EmailCtrl();
 				String userEmail = user.getEmail();

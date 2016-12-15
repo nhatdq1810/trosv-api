@@ -289,7 +289,7 @@ public class UserCtrl {
 		conn.closeConnection();
 		return list;
 	}
-	
+
 	public ArrayList<UserModel> thongkeUserTaoPT(int thang, int gioihan) {
 		ArrayList<UserModel> listUser = new ArrayList<>();
 		if (conn.openConnection("thongkeUserTaoPT")) {
@@ -342,7 +342,7 @@ public class UserCtrl {
 		conn.closeConnection();
 		return listUser;
 	}
-	
+
 	public ArrayList<UserModel> thongkeUserTheoDTC(int thang, int gioihan) {
 		ArrayList<UserModel> listUser = new ArrayList<>();
 		if (conn.openConnection("thongkeUserTheoDTC")) {
@@ -587,19 +587,42 @@ public class UserCtrl {
 		return result;
 	}
 
-	public int xoaUser(int id) {
+	public int xoaUser(UserModel[] listUser, String[] listReason) {
 		int result = -999;
 		if (conn.openConnection("xoaUser")) {
 			query = "{call " + Constants.NAME_SQL + ".mysp_xoaUser(?)}";
-			try {
-				stm = conn.getConn().prepareCall(query);
-				stm.setInt("_id", id);
-				stm.executeUpdate();
-				result = 1;
-			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaUser");
-				e.printStackTrace();
-				return result;
+			for (int i = 0; i < listUser.length; i++) {
+				try {
+					stm = conn.getConn().prepareCall(query);
+					stm.setInt("_id", listUser[i].getId());
+					result = stm.executeUpdate();
+					if (result != 0) {
+						String subject = "";
+						String noidung = "";
+						String userEmail = listUser[i].getEmail();
+						String username = listUser[i].getUsername();
+						String reason = Character.toUpperCase(listReason[listUser[i].getId()].charAt(0))
+								+ listReason[listUser[i].getId()].substring(1);
+						if (listUser[i].getEmail().indexOf("gg-") > -1 || listUser[i].getEmail().indexOf("fb-") > -1) {
+							userEmail = listUser[i].getEmail().substring(3, listUser[i].getEmail().length());
+						}
+						if (listUser[i].getUsername().indexOf("gg-") > -1
+								|| listUser[i].getUsername().indexOf("fb-") > -1) {
+							username = listUser[i].getUsername().substring(3, listUser[i].getUsername().length());
+						}
+						subject = "xóa tài khoản";
+						noidung = "Chào <strong>" + listUser[i].getHoten() + "</strong>," + "<p>Tài khoản của bạn</p>"
+								+ "<p>Username: " + username + "</p><p>Email: " + userEmail + "</p><p>Ngày đăng ký: "
+								+ listUser[i].getNgayDK() + "</p><p>Đã bị xóa vì lý do: <strong>" + reason
+								+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+						EmailCtrl emailCtrl = new EmailCtrl();
+						emailCtrl.sendEmail(userEmail, subject, noidung);
+					}
+				} catch (SQLException e) {
+					System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_xoaUser");
+					e.printStackTrace();
+					return result;
+				}
 			}
 		}
 		conn.closeConnection();
