@@ -612,8 +612,9 @@ public class UserCtrl {
 						}
 						subject = "xóa tài khoản";
 						noidung = "Chào <strong>" + listUser[i].getHoten() + "</strong>," + "<p>Tài khoản của bạn</p>"
-								+ "<p>Username: " + username + "</p><p>Email: " + userEmail + "</p><p>Ngày đăng ký: "
-								+ listUser[i].getNgayDK() + "</p><p>Đã bị xóa vì lý do: <strong>" + reason
+								+ "<ul><li>Username: <strong>" + username + "</strong></li><li>Email: <strong>"
+								+ userEmail + "</strong></li><li>Ngày đăng ký: <strong>" + listUser[i].getNgayDK()
+								+ "</strong></li></ul><p>Đã bị xóa vì lý do: <strong style='color:red;'>" + reason
 								+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 						EmailCtrl emailCtrl = new EmailCtrl();
 						emailCtrl.sendEmail(userEmail, subject, noidung);

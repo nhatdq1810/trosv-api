@@ -33,7 +33,7 @@ public class EmailCtrl {
 			MimeMessage msg = new MimeMessage(session);
 			msg.setFrom(new InternetAddress(Constants.GMAIL_USERNAME));
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			msg.setSubject("troSV - " + subject, "utf-8");
+			msg.setSubject("troSV " + subject, "utf-8");
 			msg.setContent(noidung, "text/html; charset=utf-8");
 			Transport.send(msg);
 		} catch (MessagingException e) {

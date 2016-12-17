@@ -993,12 +993,15 @@ public class PhongtroCtrl {
 						UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
 						subject = "không duyệt phòng trọ";
 						noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
-								+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: "
-								+ listPT[i].getDientich() + " m<sup>2</sup></p><p>Giá thuê nguyên phòng: "
-								+ formatter.format(listPT[i].getGiatien()) + " VNĐ</p><p>Giá thuê từng người: "
+								+ "<ul><li>Địa chỉ: <strong>" + listPT[i].getDiachi()
+								+ "</strong></li><li>Diện tích: <strong>" + listPT[i].getDientich()
+								+ " m<sup>2</sup></strong></li><li>Giá thuê nguyên phòng: <strong>"
+								+ formatter.format(listPT[i].getGiatien())
+								+ " VNĐ</strong></li><li>Giá thuê từng người: <strong>"
 								+ formatter.format(listPT[i].getGiatienTheoNguoi())
-								+ " VNĐ</p><p>Đã không được duyệt vì lý do: <strong>" + reason
-								+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+								+ " VNĐ</strong></li></ul><p>Đã không được duyệt vì lý do: <strong style='color:red;'>"
+								+ reason
+								+ "</strong></p><p><a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 						EmailCtrl emailCtrl = new EmailCtrl();
 						String userEmail = user.getEmail();
 						if (user.getEmail().indexOf("gg-") > -1 || user.getEmail().indexOf("fb-") > -1) {
@@ -1079,11 +1082,13 @@ public class PhongtroCtrl {
 				UserModel user = userCtrl.layThongtinUserID(listPT[i].getUserID());
 				subject = "xóa phòng trọ";
 				noidung = "Chào <strong>" + user.getUsername() + "</strong>," + "<p>Phòng trọ của bạn</p>"
-						+ "<p>Địa chỉ: " + listPT[i].getDiachi() + "</p><p>Diện tích: " + listPT[i].getDientich()
-						+ " m<sup>2</sup></p><p>Giá thuê nguyên phòng: " + formatter.format(listPT[i].getGiatien())
-						+ " VNĐ</p><p>Giá thuê từng người: " + formatter.format(listPT[i].getGiatienTheoNguoi())
-						+ " VNĐ</p><p>Đã bị xóa vì lý do: <strong>" + reason
-						+ "</strong></p><p> <a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
+						+ "<ul><li>Địa chỉ: <strong>" + listPT[i].getDiachi() + "</strong></li><li>Diện tích: <strong>"
+						+ listPT[i].getDientich() + " m<sup>2</sup></strong></li><li>Giá thuê nguyên phòng: <strong>"
+						+ formatter.format(listPT[i].getGiatien())
+						+ " VNĐ</strong></li><li>Giá thuê từng người: <strong>"
+						+ formatter.format(listPT[i].getGiatienTheoNguoi())
+						+ " VNĐ</strong></li></ul><p>Đã bị xóa vì lý do: <strong style='color:red;'>" + reason
+						+ "</strong></p><p><a href=\"http://localhost:4200/home\">troSV</a> chân thành cám ơn !</p>";
 				EmailCtrl emailCtrl = new EmailCtrl();
 				String userEmail = user.getEmail();
 				if (user.getEmail().indexOf("gg-") > -1 || user.getEmail().indexOf("fb-") > -1) {
