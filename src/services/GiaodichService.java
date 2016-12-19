@@ -112,12 +112,12 @@ public class GiaodichService {
 		return Response.status(200).entity(rs).build();
 	}
 
-	@Path("/thongkeGDTheoLoaiGD/{thangBD}/{thangKT}")
+	@Path("/thongkeSoGD/{thangBD}/{thangKT}")
 	@GET
 	@Produces("application/json")
-	public Response thongkeGDTheoLoaiGD(@PathParam("thangBD") int thangBD, @PathParam("thangKT") int thangKT) {
+	public Response thongkeSoGD(@PathParam("thangBD") int thangBD, @PathParam("thangKT") int thangKT) {
 		GiaodichCtrl giaodichCtrl = new GiaodichCtrl();
-		HashMap<Integer, Integer> model = giaodichCtrl.thongkeGDTheoLoaiGD(thangBD, thangKT);
+		HashMap<Integer, Integer> model = giaodichCtrl.thongkeSoGD(thangBD, thangKT);
 		if (model != null && model.size() > 0) {
 			return Response.status(200).entity(model).build();
 		}

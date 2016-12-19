@@ -239,10 +239,10 @@ public class GiaodichCtrl {
 		return listModel;
 	}
 
-	public HashMap<Integer, Integer> thongkeGDTheoLoaiGD(int thangBD, int thangKT) {
+	public HashMap<Integer, Integer> thongkeSoGD(int thangBD, int thangKT) {
 		HashMap<Integer, Integer> listModel = new HashMap<>();
-		if (conn.openConnection("thongkeGDTheoLoaiGD")) {
-			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGD(?,?)}";
+		if (conn.openConnection("thongkeSoGD")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_thongkeSoGD(?,?)}";
 			try {
 				stm = conn.getConn().prepareCall(query);
 				stm.setInt("_thangBD", thangBD);
@@ -264,7 +264,7 @@ public class GiaodichCtrl {
 					}
 				}
 			} catch (SQLException e) {
-				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeGDTheoLoaiGD");
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_thongkeSoGD");
 				e.printStackTrace();
 				return listModel;
 			}
