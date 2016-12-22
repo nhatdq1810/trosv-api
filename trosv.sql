@@ -133,8 +133,6 @@ CREATE TABLE `phongtro` (
   `truong` varchar(45) DEFAULT NULL,
   `nganh` varchar(45) DEFAULT NULL,
   `khoa` varchar(45) DEFAULT NULL,
-  `wifi` int(11) DEFAULT '0',
-  `chu` int(11) DEFAULT '0',
   `ghichu` mediumtext,
   `duyet` int(11) NOT NULL DEFAULT '0',
   `an` int(11) NOT NULL DEFAULT '0',
@@ -154,8 +152,36 @@ CREATE TABLE `phongtro` (
 
 LOCK TABLES `phongtro` WRITE;
 /*!40000 ALTER TABLE `phongtro` DISABLE KEYS */;
-INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012',1,1,'có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',1,0,5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố HCM',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,1,1,NULL,1,1,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố hồ chí minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,'2012',1,0,NULL,1,0,2,'123786540'),(6,0,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,0,'2016-10-20 19:56:53',2,'','http://i.imgur.com/RuH6SwU.jpg-oKrlBIiYGnv8FDq',20.0,2500000,0,'huflit',NULL,NULL,0,1,NULL,-1,0,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-08-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,1,0,NULL,1,0,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,950000,'2016-10-18 22:39:18',5,'','http://i.imgur.com/847Pf7p.jpg-UoTqdHJvIYqyHSw',17.0,0,0,'đại học sư phạm kỹ thuật',NULL,NULL,1,0,NULL,-1,1,1,NULL),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-09-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,1,0,'Giá chưa bao gồm tiền điện, nước và rác',-1,0,10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,1,0,NULL,-1,0,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-08-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,1,0,NULL,1,0,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,1,0,4,'98456372'),(22,0,'368 nguyễn oanh, phường 17, quận gò vấp, thành phố hồ chí minh',1500000,0,'2016-09-15 22:12:11',2,'','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,1,0,NULL,-1,0,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,1,0,NULL,1,0,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,1,0,NULL,-1,0,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,1,1,NULL,-1,0,12,'499800056'),(28,1,'11 hẻm 11, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1000000,'2016-11-15 22:03:46',5,'','http://i.imgur.com/tfybyTe.jpg-cO3vtMbxmbfTuSX',5.0,0,500000,'đại học công nghiệp thực phẩm',NULL,NULL,1,0,NULL,1,0,7,'123786540'),(30,1,'69/1b lê văn thọ, phường 8, quận gò vấp, thành phố hồ chí minh',0,1500000,'2016-09-15 22:14:01',4,'','http://i.imgur.com/whRkCDe.jpg-KP3q2wrkqg5qYH0',11.0,0,0,NULL,NULL,NULL,1,1,NULL,1,0,10,NULL),(31,2,'718 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',2500000,800000,'2016-11-18 22:26:16',5,'','http://i.imgur.com/6QEP5NJ.jpg-mdqAOr6XO7bVp2G',13.0,0,0,NULL,NULL,NULL,1,1,NULL,1,0,12,NULL),(32,1,'311 lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',0,750000,'2016-10-18 23:07:43',5,'','http://i.imgur.com/m6GIIFO.jpg-y79x7SZpRylnIRF',12.0,0,0,'đại học sài gòn','kế toán',NULL,1,1,NULL,-1,0,1,NULL),(33,2,'107 cộng hòa, phường 13, quận tân bình, thành phố hồ chí minh',2300000,1000000,'2016-11-20 22:50:27',5,'','http://i.imgur.com/Lr3IWBr.jpg-wGrf5oiPDGBwtx8',11.0,0,0,'đại học mở','quản trị kinh doanh','2014',0,1,NULL,1,0,8,NULL),(34,2,'hẻm b22 bạch đằng, phường 2, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-20 23:17:09',1,'nữ','http://i.imgur.com/bQRbPj8.jpg-9iIElsd5Sve98Zt',14.0,0,0,NULL,'ngân hàng',NULL,1,0,NULL,1,0,9,NULL),(35,2,'149 lê văn sỹ, phường 14, quận phú nhuận, thành phố hồ chí minh',4000000,2000000,'2016-11-20 23:18:53',2,'nam','http://i.imgur.com/0Hv1las.jpg-ld9heSqmnLw8p8J',15.0,0,0,NULL,NULL,NULL,1,0,NULL,1,0,9,NULL),(37,0,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-11-20 23:45:26',4,'','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,1000000,0,NULL,NULL,'2015',1,1,NULL,-1,0,1,'123786540'),(68,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1200000,'2016-12-02 23:45:26',4,'nam','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,0,0,NULL,NULL,NULL,0,0,NULL,-1,0,11,NULL),(69,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-12-01 23:45:26',4,'nam','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,0,0,NULL,NULL,NULL,0,0,NULL,-1,0,1,NULL),(71,0,'14/2 trường chinh, phường 15, quận tân bình, thành phố hồ chí minh',1500000,0,'2016-12-18 22:45:05',2,'','http://i.imgur.com/LByBHWX.jpg-f2vHOMex9j66aA1',12.0,0,0,NULL,NULL,NULL,1,1,NULL,1,0,1,NULL),(72,1,'256 nam kỳ khởi nghĩa, phường 7, quận 3, thành phố ho chi minh',0,1000000,'2016-12-21 21:41:10',5,'','http://i.imgur.com/95M5bR2.jpg-jt0FGSuUU3beNcI',17.0,0,0,NULL,NULL,NULL,1,0,NULL,-1,0,10,NULL),(73,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1500000,1000000,'2016-12-22 13:53:46',2,'','http://i.imgur.com/R6mG8Z9.jpg-ADazeVyJ6jagpSw',12.0,1500000,0,NULL,NULL,NULL,1,1,NULL,1,1,1,'499800056');
+INSERT INTO `phongtro` VALUES (2,2,'345 lê văn thọ, phường 15, quận gò vấp, thành phố ho chi minh',2500000,500000,'2016-09-30 00:00:00',5,'','http://i.imgur.com/4dBWUZC.jpg-JqHyHieyuQA2TrO',20.0,1500000,500000,'học viện cn bưu chính viễn thông','công nghệ thông tin','2012','có nhà vệ sinh riêng, tiền rác đã tính trong tiền nhà',1,0,5,'98456372'),(3,1,'12/3 man thiện, phường hiệp phú, quận 9, thành phố HCM',0,500000,'2016-11-12 09:43:27',2,'nữ','http://i.imgur.com/hl6kXkT.jpg-GTkQU4WidUMB1HG',20.0,0,500000,'ueh',NULL,NULL,NULL,1,1,6,'456973822'),(4,2,'333 man thiện, phường tăng nhơn phú a, quận 9, thành phố hồ chí minh',2500000,500000,'2016-11-10 22:43:40',2,'nam','http://i.imgur.com/P69IyzZ.jpg-EluLqiJbUBqU3CZ',20.0,2500000,500000,'đại học sư phạm kỹ thuật',NULL,'2012',NULL,1,0,2,'123786540'),(6,0,'123 cây trâm, phường 15, quận gò vấp, thành phố ho chi minh',2000000,0,'2016-10-20 19:56:53',2,'','http://i.imgur.com/RuH6SwU.jpg-oKrlBIiYGnv8FDq',20.0,2500000,0,'huflit',NULL,NULL,NULL,1,0,1,'255569139'),(10,2,'435-461 phan văn trị, phường 5, quận gò vấp, thành phố hồ chí minh',3000000,1000000,'2016-08-12 22:36:50',1,'nữ','http://i.imgur.com/IE2gt6X.jpg-XRD4NoLQJUt9DOX',25.0,3000000,0,NULL,'kế toán',NULL,NULL,1,0,3,'98456372'),(13,1,'e1-e2 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',0,950000,'2016-10-18 22:39:18',5,'','http://i.imgur.com/847Pf7p.jpg-UoTqdHJvIYqyHSw',17.0,0,0,'đại học sư phạm kỹ thuật',NULL,NULL,NULL,1,0,1,NULL),(15,0,'2a phan văn trị, phường 10, quận gò vấp, thành phố hồ chí minh',2500000,0,'2016-09-14 22:21:37',1,'nam','http://i.imgur.com/diQHd9p.jpg-GcMLQ6G7bll6x3J',14.0,0,0,NULL,NULL,NULL,'Giá chưa bao gồm tiền điện, nước và rác',-1,0,10,NULL),(17,1,'321/22 lê văn thọ, phường 16, quận gò vấp, thành phố hồ chí minh',0,500000,'2016-11-06 21:59:56',1,'nam','http://i.imgur.com/oaiIhhC.jpg-r4SuXSsAVGE93k7',20.0,0,1000000,'bách khoa','điện tử',NULL,NULL,1,0,11,'123786540'),(20,1,'123/3e phan văn trị, phường 7, quận gò vấp, thành phố ho chi minh',0,500000,'2016-08-26 23:29:13',1,'nữ','http://i.imgur.com/yOWlgfn.jpg-SOPcIqd3FSHhOxO',15.0,0,0,'cao đẳng tchq',NULL,NULL,NULL,1,0,3,NULL),(21,2,'864 le duc tho, phường 15, quận go vap, thành phố ho chi minh',1500000,500000,'2016-11-03 23:59:23',1,'nam','http://i.imgur.com/DFBiA6d.jpg-0ChNKxHASsNAXba',15.0,3000000,0,NULL,NULL,NULL,NULL,1,0,4,'98456372'),(22,0,'368 nguyễn oanh, phường 17, quận gò vấp, thành phố hồ chí minh',1500000,0,'2016-09-15 22:12:11',2,'','http://i.imgur.com/X67R55G.jpg-CGigqABUZOFgK7L',15.0,3000000,0,NULL,NULL,NULL,NULL,-1,0,10,'499800056'),(25,2,'50 cách mạng tháng 8, phường 11, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-10 22:30:44',5,'nữ','http://i.imgur.com/dDZGaHX.jpg-iOqECNXEynyFzOC',17.0,0,0,'đại học sài gòn','quản trị kinh doanh',NULL,NULL,1,0,2,NULL),(26,2,'590 phạm văn chiêu, phường 11, quận go vap, thành phố hồ chí minh',2000000,500000,'2016-11-11 20:46:46',3,'nữ','http://i.imgur.com/9Pk64K3.jpg-P2KBf1IbJ6xtjBG',12.0,4000000,0,NULL,NULL,NULL,NULL,-1,0,11,'456973822'),(27,2,'261b lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',1500000,500000,'2016-11-14 21:29:11',3,'nam','http://i.imgur.com/Mp1AGQQ.jpg-9XImQ1SzHBBGlfH',12.0,0,500000,NULL,'cơ khí',NULL,NULL,1,0,12,'499800056'),(28,1,'11 hẻm 11, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1000000,'2016-11-15 22:03:46',5,'','http://i.imgur.com/tfybyTe.jpg-cO3vtMbxmbfTuSX',5.0,0,500000,'đại học công nghiệp thực phẩm',NULL,NULL,NULL,1,0,7,'123786540'),(30,1,'69/1b lê văn thọ, phường 8, quận gò vấp, thành phố hồ chí minh',0,1500000,'2016-09-15 22:14:01',4,'','http://i.imgur.com/whRkCDe.jpg-KP3q2wrkqg5qYH0',11.0,0,0,NULL,NULL,NULL,NULL,1,0,10,NULL),(31,2,'718 quang trung, phường 11, quận gò vấp, thành phố hồ chí minh',2500000,800000,'2016-11-18 22:26:16',5,'','http://i.imgur.com/6QEP5NJ.jpg-mdqAOr6XO7bVp2G',13.0,0,0,NULL,NULL,NULL,NULL,1,0,12,NULL),(32,1,'311 lê quang định, phường 7, quận bình thạnh, thành phố hồ chí minh',0,750000,'2016-10-18 23:07:43',5,'','http://i.imgur.com/m6GIIFO.jpg-y79x7SZpRylnIRF',12.0,0,0,'đại học sài gòn','kế toán',NULL,NULL,1,0,1,NULL),(33,2,'107 cộng hòa, phường 13, quận tân bình, thành phố hồ chí minh',2300000,1000000,'2016-11-20 22:50:27',5,'','http://i.imgur.com/Lr3IWBr.jpg-wGrf5oiPDGBwtx8',11.0,0,0,'đại học mở','quản trị kinh doanh','2014',NULL,1,0,8,NULL),(34,2,'hẻm b22 bạch đằng, phường 2, quận tân bình, thành phố hồ chí minh',3000000,1500000,'2016-11-20 23:17:09',1,'nữ','http://i.imgur.com/bQRbPj8.jpg-9iIElsd5Sve98Zt',14.0,0,0,NULL,'ngân hàng',NULL,NULL,1,0,9,NULL),(35,2,'149 lê văn sỹ, phường 14, quận phú nhuận, thành phố hồ chí minh',4000000,2000000,'2016-11-20 23:18:53',2,'nam','http://i.imgur.com/0Hv1las.jpg-ld9heSqmnLw8p8J',15.0,0,0,NULL,NULL,NULL,NULL,1,0,9,NULL),(37,0,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-11-20 23:45:26',4,'','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,1000000,0,NULL,NULL,'2015',NULL,1,0,1,'123786540'),(68,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',0,1200000,'2016-12-02 23:45:26',4,'nam','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,0,0,NULL,NULL,NULL,NULL,1,0,11,NULL),(69,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1200000,0,'2016-12-01 23:45:26',4,'nam','http://i.imgur.com/HWSfrba.jpg-3y2lVo5VrIQWMw0',12.0,0,0,NULL,NULL,NULL,NULL,1,0,1,NULL),(71,0,'14/2 trường chinh, phường 15, quận tân bình, thành phố hồ chí minh',1500000,0,'2016-12-18 22:45:05',2,'','http://i.imgur.com/LByBHWX.jpg-f2vHOMex9j66aA1',12.0,0,0,NULL,NULL,NULL,NULL,1,0,1,NULL),(72,1,'256 nam kỳ khởi nghĩa, phường 7, quận 3, thành phố ho chi minh',0,1000000,'2016-12-21 21:41:10',5,'','http://i.imgur.com/95M5bR2.jpg-jt0FGSuUU3beNcI',17.0,0,0,NULL,NULL,NULL,NULL,1,0,10,NULL),(73,2,'747 trường chinh, phường tây thạnh, quận tân phú, thành phố hồ chí minh',1500000,1000000,'2016-12-22 13:53:46',2,'','http://i.imgur.com/R6mG8Z9.jpg-ADazeVyJ6jagpSw',12.0,1500000,0,NULL,NULL,NULL,NULL,1,0,1,'499800056');
 /*!40000 ALTER TABLE `phongtro` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pt_tienich`
+--
+
+DROP TABLE IF EXISTS `pt_tienich`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pt_tienich` (
+  `phongtroID` int(11) NOT NULL,
+  `tienichID` int(11) NOT NULL,
+  PRIMARY KEY (`phongtroID`,`tienichID`),
+  KEY `fk_phongtro_has_tienich_tienich1_idx` (`tienichID`),
+  KEY `fk_phongtro_has_tienich_phongtro1_idx` (`phongtroID`),
+  CONSTRAINT `fk_phongtro_has_tienich_phongtro1` FOREIGN KEY (`phongtroID`) REFERENCES `phongtro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_phongtro_has_tienich_tienich1` FOREIGN KEY (`tienichID`) REFERENCES `tienich` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pt_tienich`
+--
+
+LOCK TABLES `pt_tienich` WRITE;
+/*!40000 ALTER TABLE `pt_tienich` DISABLE KEYS */;
+INSERT INTO `pt_tienich` VALUES (2,1),(6,1),(10,1),(2,2),(6,2),(6,3),(10,3),(2,4),(3,4),(6,4),(21,6);
+/*!40000 ALTER TABLE `pt_tienich` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -169,7 +195,7 @@ CREATE TABLE `tienich` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,6 +204,7 @@ CREATE TABLE `tienich` (
 
 LOCK TABLES `tienich` WRITE;
 /*!40000 ALTER TABLE `tienich` DISABLE KEYS */;
+INSERT INTO `tienich` VALUES (1,'Wifi'),(2,'Ở với chủ'),(3,'Truyền hình cáp'),(4,'Chỗ giữ xe'),(5,'Chỗ nấu ăn'),(6,'Nhà vệ sinh riêng');
 /*!40000 ALTER TABLE `tienich` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +229,7 @@ CREATE TABLE `user` (
   `facebook` varchar(100) DEFAULT NULL,
   `dotincay` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +309,7 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_DUONG`(x VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4
 return substring(x, char_length(substring_index(x, ' ', 1)) + 1, 
@@ -300,7 +327,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `SPLIT_STR`(
 x VARCHAR(255),
@@ -323,7 +350,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_anPT`(IN _phongtroID int, IN _an int)
 BEGIN
@@ -344,7 +371,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_boThichComment`(IN _commentID int, IN _userID int)
 BEGIN
@@ -385,7 +412,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_boThichPhongtro`(IN _phongtroID int, IN _userID int)
 BEGIN
@@ -521,8 +548,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_capnhatPhongtro`(IN _id int, IN _loaiPhong int, IN _diachi mediumtext, IN _giatien int, IN _giatienTheoNguoi int
 , IN _ngaydang varchar(45), IN _sophong int, IN _tiencoc int, IN _tiencocTheoNguoi int, IN _dientich decimal(10,1), IN _gioitinh varchar(5), IN _truong varchar(45)
-, IN _nganh varchar(45), IN _khoa varchar(45), IN _wifi int, IN _chu int
-, IN _ghichu mediumtext, IN _nganhangID varchar(45))
+, IN _nganh varchar(45), IN _khoa varchar(45), IN _ghichu mediumtext, IN _nganhangID varchar(45))
 BEGIN
 	if _truong = '' then set _truong = NULL;
     end if;
@@ -538,7 +564,7 @@ BEGIN
 	update phongtro
     set loaiPhong = _loaiPhong, diachi = _diachi, giatien = _giatien, giatienTheoNguoi = _giatienTheoNguoi, ngaydang = _ngaydang, sophong = _sophong
     , tiencoc = _tiencoc, tiencocTheoNguoi = _tiencocTheoNguoi, dientich = _dientich, gioitinh = _gioitinh, truong = _truong, nganh = _nganh, khoa = _khoa
-    , wifi = _wifi, chu = _chu, ghichu = _ghichu, nganhangID = _nganhangID, duyet = 0 
+    , ghichu = _ghichu, nganhangID = _nganhangID, duyet = 0 
     where id = _id;
 END ;;
 DELIMITER ;
@@ -613,7 +639,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_chuyenTien`(IN _id_gui varchar(45), IN _id_nhan varchar(45), 
 IN _ngay varchar(45), IN _tien int, IN _phongtroID int, IN _loaiGD int, OUT _result int)
@@ -665,7 +691,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_kiemtraUserThichPhongtro`(IN _phongtroID int, IN _userID int)
 BEGIN
@@ -729,7 +755,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layCommentUserThich`(IN _userID int)
 BEGIN
@@ -750,7 +776,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layDulieuTimkiemPhongtro`()
 BEGIN
@@ -856,7 +882,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layLuotThichComment`(IN _commentID int)
 BEGIN
@@ -877,7 +903,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layLuotThichPhongtro`(IN _phongtroID int)
 BEGIN
@@ -940,7 +966,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layPhongtroHot`(IN _gioihan int)
 BEGIN
@@ -975,7 +1001,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layPhongtroMoi`(IN _gioihan int)
 BEGIN
@@ -1000,7 +1026,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layPhongtroUser`(IN _userID int)
 BEGIN
@@ -1022,13 +1048,33 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layTatcaPhongtro`(IN _duyet int)
 BEGIN
 	select *
     from phongtro
     where duyet = _duyet;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layTatcaTienich` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layTatcaTienich`()
+BEGIN
+	select *
+    from tienich;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1043,7 +1089,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layTatcaUser`()
 BEGIN
@@ -1144,7 +1190,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `mysp_login` */;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_layTienichPhongtro` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1153,6 +1199,30 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_layTienichPhongtro`(IN _phongtroID int)
+BEGIN
+	select id, ten
+    from tienich,
+	(select tienichID
+    from pt_tienich
+    where phongtroID = _phongtroID) as tienichPT
+    where tienich.id = tienichPT.tienichID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `mysp_login` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_login`(IN _username varchar(45), IN _password varchar(45)
 , IN _loai varchar(45))
@@ -1219,7 +1289,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themComment`(IN _noidung longtext, IN _ngay varchar(45)
 , IN _userID int, IN _phongtroID int)
@@ -1268,8 +1338,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themPhongtro`(IN _loaiPhong int, IN _diachi mediumtext, IN _giatien int, IN _giatienTheoNguoi int
 , IN _ngaydang varchar(45), IN _sophong int, IN _tiencoc int, IN _tiencocTheoNguoi int, IN _dientich decimal(10,1), IN _hinhanh varchar(45), IN _gioitinh varchar(5), IN _truong varchar(45)
-, IN _nganh varchar(45), IN _khoa varchar(45), IN _wifi int, IN _chu int
-, IN _ghichu mediumtext, IN _userID int, IN _nganhangID varchar(45), OUT _id int)
+, IN _nganh varchar(45), IN _khoa varchar(45), IN _ghichu mediumtext, IN _userID int, IN _nganhangID varchar(45), OUT _id int)
 BEGIN
 	if _truong = '' then set _truong = NULL;
     end if;
@@ -1283,9 +1352,9 @@ BEGIN
     end if;
 
 	insert into phongtro(loaiPhong, diachi, giatien, giatienTheoNguoi, ngaydang, sophong, tiencoc, tiencocTheoNguoi, dientich, hinhanh, gioitinh, truong, nganh, khoa
-    , wifi, chu, ghichu, userID, nganhangID)
+    , ghichu, userID, nganhangID)
     values (_loaiPhong, _diachi, _giatien, _giatienTheoNguoi, _ngaydang, _sophong, _tiencoc, _tiencocTheoNguoi, _dientich, _hinhanh, _gioitinh, _truong, _nganh, _khoa
-    , _wifi, _chu, _ghichu, _userID, _nganhangID);
+    , _ghichu, _userID, _nganhangID);
     
     set _id = LAST_INSERT_ID();
 END ;;
@@ -1302,7 +1371,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_themUser`(IN _username varchar(45), IN _password varchar(45)
 , IN _hoten varchar(45), IN _email varchar(45), IN _facebook varchar(100), IN _ngayDK varchar(45),OUT _result int)
@@ -1337,7 +1406,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thichComment`(IN _commentID int, IN _userID int)
 BEGIN
@@ -1378,7 +1447,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thichPhongtro`(IN _phongtroID int, IN _userID int)
 BEGIN
@@ -1418,7 +1487,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDGui`(IN _thang int, IN _limit int)
 BEGIN
@@ -1445,7 +1514,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDNhan`(IN _thang int, IN _limit int)
 BEGIN
@@ -1472,7 +1541,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDTheoLoaiGDMoiThang`(IN _thang int, OUT _slGDNguyenPhong int, OUT _slGDTheoNguoi int)
 BEGIN
@@ -1501,7 +1570,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeGDTheoPT`(IN _thang int, IN _limit int)
 BEGIN
@@ -1528,7 +1597,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTMoiTrenTongso`(IN _thang int, OUT _slPTMoi int, OUT _slPTCu int)
 BEGIN
@@ -1548,7 +1617,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoComment`(IN _thang int, IN _limit int)
 BEGIN
@@ -1575,7 +1644,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoDiachi`(IN _loai int, IN _thang int,IN _limit int)
 BEGIN
@@ -1619,7 +1688,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoInput`(IN _column varchar(45), IN _thang int, IN _limit int)
 BEGIN
@@ -1648,7 +1717,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoLike`(IN _thang int, IN _limit int)
 BEGIN
@@ -1675,7 +1744,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoThang`(IN _thangBD int, IN _thangKT int)
 BEGIN
@@ -1698,7 +1767,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkePTTheoTienVaDientich`(IN _column varchar(45), IN _thang int,IN _limit int)
 BEGIN
@@ -1729,7 +1798,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeSoGD`(IN _thangBD int, IN _thangKT int)
 BEGIN
@@ -1753,7 +1822,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserComment`(IN _thang int, IN _limit int)
 BEGIN
@@ -1780,7 +1849,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserKieuLogin`(IN _thang int, 
 OUT _slFBUser int, OUT _slGGUser int, OUT _slNormalUser int)
@@ -1816,7 +1885,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserMoiTrenTongso`(IN _thang int, OUT _slUserMoi int, OUT _slUserCu int)
 BEGIN
@@ -1836,7 +1905,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserTaoPT`(IN _thang int, IN _limit int)
 BEGIN
@@ -1863,7 +1932,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserTheoDTC`(IN _thang int, IN _limit int)
 BEGIN
@@ -1887,7 +1956,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_thongkeUserTheoThang`(IN _thangBD int, IN _thangKT int)
 BEGIN
@@ -1915,7 +1984,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_timkiemPhongtro`(IN _giatien_min int, IN _giatien_max int
 , IN _giatienTheoNguoi_min int, IN _giatienTheoNguoi_max int, IN _dientich_min int, IN _dientich_max int, IN _truong varchar(45)
-, IN _nganh varchar(45), IN _khoa varchar(45), IN _gioitinh varchar(5), IN _wifi int, IN _chu int, IN _gioihan int, IN _loaiPhong int, IN _diachi mediumtext)
+, IN _nganh varchar(45), IN _khoa varchar(45), IN _gioitinh varchar(5), IN _gioihan int, IN _loaiPhong int, IN _diachi mediumtext)
 BEGIN
 	if _giatien_max = 5000000 then
 		set _giatien_max = (select max(giatien) from phongtro);
@@ -1942,8 +2011,6 @@ BEGIN
     and (nganh like concat('%',_nganh,'%') or _nganh = '')
     and (khoa like concat('%',_khoa,'%') or _khoa = '')
     and (gioitinh = _gioitinh or _gioitinh = '')
-    and (wifi = _wifi or _wifi = -1)
-    and (chu = _chu or _chu = -1)
     and sophong > 0
     and duyet = 1
     and an = 0
@@ -1962,7 +2029,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_xetduyetPT`(IN _phongtroID int, IN _duyet int)
 BEGIN
@@ -2044,7 +2111,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_xoaPhongtro`(IN _id int)
 BEGIN
@@ -2087,7 +2154,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mysp_xoaUser`(IN _id int)
 BEGIN
@@ -2121,4 +2188,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-22 16:51:24
+-- Dump completed on 2016-12-23  0:03:17
