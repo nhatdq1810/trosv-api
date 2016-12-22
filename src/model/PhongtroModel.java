@@ -1,6 +1,7 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PhongtroModel {
@@ -19,8 +20,7 @@ public class PhongtroModel {
 	private String truong;
 	private String nganh;
 	private String khoa;
-	private int wifi;
-	private int chu;
+	private ArrayList<TienichModel> tienich;
 	private String ghichu;
 	private int userID;
 	private String nganhangID;
@@ -153,20 +153,12 @@ public class PhongtroModel {
 		this.khoa = khoa;
 	}
 
-	public int getWifi() {
-		return wifi;
+	public ArrayList<TienichModel> getTienich() {
+		return tienich;
 	}
 
-	public void setWifi(int wifi) {
-		this.wifi = wifi;
-	}
-
-	public int getChu() {
-		return chu;
-	}
-
-	public void setChu(int chu) {
-		this.chu = chu;
+	public void setTienich(ArrayList<TienichModel> tienich) {
+		this.tienich = tienich;
 	}
 
 	public String getGhichu() {

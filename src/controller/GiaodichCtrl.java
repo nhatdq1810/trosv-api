@@ -190,8 +190,6 @@ public class GiaodichCtrl {
 					model.setTiencocTheoNguoi(rs.getInt("tiencocTheoNguoi"));
 					model.setDientich(rs.getFloat("dientich"));
 					model.setGioitinh(rs.getString("gioitinh"));
-					model.setWifi(rs.getInt("wifi"));
-					model.setChu(rs.getInt("chu"));
 					model.setDuyet(rs.getInt("duyet"));
 					model.setAn(rs.getInt("an"));
 					model.setUserID(rs.getInt("userID"));
