@@ -67,6 +67,21 @@ public class GiaodichService {
 		return Response.status(200).entity(rs).build();
 	}
 
+	@Path("/phongtro/datcoc/{phongtroID}")
+	@GET
+	@Produces("application/json")
+	public Response layGDTheoPhongtro(@PathParam("phongtroID") int phongtroID, @QueryParam("thang") int thang) {
+		GiaodichCtrl phongtroCtrl = new GiaodichCtrl();
+		ArrayList<NganhangModel> model = phongtroCtrl.layGDTheoPhongtro(phongtroID, thang);
+		if (model != null) {
+			return Response.status(200).entity(model).build();
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("result", "fail");
+		String rs = "" + obj;
+		return Response.status(200).entity(rs).build();
+	}
+
 	@Path("/thongkeGDGui/thang/{thang}")
 	@GET
 	@Produces("application/json")

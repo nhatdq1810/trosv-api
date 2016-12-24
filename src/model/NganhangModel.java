@@ -10,6 +10,7 @@ public class NganhangModel {
 	private String cmnd;
 	private int tien;
 	private int counter;
+	private String ngayGD;
 
 	public String getId() {
 		return id;
@@ -82,4 +83,13 @@ public class NganhangModel {
 	public void setCounter(int counter) {
 		this.counter = counter;
 	}
+
+	public String getNgayGD() {
+		return ngayGD;
+	}
+
+	public void setNgayGD(String ngayGD) {
+		this.ngayGD = ngayGD;
+	}
+
 }

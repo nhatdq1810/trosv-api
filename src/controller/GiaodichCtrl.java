@@ -104,6 +104,37 @@ public class GiaodichCtrl {
 		return listGiaodich;
 	}
 
+	public ArrayList<NganhangModel> layGDTheoPhongtro(int phongtroID, int thang) {
+		ArrayList<NganhangModel> listGiaodich = new ArrayList<>();
+		if (conn.openConnection("layGDTheoPhongtro")) {
+			query = "{call " + Constants.NAME_SQL + ".mysp_layGDTheoPhongtro(?,?)}";
+			try {
+				stm = conn.getConn().prepareCall(query);
+				stm.setInt("_phongtroID", phongtroID);
+				stm.setInt("_thang", thang);
+				rs = stm.executeQuery();
+				while (rs.next()) {
+					NganhangModel model = new NganhangModel();
+					model.setNgayGD(rs.getString("ngay"));
+					model.setHoten(rs.getString("hoten"));
+					model.setSodt(rs.getString("sodt"));
+					model.setId(rs.getString("id"));
+					model.setCmnd(rs.getString("cmnd"));
+					model.setDiachi(rs.getString("diachi"));
+					model.setPassword(rs.getString("password"));
+					model.setUsername(rs.getString("username"));
+					listGiaodich.add(model);
+				}
+			} catch (SQLException e) {
+				System.out.println("Cannot call " + Constants.NAME_SQL + ".mysp_layGDTheoPhongtro");
+				e.printStackTrace();
+				return listGiaodich;
+			}
+		}
+		conn.closeConnection();
+		return listGiaodich;
+	}
+
 	public ArrayList<NganhangModel> thongkeGDGui(int thang, int gioihan) {
 		ArrayList<NganhangModel> listModel = new ArrayList<>();
 		if (conn.openConnection("thongkeGDGui")) {
