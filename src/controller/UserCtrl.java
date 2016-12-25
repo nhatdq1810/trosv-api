@@ -555,7 +555,7 @@ public class UserCtrl {
 				}
 			}
 			newPassword = strBuilder.toString();
-			subject = "Phục hồi mật khẩu";
+			subject = "phục hồi mật khẩu";
 			noidung = "Chào <strong>" + username + "</strong>," + "<p>Mật khẩu mới của bạn</p>" + "<p><strong> "
 					+ newPassword
 					+ "</strong></p><p> Đăng nhập vào <a href=\"http://localhost:4200/home\">troSV</a> và thay đổi mật khẩu lại ngay bây giờ"
